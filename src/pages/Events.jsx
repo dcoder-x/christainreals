@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "../styles/events.css";
 import { Autoplay, Pagination, Navigation,EffectCreative } from "swiper";
 import {eventsData} from '../data/eventsData'
-import PageHeader from '../components/pageHeader';
+import PageHeader from '../components/PageHeader';
 import { headerBg } from '../assets/assets';
 import Footer from '../components/Footer';
 headerBg

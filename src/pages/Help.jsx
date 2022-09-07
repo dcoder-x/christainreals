@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { headerBg } from '../assets/assets'
 import Footer from '../components/Footer'
-import PageHeader from '../components/pageHeader'
+import PageHeader from '../components/PageHeader'
 import '../styles/help.css'
 
 const Help = () => {
