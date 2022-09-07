@@ -1,5 +1,5 @@
 import React from 'react'
-import PageHeader from '../components/pageHeader'
+import PageHeader from '../components/PageHeader'
 import {about, headerBg} from '../assets/assets'
 import '../styles/about.css'
 import { believe, whoWeAre } from '../data/aboutData'
