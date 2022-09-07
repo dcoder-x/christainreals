@@ -1,0 +1,20 @@
+#legal .legal-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 5rem 0;
+    overflow: hidden;
+}
+#legal .legal-div{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    min-height: 400px;
+    text-align: center;
+    border: 1px rgba(203, 203, 203, 1) solid;
+}

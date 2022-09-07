@@ -1,0 +1,157 @@
+#about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#about .who-we-are{
+    width: 100%;
+    min-height: 70vh ;
+    padding: 2rem 0;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#about .who-image{
+    width: 40%;
+    border-radius: 5px;
+    max-width: 500px;
+    max-height: 700px;
+}
+#about .text{
+    width: 40%;
+    
+}
+#about .text .title{
+    /* font-family: Space Grotesk; */
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 55px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(155, 0, 38, 1);
+
+}
+#about .text .desc{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(51, 51, 51, 1);
+}
+#about .more{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#about .more .desc{
+    width: 40%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+#about .more h1{
+    max-width: 500px;
+    padding: 2rem 0;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
+
+
+
+}
+
+#about .believe{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 4rem 0;
+}
+#about .believes{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+}
+#about .believe .title{
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 55px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(155, 0, 38, 1);
+}
+#about .vector{
+    width: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+#about .text-holder{
+    border: 2px solid #9B0026;
+    color: #9B0026;
+    padding: 1rem;
+    width: 80%;
+    margin: .5rem 0;
+    border-radius: 100px 0px 100px 100px;
+}
+#about .core-values{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0;
+    padding:4rem 2rem;
+    justify-content: space-evenly;
+    background-color: rgba(228, 228, 228, 1);
+}
+#about .core-values .title{
+    text-align: center;
+    width: 60%;
+}
+#about .core-values .title p{
+    text-align: left;
+}
+#about .core-values .desc{
+    width: 70%;
+}
+#about .core-values .desc a{
+    color: red;
+}
+
+#about .invitation{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem 0;
+}
+#about .invitation .special{
+    width: 100%;
+    display: flex;
+    /* margin: 0 2rem; */
+    align-items: center;
+    justify-content: space-evenly;    
+    border: 3px solid #DEE3F6;
+    border-radius: 5px;
+    padding: 1rem;
+
+}
+#about .invitation .special .text{
+    width: 50%;
+}
+#about .invitation .waiting{
+    width: 50%;
+    background: linear-gradient(237.04deg, #00A9CE 0%, #43BBFF 97.95%);
+    border-radius: 5px;
+    padding: 2.693rem;
+    color: white;
+}

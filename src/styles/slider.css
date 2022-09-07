@@ -1,0 +1,88 @@
+.slider-container .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.slider-container .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.slider-container .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-container{
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  display: grid;
+}
+.slider-container .slide{
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-position:center !important;
+  background-repeat: no-repeat !important;
+  z-index: 5;
+}
+ .swiper-button-prev,.swiper-button-next{
+  color: rgb(255, 255, 255) ;
+}
+.slider-container .swiper-pagination-bullet{
+  width: 13px;
+  height: 13px;
+  margin: 0 .5rem !important;
+  opacity: 1 !important;
+  background: white !important;
+}
+.swiper-pagination-bullet-active{
+  background-color: rgb(63, 128, 226) !important;
+}
+
+.slide{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slider-text{
+  position: absolute;
+  bottom: 25%;
+  width: 40%;
+  left: 5%;
+  text-align: left;
+  color: white;
+}
+.slider-title{
+  font-size: x-large;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.slider-desc{
+  font-weight: 400;
+  font-size: 120%;
+  line-height: 1.2;
+}
+
+.Join-btn{
+  background-color:rgba(220, 20, 23, 1);
+  color: #fff;
+}

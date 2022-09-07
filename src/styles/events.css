@@ -1,0 +1,110 @@
+#events .swiper {
+    width: 80%;
+    height: 100%;
+  }
+  
+  #events .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  /* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
+  
+  #events .swiper-button-prev,.swiper-button-next{
+    color: rgba(220, 20, 23, 1) !important;
+    /* margin: 0 -1rem !important; */
+  }
+  #events .swiper-pagination-bullet{
+    width: 13px;
+    height: 13px;
+    margin: 0 -5rem !important;
+    opacity: 1 !important;
+    background: white !important;
+  }
+.events{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0;
+}
+.events-header{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3rem 0;
+}
+.events-filter{
+    border: none;
+    background-color: rgba(242, 244, 255, 1);
+    color: rgba(38, 78, 199, 1);
+    padding: .5rem 1.5rem;
+    padding-right: 1.5rem;
+    text-align: start;
+}
+.event{
+    margin: 2rem;
+    background-color: white;
+    filter: drop-shadow(0px 18.9529px 47.3822px rgba(119, 115, 170, 0.1));
+}
+.event-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.event-body .text{
+    width: 70%;
+    text-align: left;
+}
+.event-body .title{
+    font-size: 15px;
+    font-weight: 700;
+}
+.event-body .desc{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+}
+.event-body img{
+    max-width: 300px;
+    max-height: 50%;
+}
+.event-body .month{
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(220, 20, 23, 1);
+}
+.event-body .day{
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: -.7rem;
+}
