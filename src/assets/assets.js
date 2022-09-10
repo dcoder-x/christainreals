@@ -29,6 +29,8 @@ import event3 from './images/event3.png'
 import whoImage from './images/whoImage.png'
 import fancyArrow from './images/fancyArrow.png'
 import invitation from './images/invitation.png'
+import signup from './images/signup.png'
+
 
 
 
@@ -42,4 +44,5 @@ export const sliderBg = {slider1,slider2,slider3,slider4,slider5}
 export const icons = {terms,cookie,privacy}
 export const eventsimg = {event1,event2,event3}
 export const about = {whoImage,fancyArrow,invitation}
+export const signUp = {signup}
 export const headerBg = {headerimage,headerimage2,headerimage3,headerimage4,headerimage5}

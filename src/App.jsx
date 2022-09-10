@@ -12,6 +12,7 @@ import Legal from './pages/Legal'
 import Services from './pages/Services'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SignUp from './pages/SignUp'
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
           <Route path='/services' element={<Services/>}/>
           <Route path='/help' element={<Help/>}/>
           <Route path='/events' element={<Events/>}/>
+          <Route path='/signup' element={<SignUp/>}/>
+
 
 
 

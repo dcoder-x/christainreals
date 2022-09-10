@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Link} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { images } from '../assets/assets'
 import { menuData } from '../data/menuData'
 import { Icon } from '@iconify/react'
@@ -7,6 +7,7 @@ import '../styles/nav.css'
 
 const Nav = () => {
   const sublinkref = useRef(null)
+  const navigate = useNavigate()
   const [isOpen, setisOpen] = useState(false)
   
 
@@ -56,7 +57,7 @@ const Nav = () => {
                     )
                   })
                 }
-              <button className='login-btn'>
+              <button className='login-btn' onClick={()=>{window.location.href='/signup'}}>
                 Login/Sign Up
               </button>
             </div>

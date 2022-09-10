@@ -13,6 +13,8 @@
     "axios": "^0.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-dropdown-date": "^2.2.7",
+    "react-phone-number-input": "^3.2.11",
     "react-router-dom": "^6.3.0",
     "swiper": "^8.3.2"
   },
@@ -21,6 +23,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
+    "countrycitystatejson": "^20.8.14",
     "vite": "^3.0.7"
   }
 }
