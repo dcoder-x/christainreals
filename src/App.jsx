@@ -16,10 +16,10 @@ import SignUp from './pages/SignUp'
 
 function App() {
 
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
+  // useEffect(() => {
+  //   AOS.init();
+  //   AOS.refresh();
+  // }, []);
   return (
     <div className="App">
       <>
@@ -32,10 +32,6 @@ function App() {
           <Route path='/help' element={<Help/>}/>
           <Route path='/events' element={<Events/>}/>
           <Route path='/signup' element={<SignUp/>}/>
-
-
-
-
           {/* <Route path='/' element={<Home/>}/> */}
         </Routes>
       </>

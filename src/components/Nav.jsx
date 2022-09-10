@@ -57,9 +57,12 @@ const Nav = () => {
                     )
                   })
                 }
-              <button className='login-btn' onClick={()=>{window.location.href='/signup'}}>
-                Login/Sign Up
-              </button>
+              <Link to={'/signup'}>
+                <button className='login-btn'>
+                  Login/Sign Up
+                </button>
+              </Link>  
+
             </div>
           
         </nav>
