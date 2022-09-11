@@ -97,7 +97,7 @@
     flex-direction: column;
 }
 #about .text-holder{
-    border: 2px solid #9B0026;
+    border: 1px dashed #9B0026;
     color: #9B0026;
     padding: 1rem;
     width: 80%;

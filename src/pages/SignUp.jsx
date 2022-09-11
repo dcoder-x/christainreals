@@ -6,6 +6,7 @@ import '../styles/signup.css'
 import { countryCode } from '../data/CountryCodes' 
 // import * as country from 'countrycitystatejson'
 import {country,states,city} from '../data/address'
+import { useRef,useEffect } from 'react'
 
 const SignUp = () => {
     // console.log(countryCode)
@@ -13,7 +14,13 @@ const SignUp = () => {
     //  const states = country.getCities('AE',"Abu Dhabi")
     //  console.log(states)
     // console.log(country)
+    // const radioref = useRef()
     const [countrySelect,setCountryselect] = useState()
+    const [iswoman, setiswoman] = useState(false)
+    const [isman, setisman] = useState(false)
+    const [seekingMan, setseekingMan] = useState(false)
+    const [seekingWoman, setseekingWoman] = useState(false)
+
     var filteredStates  = []
 
     states.map((state)=>{
@@ -28,6 +35,11 @@ const SignUp = () => {
         }
     })
     console.log(filteredStates)
+    // useEffect(() => {
+    //     console.log(radioref.current.value)
+    // }, [])
+    
+    
   return (
     <main id="sign-up">
         <section className="signup-form">
@@ -36,26 +48,57 @@ const SignUp = () => {
                 <h2>
                     Sign Up
                 </h2>
-                <form action="" method="post">
+                <form action="" method="post" >
                     <div className="radios">
                         <div className="genders">
+                            <p>
+                                I am
+                            </p>
                             <div className="gender">
-                               <input className='radio' type="radio" name="woman" id="woman" /> 
+                               <input className='radio' 
+                               onClick={e=>{
+                                setiswoman(!iswoman)
+                               }} 
+                               type="radio" name="woman" id="woman" checked={iswoman} disabled={isman}  /> 
                                <p htmlFor="woman">A woman</p>
                             </div>
                             <div className="gender">
-                               <input className='radio' type="radio" name="man" id="man" /> 
+                               <input
+                                    onClick={e=>{
+                                        setisman(!isman)
+                                    }} 
+                                    disabled={iswoman}
+                                    checked={isman}
+                                    className='radio' type="radio" name="man" id="man" 
+                                /> 
                                <p htmlFor="woman">A man</p>
                             </div>
                             
                         </div>
                         <div className="seeking">
+                            <p>
+                                Seeking
+                            </p>
                             <div className="gender">
-                               <input className='radio' type="radio" name="seekingwoman" id="seekingwoman" /> 
+                               <input 
+                                disabled={iswoman} 
+                                checked={isman} 
+                                className='radio' 
+                                type="radio" 
+                                name="seekingwoman" 
+                                id="seekingwoman" 
+                               /> 
                                <p htmlFor="woman">A woman</p>
                             </div>
                             <div className="gender">
-                               <input className='radio' type="radio" name="seekingman" id="seekingman" /> 
+                               <input 
+                                className='radio' 
+                                type="radio" 
+                                name="seekingman" 
+                                disabled={isman} 
+                                checked={iswoman} 
+                                id="seekingman" 
+                               /> 
                                <p htmlFor="woman">A man</p>
                             </div>
                             

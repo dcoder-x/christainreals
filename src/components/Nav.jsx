@@ -29,13 +29,13 @@ const Nav = () => {
                           </Link>
 
                             {
-                              menu.sublinks? <Icon icon="ri:arrow-drop-down-line" onClick={  e=>{setisOpen(!isOpen); console.log(isOpen)}} width={30}  />:null
+                              menu.sublinks? <Icon icon="ri:arrow-drop-down-line" onMouseEnter={  e=>{setisOpen(!isOpen); console.log(isOpen)}} width={30}  />:null
                             }
                         </div>
                        
                         {
                         menu.sublinks? 
-                        <div ref={sublinkref} className="sublinks" style={{height:isOpen?'auto':0}}>
+                        <div ref={sublinkref} onMouseLeave={e=>{setisOpen(false)}} className="sublinks" style={{height:isOpen?'auto':0}}>
                           {
                             menu.sublinks.map((sublink)=>{
                               return(
