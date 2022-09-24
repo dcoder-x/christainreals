@@ -111,53 +111,25 @@ const Verify = () => {
                         <p>
                         If unemployed, enter the kind of work you are seeking.
                         </p>
-                        <input placeholder='e.g:software' required type="email" name="email" id="email" />
+                        <input placeholder='e.g:software' required type="text" name="Job" id="job" className='email' />
                     </div>
                     <div className="mail">
                         <label htmlFor="email">What is your future career goal?</label>
-                        <input placeholder='e.g:ayofaluyi@gmail.com' required type="email" name="email" id="email" />
+                        <input placeholder='e.g:ayofaluyi@gmail.com' required type="email" name="email" id="email" className='email' />
                     </div>
 
                     <div className="address">
                         <div className="country">
                             <label htmlFor="country">
-                                Height
+                                Height (feet/cm)
                             </label>
-                            <select name="country" id="country">
-                                <optgroup>
-                                    {
-                                        country.map((country)=>{
-                                            return(
-                                                <option value={country.name}>
-                                                    {
-                                                        country.name
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
+                            <input type="text" placeholder='e.g:6 feet' />
                         </div>
                         <div className="country">
                             <label htmlFor="country">
-                                Weight
+                                Weight (stone/kg)
                             </label>
-                            <select name="country" id="country">
-                                <optgroup>
-                                    {
-                                        country.map((country)=>{
-                                            return(
-                                                <option value={country.name}>
-                                                    {
-                                                        country.name
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
+                            <input type="text" placeholder='e.g:62 kg' />
                         </div>
                         <div className="state">
                             <label htmlFor="state">
@@ -223,7 +195,7 @@ const Verify = () => {
                         </div>
                     </div>
                         <div className="state">
-                            <label htmlFor="state">
+                            <label htmlFor="">
                                 Languages spoken
                             </label>
                             <select name="state" id="state">
@@ -242,7 +214,7 @@ const Verify = () => {
                                 </optgroup>
                             </select>
                         </div>
-                        <div className="state">
+                        <div className="">
                             <label htmlFor="state">
                                 How many children have you?
                             </label>
@@ -262,14 +234,46 @@ const Verify = () => {
                                 </optgroup>
                             </select>
                         </div>
+                        <div className="mail">
+                        <label htmlFor="childAge">What is the age of your oldest child?</label>
+                        <input placeholder='e.g:18' required type="text" name="childAge" id="childAge"  className='email'/>
+                        </div>
+                        <div className="mail">
+                        <label htmlFor="childAge">What is the age of your youngest child?</label>
+                        <input placeholder='e.g:18' required type="text" name="childAge" id="childAge"  className='email'/>
+                        </div>
+                        <div className="mail">
+                        <label htmlFor="childAge">How many of your children live with you on a permanent basis?</label>
+                        <input placeholder='e.g:2' required type="text" name="childAge" id="childAge"  className='email'/>
+                        </div>
+                        <div className="">
+                            <label htmlFor="state">
+                            Do you want children / more children?
+                            </label>
+                            <select name="state" id="state">
+                                <optgroup>
+                                    {
+                                        ['Yes','No','Open to the idea'].map((state)=>{
+                                            return(
+                                                <option value={state}>
+                                                    {
+                                                        state
+                                                    }
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </optgroup>
+                            </select>
+                        </div>
 
                 </form>
                 <div className="call-to-action">
-                    <p >
-                    Already a member? <a> Sign In</a>
-                    </p>
+                    <i style={{color:'red',fontStyle:"italic"}} >
+                    Please fill in accurate information !
+                    </i>
                     <button className="Join-btn">
-                        Sign Up
+                        Continue
                     </button>
                 </div>
             </div>

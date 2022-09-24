@@ -56,7 +56,10 @@
     align-items: flex-start;
 
 }
-#email{
+.signup-form select{
+    width: fit-content;
+}
+.email{
     width: 80%;
     height: 33px;
 }
@@ -90,6 +93,8 @@
     border: 1px solid rgba(122, 122, 122, 1);
     width: 80%;
     padding-bottom: 1rem 0;
+    font-size: 12px;
+    min-width: 150px;
     /* padding-top: .1rem; */
 }
 .signup-form .post-code{
