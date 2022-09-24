@@ -9,6 +9,7 @@ import "../styles/slider.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation,EffectCreative } from "swiper";
+import { Link } from "react-router-dom";
 
 
 
@@ -50,6 +51,8 @@ const Slider = () => {
             <SwiperSlide 
             > 
               <div className="slide" style={{background:`linear-gradient(0deg,rgba(203, 11, 11, 0.26),rgba(203, 11, 11, 0.16)),url(${data.bgImage})`}} >
+              {/* <img src={data.bgImage} alt="" className="slider-bg" /> */}
+
                 <div className="slider-text">
                   <p className="slider-title">
                     {
@@ -61,10 +64,12 @@ const Slider = () => {
                       data.text
                     }
                   </p>
+                  <Link to={'/signup'}>
+                    <button className="Join-btn">
+                      Join now
+                    </button>
+                  </Link>
 
-                  <button className="Join-btn">
-                    Join now
-                  </button>
 
                 </div>
 

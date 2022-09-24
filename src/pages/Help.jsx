@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 import { headerBg } from '../assets/assets'
 import Footer from '../components/Footer'
@@ -7,11 +8,32 @@ import '../styles/help.css'
 
 const Help = () => {
     const [show, setShow] = useState(false)
+    useEffect(()=>{
+        const accordion= document.querySelectorAll('.accordion') 
+        const accordionBtn= document.querySelectorAll('.accordion-btn') 
+
+        accordion.forEach((element,index) => {
+            element.onclick=()=>{
+            
+                element.classList.toggle('open')
+                if (element.classList.contains('open')) {
+                    accordionBtn[index].innerHTML='&minus;'
+                }
+                else{
+                    accordionBtn[index].innerHTML='&plus;'
+                }
+            }
+        });
+    })
   return (
     <main id="help">
         <PageHeader pageTitle={'Help and support'} headerImage={headerBg.headerimage4}/>
         <section className='contact-container'>
+        <h1 style={{textAlign:'center'}}>
+                Contact Us
+        </h1>
         <div class="contact">
+
             <div class="contact-banner">
                 <div className="banner-text">
                     <h6>
@@ -34,14 +56,21 @@ const Help = () => {
                 {/* <img src="../images/line.png" alt=""/> */}
             </div>
             <div class="contact-form">
+
                 <form>
-                    <label for="full-name">Full name</label>
-                    <input type="text" name="full-name" id="full-name" placeholder="Full Name"/>
+                    <label for="first-name">First name</label>
+                    <input type="text" name="first-name" id="first-name" placeholder="First Name"/>
+                    <label for="surname">Surname name</label>
+                    <input type="text" name="surname" id="surname" placeholder="Surname"/>
+                    <label for="full-name">User Id</label>
+                    <input type="text" name="userid" id="userId" placeholder="User ID"/>
                     <label for="e-name">E-mail</label>
                     <input type="email" name="e-mail" id="e-mail" placeholder="e-mail address"/>
+                    <label for="full-name">Subject</label>
+                    <input type="text" name="subject" id="subject" placeholder="Subject"/>
                     <label for="message">Message</label>
                     <input type="text" name="message" id="message" placeholder="Enter message..."/>
-                    <input type="submit" value="send" id="send-btn"/>
+                    <input type="submit" value="Submit" id="send-btn"/>
                 </form>
             </div>
         </div>
@@ -56,18 +85,14 @@ const Help = () => {
                 </p>
             </div>
         
-            <div class="accordion" style={{height:!show?'70px':'auto'}} onClick={e=>{
-                setShow(!show)
-            }}>
+            <div class={`accordion`}>
                 <div class="accordion-header">
                     <div class="accordion-text">
                         <p>
                             How do i create an account
                         </p>
                         <div class="accordion-btn">
-                            {
-                                !show?'+':'-'
-                            }
+                            +
                         </div>
                     </div>
                 
@@ -76,6 +101,71 @@ const Help = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Impedit at laboriosam ratione assumenda, dolores nisi eos obcaecati esse harum ad quas eum debitis magni 
                     officia quasi ipsam inventore fugiat quibusdam?
+                </div>
+            </div>
+            <div class={`accordion`}>
+                <div class="accordion-header">
+                    <div class="accordion-text">
+                        <p>
+                        I didn’t receive an activation email when I signed up
+                        </p>
+                        <div class="accordion-btn">
+                            +
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="accordion-body">
+                When you signed up, you should have received an email asking you to verify your account.
+                This is to ensure we are able to send important account notifications to you.
+                <ul>
+                    <li>
+                    Please check the inbox of the email 
+                    address used to sign up thoroughly, including any spam/junk folders.
+                    </li>
+                    <li>
+                    Check that your email address is correct and 
+                    update your email address if necessary.
+                    </li>
+                    <li>
+                        <a href="">Contact us </a>  to request an activation email so we can resend it to you.
+                    </li>
+                </ul>
+                </div>
+            </div>
+            <div class={`accordion`}>
+                <div class="accordion-header">
+                    <div class="accordion-text">
+                        <p>
+                        Why can’t I log in?
+                        </p>
+                        <div class="accordion-btn">
+                            +
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="accordion-body">
+                If you are experiencing difficulty logging into 
+                your account, please ensure the following:
+                <ul>
+                    <li>
+                    Ensure that the web address is typed correctly 
+                    in the address bar of your web browser.
+                    </li>
+                    <li>
+                    Ensure that you have an internet connection.
+                    </li>
+                    <li>
+                    Ensure that you have entered your log-in 
+                    details (User ID or email and password) correctly.
+                    </li>
+                </ul>
+                Your User ID or email address may be used to log in. 
+                All passwords are case sensitive - they must be typed correctly using 
+                upper and lower case where applicable. If you have 
+                forgotten your password, you can  <a href=""> reset it here</a> . 
+                If you have forgotten your email or User ID, please <a href=""> contact us</a> .
                 </div>
             </div>
         </section>

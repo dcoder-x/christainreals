@@ -41,8 +41,9 @@
     color: rgba(51, 51, 51, 1);
 }
 #about .more{
-    background-color: black;
+    background: linear-gradient(0deg, rgba(2, 0, 0, 0.405), rgba(2, 0, 0, 0.422)), url(../assets/bgImages/sectionbg.png);
     color: white;
+    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

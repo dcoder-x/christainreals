@@ -30,6 +30,12 @@ import whoImage from './images/whoImage.png'
 import fancyArrow from './images/fancyArrow.png'
 import invitation from './images/invitation.png'
 import signup from './images/signup.png'
+import verify from './images/verify.png'
+import couple from './images/couple.jpeg'
+import catherine from './images/catherine.jpeg'
+import dansarah from './images/dansarah.jpeg'
+import rachelcraig from './images/rachelcraig.jpeg'
+
 
 
 
@@ -44,5 +50,6 @@ export const sliderBg = {slider1,slider2,slider3,slider4,slider5}
 export const icons = {terms,cookie,privacy}
 export const eventsimg = {event1,event2,event3}
 export const about = {whoImage,fancyArrow,invitation}
-export const signUp = {signup}
+export const signUp = {signup,verify}
+export const testimonials = {couple,rachelcraig,dansarah,catherine}
 export const headerBg = {headerimage,headerimage2,headerimage3,headerimage4,headerimage5}

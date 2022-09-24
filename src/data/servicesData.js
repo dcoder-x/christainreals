@@ -19,4 +19,5 @@ export const services= [
         title:'Love Quest',
         text:'We provide a safe space for our members to ask our relationship experts any relationship question whether on behalf of themselves or on behalf of someone else? Love Quests allows members to ask their questions anonymously and get the answers that they need. Members’ questions go straight to our Admin and are only published when one of our relationship experts has provided an answer to them. The member gets an email notification with a link to their anonymised published question and answer. Click here to access this service.'
     },
+    
 ]

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { DropdownDate } from 'react-dropdown-date'
+import { DropdownDate,DropdownComponent } from 'react-dropdown-date'
 import PhoneInputWithCountrySelect from 'react-phone-number-input'
 import { signUp } from '../assets/assets' 
 import '../styles/signup.css'
@@ -7,24 +7,32 @@ import { countryCode } from '../data/CountryCodes'
 // import * as country from 'countrycitystatejson'
 import {country,states,city} from '../data/address'
 import { useRef,useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const SignUp = () => {
-    // console.log(countryCode)
-    //  const countries = country.getCountries()
-    //  const states = country.getCities('AE',"Abu Dhabi")
-    //  console.log(states)
-    // console.log(country)
-    // const radioref = useRef()
+    const [selectedDate, setdate] = useState("2004-12-31")
     const [countrySelect,setCountryselect] = useState()
+    const [stateSelect,setStateSelect] = useState()
     const [iswoman, setiswoman] = useState(false)
     const [isman, setisman] = useState(false)
     const [seekingMan, setseekingMan] = useState(false)
     const [seekingWoman, setseekingWoman] = useState(false)
 
     var filteredStates  = []
+    var filteredCities  = []
 
+    
+    city.map((city)=>{
+        if (stateSelect) {
+            if(city.state_id== stateSelect[0].id){
+                filteredCities.push(city)
+                }
+        }
+        else{
+            filteredCities.push(city)
+        }
+    })
     states.map((state)=>{
-        // console.log(state.country_id,countrySelect.id)
         if (countrySelect) {
             if(state.country_id== countrySelect[0].id){
                 filteredStates.push(state)
@@ -34,11 +42,19 @@ const SignUp = () => {
             filteredStates.push(state)
         }
     })
-    console.log(filteredStates)
-    // useEffect(() => {
-    //     console.log(radioref.current.value)
-    // }, [])
-    
+    const formatDate = (date) => {
+        // formats a JS date to 'yyyy-mm-dd'
+        var d = new Date(date),
+          month = "" + (d.getMonth() + 1),
+          day = "" + d.getDate(),
+          year = d.getFullYear();
+      
+        if (month.length < 2) month = "0" + month;
+        if (day.length < 2) day = "0" + day;
+      
+        return [year, month, day].join("-");
+      };
+      
     
   return (
     <main id="sign-up">
@@ -105,40 +121,54 @@ const SignUp = () => {
                         </div>
                     </div>
                     <div className="mail">
-                        <label htmlFor="email">E-mail</label>
+                        <label htmlFor="email">E-mail  <p style={{color:'red'}}> *</p> </label>
                         <input placeholder='e.g:ayofaluyi@gmail.com' required type="email" name="email" id="email" />
+                        (Enter your email address. After your profile creation, you can also use your email to log in instead of your user ID).
                     </div>
                     <div className="names">
                         <div className="name">
                             <label htmlFor="fname">
                                 First Name
-                            </label>
+                            <p style={{color:'red'}}> *</p></label>
                             <input type="text" placeholder='e.g:Ayo' name="fname" id="fname" />
                         </div>
                         <div className="name">
                             <label htmlFor="sname">
                                 Surname
-                            </label>
+                            <p style={{color:'red'}}> *</p></label>
                             <input placeholder='e.g:Philips' type="text" name="sname" id="sname" />
                         </div>
   
                     </div>
                     <p className="info">
-                            These will not be visible to the public. Only system-allocated user IDs 
-                            which would be a combination of first name and digits will be publicly displayed. 
-                        </p>
+                        Your real names will not be visible to other users. Only your User ID which you will choose by 
+                        yourself will be displayed on your profile.
+                    </p>
+                    <div className="names">
+                        <div className="name">
+                            <label htmlFor="username">
+                                UserName
+                            <p style={{color:'red'}}> *</p></label>
+                            <input type="text" placeholder='e.g:Ayo' name="username" id="username" />
+                        </div>
+                        <div className="name">
+                            <label htmlFor="password">
+                                Password
+                            <p style={{color:'red'}}> *</p></label>
+                            <input placeholder='e.g:Philips' type="Password" name="password" id="password" />
+                        </div>
+  
+                    </div>
                     <div className="address">
                         <div className="country">
                             <label htmlFor="country">
-                                Country
-                            </label>
+                                Country/State
+                            <p style={{color:'red'}}> *</p></label>
                             <select name="country" id="country" onChange={e=>{
-                                country.filter(country=>{country.name==e.target.value})
+                                // country.filter(country=>{country.name==e.target.value})
                                 setCountryselect(country.filter(country=>{
                                   return  country.name==e.target.value
                                 }))
-                                console.log(e.target.value)
-                                console.log(countrySelect[0].id)
                             }}>
                                 <optgroup>
                                     {
@@ -158,8 +188,14 @@ const SignUp = () => {
                         <div className="state">
                             <label htmlFor="state">
                                 state
-                            </label>
-                            <select name="state" id="state">
+                            <p style={{color:'red'}}> *</p></label>
+                            <select name="state" id="state"
+                            onChange={e=>{
+                                setStateSelect(states.filter(state=>{
+                                return  state.name==e.target.value
+                              }))
+                            }}
+                            >
                                 <optgroup>
                                     {
                                         filteredStates.map((state)=>{
@@ -175,16 +211,37 @@ const SignUp = () => {
                                 </optgroup>
                             </select>
                         </div>
+                        <div className="city">
+                            <label htmlFor="city">
+                                Town/City
+                            <p style={{color:'red'}}> *</p></label>
+                            <select name="city" id="city">
+                                <optgroup>
+                                    {
+                                        filteredCities.map((city)=>{
+                                            return(
+                                                <option value={city.name}>
+                                                    {
+                                                        city.name
+                                                    }
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </optgroup>
+                            </select>
+                        </div>
                     </div>
+                    
                     <div className="post-code">
                         <div className='postcode'>
-                        <label htmlFor="postcode">Post code</label>
-                        <input type="number" name="postcode" id="postcode" />
+                        <label htmlFor="postcode">Post/Zip code<p style={{color:'red'}}> *</p></label>
+                        <input type="text" name="postcode" id="postcode" />
                         </div>
 
                         <p className="info">
-                        Only town/city and country will be visible by other members so that members can search for their matches by location; postcodes are not displayed publicly 
-                        but are only used to enable members search for other members near them
+                        Your Post/Zip Code will not be publicly displayed on your profile. 
+                        Post/Zip Codes can be used by members to search for other members near them.
                         </p>
                     </div>
                     <div className="personal">
@@ -192,7 +249,7 @@ const SignUp = () => {
 
                         
                         <div className="phone-holder">
-                        <label htmlFor="phone">Phone</label>
+                            <label htmlFor="phone">Phone<p >(optional) </p></label>
                             <div className="phone">
                             <select name="" id="">
                                 <optgroup>
@@ -210,31 +267,83 @@ const SignUp = () => {
                                 </optgroup>
                             </select>
                             <input type="number" name="phone" id="phone" maxLength={10} />
+                            
                             </div>
+                            Only enter if you would like the system to send you 
+                            SMS notification when you receive a new massage on the web
                         </div>
                       
                         <div className="dob">
-                        <label htmlFor="phone">date of birth</label>
-                            <DropdownDate
-                            startDate={
-                              // optional, if not provided 1900-01-01 is startDate
-                              "1900-01-01" // 'yyyy-mm-dd' format only
-                            }
-                            endDate={
-                                // optional, if not provided current date is endDate
-                                "2013-12-31" // 'yyyy-mm-dd' format only
-                            }
-                            // selectedDate={
-                            //     '2001-10-18'
-                            // }
-                            defaultValues={
-                               { 
-                                year: '2001',
-                                month: '10',
-                                day: '18'
-                            }
-                            }
-                            />
+                        <label htmlFor="phone">date of birth<p style={{color:'red'}}> *</p></label>
+                        <DropdownDate
+                                startDate={                       // optional, if not provided 1900-01-01 is startDate
+                                    '1927-01-01'                    // 'yyyy-mm-dd' format only
+                                }
+                                endDate={                         // optional, if not provided current date is endDate
+                                    '2004-12-31'                    // 'yyyy-mm-dd' format only
+                                }
+                                order={[                          // optional
+                                    DropdownComponent.year,
+                                    DropdownComponent.month,
+                                    DropdownComponent.day,
+                                ]}
+
+                                ids={                             // optional
+                                    {
+                                    year: 'select-year',
+                                    month: 'select-month',
+                                    day: 'select-day'
+                                    }
+                                }
+                                names={                           // optional
+                                    {
+                                    year: 'year',
+                                    month: 'month',
+                                    day: 'day'
+                                    }
+                                }
+                                classes={                         // optional
+                                    {
+                                    dateContainer: 'classes',
+                                    yearContainer: 'classes',
+                                    monthContainer: 'classes',
+                                    dayContainer: 'classes',
+                                    year: 'classes classes',
+                                    month: 'classes classes',
+                                    day: 'classes classes',
+                                    yearOptions: 'classes',
+                                    monthOptions: 'classes',
+                                    dayOptions: 'classes'
+                                    }
+                                }
+                                // defaultValues={                   // optional
+                                //     {
+                                //     year: 'select year',
+                                //     month: 'select month',
+                                //     day: 'select day'
+                                //     }
+                                // }
+                                options={                         // optional
+                                    {
+                                    yearReverse: true,            // false by default
+                                    monthShort: true,             // false by default
+                                    monthCaps: true               // false by default
+                                    }
+                                }
+                                selectedDate={
+                                    selectedDate
+                                }
+                                
+                                // onDateChange={(date)=>{
+                                //     setdate(formatDate(date))
+                                //     console.log(date)
+                                // }}
+                                onDateChange={(date)=>{
+                                    
+                                    setdate(formatDate(date))
+                                }}
+                    />
+                        Only age will be displayed on your profile, your full date of birth will not be displayed.
                         </div>
                     </div>
                 </form>
@@ -242,9 +351,12 @@ const SignUp = () => {
                     <p >
                     Already a member? <a> Sign In</a>
                     </p>
-                    <button className="Join-btn">
-                        Sign Up
-                    </button>
+                    <Link to={'/verify'} >
+                        <button className="Join-btn">
+                            Sign Up
+                        </button>
+                    </Link>
+
                 </div>
             </div>
         </section>

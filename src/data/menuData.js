@@ -23,6 +23,16 @@ export const menuData =[
                 name:'Events',
                 link:'/events',
             },
+            {
+                name:'Love Quest',
+                link:'/Lovequests',
+            },
+            {
+                name:'Online dating',
+                link:'/online dating',
+            },
+
+
 
         ]
     },

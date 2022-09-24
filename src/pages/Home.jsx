@@ -1,11 +1,13 @@
 import { Icon } from '@iconify/react'
 import React, { useRef, useState } from 'react'
 import { images, sectionBg, videos } from '../assets/assets'
+import Cookies from '../components/cookies'
 import Footer from '../components/Footer'
 import HomeSection from '../components/HomeSection'
 import Nav from '../components/Nav'
 import PopUp from '../components/PopUp'
 import Slider from '../components/Slider'
+import Testimonial from '../components/Testimonial'
 import { sectionData } from '../data/HomeSectionData'
 import '../styles/home.css'
 
@@ -63,7 +65,9 @@ const Home = () => {
 
                 )
             })
-        }\
+        }
+        <Testimonial/>
+        <Cookies/>
         <Footer/>
     </main>
   )

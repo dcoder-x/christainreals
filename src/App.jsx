@@ -13,6 +13,7 @@ import Services from './pages/Services'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SignUp from './pages/SignUp'
+import Verify from './components/Verification'
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
           <Route path='/help' element={<Help/>}/>
           <Route path='/events' element={<Events/>}/>
           <Route path='/signup' element={<SignUp/>}/>
+          <Route path='/verify' element={<Verify/>}/>
+
           {/* <Route path='/' element={<Home/>}/> */}
         </Routes>
       </>
