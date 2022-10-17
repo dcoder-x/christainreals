@@ -1,0 +1,20 @@
+#onboard{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+#onboard .content{
+    width: 100%;
+}
+#onboard .tab{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+#onboard .tab .tab-btn{
+    padding: .5rem 2rem;
+    background-color: #a99191;
+    margin: 0 1rem;
+}

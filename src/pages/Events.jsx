@@ -26,27 +26,33 @@ const Events = () => {
 
 
 
-export const EventSwiper = ({eventgroup}) => {
+export const EventSwiper = ({eventgroup,isheader}) => {
   return (
+    
     <section className="events">
-        <div className="events-header">
-            <div className="event-class">
-                <h2>
-                    {
-                        eventgroup
-                    }
-                </h2>
-            </div>
-            <div >
-                <select className="events-filter" name="" id="">
-                    <optgroup>
-                        <option value="florida">Florida</option>
-                        <option value="florida">Texas</option>
-                        <option value="florida">Pekkam</option>
-                    </optgroup>
-                </select>
-            </div>
-        </div>
+        {
+            isheader?
+            <div className="events-header">
+                <div className="event-class">
+                    <h2>
+                        {
+                            eventgroup
+                        }
+                    </h2>
+                </div>
+                <div >
+                    <select className="events-filter" name="" id="">
+                        <optgroup>
+                            <option value="florida">Florida</option>
+                            <option value="florida">Texas</option>
+                            <option value="florida">Pekkam</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>:
+            null
+        }
+
         <Swiper
         grabCursor={true}  
         spaceBetween={10}
@@ -68,7 +74,10 @@ export const EventSwiper = ({eventgroup}) => {
                         return(
                             <SwiperSlide>
                                 <div className='event'>
-                                    <img src={event.image} alt="" className="eventimg" />
+                                    <div className="image">
+                                        <img src={event.image} alt="" className="eventimg" />
+                                    </div>
+                                    
                                     <div className="event-body">
                                         <div className="date">
                                             <p className="month">

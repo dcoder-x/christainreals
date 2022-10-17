@@ -1,0 +1,68 @@
+#explore{
+    width: 100%;
+}
+#explore .users{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+}
+#explore .user{
+    width: 30% ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 200px;
+    background-color: rgb(255, 255, 255);
+}
+#explore .user .image{
+    width: 45%;
+    height: 200px;
+    background: url(../assets/images/catherine.jpeg);
+    background-size: cover;
+    background-position:  center;
+    background-repeat: no-repeat;
+} 
+#explore .user .image img{
+    height: 100%;
+    width: 100%;
+}
+#explore .user .info{
+    width: 50%;
+}
+#explore .user .info .name{
+    font-weight: 600;
+    font-size: 16px;
+}
+#explore .user .info .address{
+    font-size: 13px;
+}
+#explore .user .info .age{
+    font-size: 13px;
+}
+#explore .user .info .btns{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin: 1rem 0;
+    width: 100%;
+}
+#explore .user .info .btns .like-btn{
+    background-color: #FF6A6A;
+    color: white;
+    width: 20%;
+    padding: .6rem;
+    margin-right: 1rem;
+    border-radius: .3rem;
+}
+#explore .user .info .btns .message-btn{
+    /* padding: .7rem 2rem; */
+    /* width: 60%; */
+    background-color: #FF6A6A;
+    color: white;
+    padding: .6rem;
+    display: flex;
+    justify-content: center;
+    border-radius: .3rem;
+}

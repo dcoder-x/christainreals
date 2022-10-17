@@ -8,8 +8,11 @@ import { countryCode } from '../data/CountryCodes'
 import {country,states,city} from '../data/address'
 import { useRef,useEffect } from 'react'
 import { questionBank } from '../data/questionBank'
+import { useNavigate } from 'react-router'
 
 const Verify = () => {
+    const navigate = useNavigate()
+
     const {Education,Employment,Ethnicity,relationship,Language,BodyType,EyeColour,Children,HairColour} = questionBank
   return (
     <main id="sign-up">
@@ -272,7 +275,7 @@ const Verify = () => {
                     <i style={{color:'red',fontStyle:"italic"}} >
                     Please fill in accurate information !
                     </i>
-                    <button className="Join-btn">
+                    <button className="Join-btn" onClick={e=>{navigate('/dashboard')}}>
                         Continue
                     </button>
                 </div>

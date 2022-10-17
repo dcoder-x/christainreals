@@ -1,0 +1,179 @@
+#personalchats{
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: #F9F9F9;
+    overflow: auto;
+    overflow-x: hidden;
+}
+#personalchats .header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:  1rem 0;
+}
+#personalchats .back-btn{
+    margin-left: 1rem;
+}
+#personalchats .header .call{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+#personalchats .header .call div{
+    background-color: white;
+    height: 60;
+    color: #DC1417;
+    padding: .3rem 1rem;
+    margin: 0 .4rem;
+
+}
+#personalchats .chat-body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 70%;
+    bottom: 0;
+}
+#personalchats .chat-body .reciever{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    flex-direction: column;
+}
+
+#personalchats .chat-body .reciever  .image{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-image: url(../assets/images/catherine.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#personalchats .chat-body .reciever  .image img{
+    width: 100%;
+    border-radius: 50%;
+}
+#personalchats .chat-body .reciever .name{
+    font-weight: 500;
+    font-size: 20px;
+    margin: .5rem 0;
+}
+#personalchats .chat-body .reciever .location{
+    font-size: 13px;
+    font-weight: 400;
+}
+#personalchats .chat-body  .time{
+    
+}
+#personalchats .chat-body  .chats{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#personalchats .chat-body  .chats .chat{
+    max-width: 50%;
+    padding: .3rem .6rem;
+    border-radius: 3px;
+}
+#personalchats .chat-body .chats .sender{
+   align-self: flex-end;
+   background-color: rgb(223, 243, 255);
+}
+#personalchats .chat-body  .chats .reciever{
+  align-self: flex-start;
+  background-color: #ffebeb;
+}
+#personalchats .chat-input{
+    width: 80%;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #F3F3F3;
+    position: fixed;
+    bottom: 0;
+}
+#personalchats .chat-input .text{
+    width: 70%;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    margin: 0;
+}
+/* call modal */
+#call{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+#call .call-holder{
+    width: 80%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;   
+    transform: translate(-10%, 0)
+}
+#call .call-modal{
+    /* mheight: 30vh; */
+    width: 30%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#call .call-modal .reciever{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    flex-direction: column;
+}
+
+#call .call-modal .reciever  .image{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-image: url(../assets/images/catherine.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#call .call-modal .reciever  .image img{
+    width: 100%;
+    border-radius: 50%;
+}
+#call .call-modal .reciever .name{
+    font-weight: 500;
+    font-size: 20px;
+    margin: .5rem 0;
+}
+#call .call-modal .call-status{
+    margin: 1rem 0;
+}
+
+#call .call-modal .call-bar{
+    background-color: #F9F9F9;
+    width: 70%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60px;
+    
+}

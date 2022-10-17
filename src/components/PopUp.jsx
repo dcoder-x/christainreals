@@ -10,7 +10,7 @@ const PopUp = ({style}) => {
     const [isLoaded, setisLoaded] = useState(false)
     const [passage, setpassage] = useState()
     const popUpRef = useRef()
-    var topicOptions = ['love','marriage','kiss','romance','laid','beloved']
+    var topicOptions = ['love','marriage','kiss','beloved']
     const topic = topicOptions[Math.floor(Math.random()*topicOptions.length)]
     const random = Math.floor(Math.random()*10)
     const getPassage = async ()=>{

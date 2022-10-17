@@ -14,6 +14,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import SignUp from './pages/SignUp'
 import Verify from './components/Verification'
+import DashBoard from './pages/DashBoard'
 
 function App() {
   return (
@@ -29,8 +30,8 @@ function App() {
           <Route path='/events' element={<Events/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/verify' element={<Verify/>}/>
-
-          {/* <Route path='/' element={<Home/>}/> */}
+          <Route path='/dashboard/*' element={<DashBoard/>}>
+          </Route>
         </Routes>
       </>
     </div>

@@ -1,0 +1,154 @@
+#dashboard{
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 5rem;
+}
+#dashboard .sideBar{
+    position: fixed;
+    width: 20%;
+    background-color: #F8F8F8;
+    bottom: 0px;
+    display: block;
+    height: 100vh;
+    left: 0px;
+    overflow: auto;
+    top: 0px;
+    padding-bottom: 3rem;
+}
+#dashboard .sideBar .profile{
+    /* height: ; */
+    display: flex;
+    align-items: center;
+    margin-top: 8rem;
+    flex-direction: column;
+}
+#dashboard .sideBar .profile .img{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-image: url(../assets/images/catherine.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#dashboard .sideBar .profile .img img{
+    width: 100%;
+    border-radius: 50%;
+}
+#dashboard .sideBar .profile .status{
+    height: .7rem;
+    width: .7rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 30%;
+    background-color: red;
+    margin-top: 8.6vw;
+}
+
+#dashboard .sideBar .profile p{
+    margin: .3rem 0;
+}
+#dashboard .sideBar .profile .user-info{
+    font-weight: 500;
+    font-size: 20px;
+}
+#dashboard .sideBar .profile .user-address{
+    font-size: 13px;
+    font-weight: 400;
+}
+#dashboard .sideBar .profile .bumpUp{
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+#dashboard .sideBar .profile .bumpUp img{
+    margin: 0 .5rem;
+}
+#dashboard .sideBar .menu-holder,.options{
+    width: 100%;
+}
+#dashboard .sideBar .menu{
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    /* padding: 1rem 0rem; */
+    padding-left: 3rem;
+}
+#dashboard .sideBar .menu:hover,
+#dashboard .sideBar .menu:focus-visible{
+    background-color: #FF6A6A;
+    color: white;
+}
+#dashboard .sideBar .menu .icon{
+    margin: 0;
+    margin-right: 1rem;
+}
+#dashboard .sideBar .options{
+    margin: 1rem 0;
+}
+#dashboard .content{
+    width: 80%;
+    min-height: 100vh;
+    float: right;
+    background-color: #ffffff;
+    /* padding: 0 1rem; */
+}
+#bump-up{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+#bump-up .bumpUp-holder{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;   
+}
+#bump-up .bump-modal{
+    /* mheight: 30vh; */
+    width: 30%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+}
+#bump-up .bump-modal .title{
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 24px;
+    text-align: justify;
+    color: #000000;
+}
+#bump-up .bump-modal .desc{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: justify;
+    color: #000000;
+}
+#bump-up .bump-modal .buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#bump-up .bump-modal .buttons button{
+    color: white;
+    background-color: rgba(220, 20, 23, 1);
+    margin: 1rem;
+}
+
