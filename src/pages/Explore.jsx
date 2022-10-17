@@ -1,3 +1,4 @@
+import { Icon } from '@iconify/react'
 import React from 'react'
 import { images, testimonials } from '../assets/assets'
 import '../styles/explore.css'
@@ -25,7 +26,7 @@ const Explore = () => {
                     </p>
                     <div className="btns">
                         <div className="like-btn">
-                            like
+                            <Icon color='white' icon="ant-design:heart-filled" />
                         </div>
                         <div className="message-btn">
                             message
