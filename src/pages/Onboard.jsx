@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes, useNavigate } from 'react-router'
 import '../styles/onboard.css'
-import Dashevents from './Dashevents'
+import Dashevents from './DashEvents'
 import Explore from './Explore'
 import Messages from './Messages'
 import PersonalChats from './PersonalChats'

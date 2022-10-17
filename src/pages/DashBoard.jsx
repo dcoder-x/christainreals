@@ -4,7 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router'
 import { icons, images, testimonials } from '../assets/assets'
 import { sideMenu } from '../data/sideBar'
 import '../styles/dashBoard.css'
-import Dashevents from './Dashevents'
+import DashEvents from './DashEvents'
 import Events from './Events'
 import MeetUp from './MeetUp'
 import Onboard from './Onboard'
@@ -119,7 +119,7 @@ const DashBoard = () => {
             <Routes>
                 <Route index path='/*'  element={<Onboard/>}/>
                 <Route path='event' element={<Events/>}/>
-                <Route index path='dashEvents' element={<Dashevents/>}/>
+                <Route index path='dashEvents' element={<DashEvents/>}/>
                 <Route index path='meetup' element={<MeetUp/>}/>
 
             </Routes>

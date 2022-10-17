@@ -2,7 +2,7 @@ import React from 'react'
 import { EventSwiper } from './Events'
 import '../styles/dashevents.css'
 
-const Dashevents = () => {
+const DashEvents = () => {
 
   return (
     <main id="dashevents">
@@ -13,4 +13,4 @@ const Dashevents = () => {
   )
 }
 
-export default Dashevents
+export default DashEvents
