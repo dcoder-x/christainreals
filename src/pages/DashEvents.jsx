@@ -6,9 +6,9 @@ const DashEvents = () => {
 
   return (
     <main id="dashevents">
-        <EventSwiper eventgroup={'My events'} isheader/> 
+        <EventSwiper eventgroup={'My Scheduled events'} isheader/> 
         <EventSwiper eventgroup={'Past events'} isheader/> 
-        <EventSwiper eventgroup={'Upcoming'} isheader/> 
+        <EventSwiper eventgroup={'Upcoming events'} isheader/> 
     </main>
   )
 }
