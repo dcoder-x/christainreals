@@ -2,6 +2,7 @@
     /* margin-top: 5rem; */
     width: 100%;
     background-color: #F9F9F9;
+    padding: 4rem 0;
 }
 #meetup .swiper {
     width: 90%;
@@ -128,6 +129,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin: 4rem 0;
 }
 #meetup .header .search{
   display: flex;
@@ -142,6 +144,7 @@
 #meetup .header .search input{
   border: none;
   background-color: white;
+  width: 80%;
   margin: 0;
 }
 #meetup .events-filter{

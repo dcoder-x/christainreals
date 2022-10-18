@@ -6,7 +6,6 @@ import { Icon } from '@iconify/react'
 const MeetUp = () => {
   return (
     <main id="meetup">
-    <h1>Events</h1>
     <div className="header">
       <div className="search">
         <div className="search-icon">
