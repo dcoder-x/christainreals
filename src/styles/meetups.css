@@ -34,6 +34,11 @@
     align-items: center;
     min-height: 400px;
   }
+  #meetup .event .icon{
+    position: absolute;
+    right: 3%;
+    width: 30px;
+  }
   #meetup .event .image{
     border-radius: 50%;
     width: 200px;
@@ -66,7 +71,7 @@
     margin:  0;
 }
 .events-header{
-    width: 70%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,13 +88,22 @@
     flex-direction: column;
     padding: 1rem 0;
 }
+#meetup .event .rsvp{
+  padding: .5rem 2rem;
+  background-color: #FF6A6A;
+  color: white;
+  position: absolute;
+  bottom: -3%;
+  right: -2%;
+  margin-top: 2rem;
+}
 .event-body{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.event-body .text{
-    width: 70%;
+#meetup .event-body .text{
+    width: 90%;
     text-align: left;
 }
 .event-body .title{
@@ -129,7 +143,6 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 4rem 0;
 }
 #meetup .header .search{
   display: flex;
@@ -144,7 +157,7 @@
 #meetup .header .search input{
   border: none;
   background-color: white;
-  width: 80%;
+  width: 100%;
   margin: 0;
 }
 #meetup .events-filter{

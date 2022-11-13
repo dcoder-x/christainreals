@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 3rem 0;
+    /* margin: 3rem 0; */
 }
 .events-filter{
     border: none;

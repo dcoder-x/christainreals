@@ -15,6 +15,11 @@
 }
 #onboard .tab .tab-btn{
     padding: .5rem 2rem;
-    background-color: #a99191;
+    background-color: #F8F8F8;
     margin: 0 1rem;
+    cursor: pointer;
+}
+#onboard .tab .tab-btn:hover,#onboard .tab .active{
+    background-color: #FF6A6A;
+    color: white;
 }

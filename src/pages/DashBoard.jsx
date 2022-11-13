@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router'
 import { icons, images, testimonials } from '../assets/assets'
+import { useScrollToTop } from '../components/hooks'
 import { sideMenu } from '../data/sideBar'
 import '../styles/dashBoard.css'
 import DashEvents from './DashEvents'
@@ -47,6 +48,7 @@ const BumpUp = ({show,onclose})=>{
     )
 }
 const DashBoard = () => {
+    useScrollToTop()
     const navigate=useNavigate()
     const [show, setshow] = useState(false)
 

@@ -1,0 +1,56 @@
+#modal{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    z-index: 2;
+}
+#modal .bumpUp-holder{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;   
+}
+#modal .modal-section{
+    /* mheight: 30vh; */
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+}
+#modal .modal-section .title{
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 24px;
+    text-align: justify;
+    color: #000000;
+}
+#modal .modal-section .desc{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: justify;
+    color: #000000;
+}
+#modal .modal-section .buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#modal .modal-section .buttons button{
+    color: white;
+    background-color: rgba(220, 20, 23, 1);
+    margin: 1rem;
+}

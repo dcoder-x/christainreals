@@ -81,7 +81,8 @@ const PersonalChats = () => {
                 <div className="files">
                     <img src={icons.AddFile} alt="" />
                 </div>
-                <input type='text' className="text" />
+                <input type='text' placeholder='type a message here ...' className="text" />
+                <Icon icon="material-symbols:send-outline" width={30} />
             </div>
 
         </div>

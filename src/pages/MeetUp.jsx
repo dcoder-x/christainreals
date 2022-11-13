@@ -2,6 +2,8 @@ import React from 'react'
 import { EventSwiper } from './Events'
 import '../styles/meetups.css'
 import { Icon } from '@iconify/react'
+import { meetData } from '../data/meetData'
+import { MeetSwiper } from '../components/MeetUpSlider'
 
 const MeetUp = () => {
   return (
@@ -31,9 +33,9 @@ const MeetUp = () => {
         </p>
       </div>
     </div>
-    <EventSwiper eventgroup={"My events"} />
-    <EventSwiper eventgroup={"Past events"} />
-    <EventSwiper eventgroup={"Upcoming"} />
+    <MeetSwiper eventgroup={"My Scheduled meetups"} scheduled data={meetData} isheader />
+    <MeetSwiper eventgroup={"All upcoming meetups"} upcoming data={meetData} isheader />
+    <MeetSwiper eventgroup={"All past meetups"} past data={meetData} isheader/>
   </main>
   )
 }

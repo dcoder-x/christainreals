@@ -2,6 +2,7 @@
     /* margin-top: 5rem; */
     width: 100%;
     background-color: #F9F9F9;
+    padding: 3rem 0;
 }
 #dashevents .swiper {
     width: 90%;
@@ -15,7 +16,7 @@
     font-size: 18px;
     /* background: #fff; */
     overflow: visible;
-    margin: 2rem 0;
+    /* margin: 2rem 0; */
     /* margin: 0 1rem; */
     width: 32% ;
     /* Center slide text vertically */
@@ -31,7 +32,7 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    min-height: 400px;
+    /* min-height: 400px; */
   }
   #dashevents .event .image{
     width: 100%;
@@ -61,7 +62,7 @@
     margin:  0;
 }
 .events-header{
-    width: 70%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,6 +78,19 @@
     align-items: center;
     flex-direction: column;
     padding: 1rem 0;
+}
+#dashevents .event .icon{
+  position: absolute;
+  right: 3%;
+  width: 30px;
+  bottom: -2%;
+}
+#dashevents .event .register{
+padding: .5rem 2rem;
+background-color: #FF6A6A;
+color: white;
+align-self: flex-end;
+justify-self: flex-end;
 }
 .event-body{
     display: flex;

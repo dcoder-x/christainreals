@@ -30,7 +30,7 @@ const Explore = () => {
                                 </p>
                                 <div className="btns">
                                     <div className="like-btn">
-                                        <Icon color='white' icon="ant-design:heart-filled" />
+                                        <Icon color='white'width={25} icon="ant-design:heart-filled" />
                                     </div>
                                     <div className="message-btn">
                                         message

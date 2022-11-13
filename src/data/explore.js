@@ -22,8 +22,14 @@ export const profileData = [
         age:'30',
         address:'Budapest hungary',
         likes:'20'
+    }, 
+    {
+        name:'Njom ferdinand',
+        age:'59',
+        address:'Akure Nigeria',
+        likes:'60'
     },
-        {
+    {
         name:'Njom ferdinand',
         age:'59',
         address:'Akure Nigeria',

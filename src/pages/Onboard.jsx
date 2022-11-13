@@ -1,5 +1,6 @@
 import React from 'react'
-import { Route, Routes, useNavigate } from 'react-router'
+import { Route, Routes, useLocation, useNavigate, useRoutes } from 'react-router'
+import { useRoute } from '../components/hooks'
 import '../styles/onboard.css'
 import Dashevents from './DashEvents'
 import Explore from './Explore'
@@ -9,13 +10,20 @@ import PersonalChats from './PersonalChats'
 
 const Onboard = () => {
     const navigate = useNavigate()
+    const route = useRoute().route
   return (
     <main id="onboard">
         <div className="tab">
-            <div className="tab-btn" onClick={e=>{navigate('explore')}}>
-                Explore
+            <div 
+                className={`tab-btn ${route=='explore'?'active':null}`} 
+                onClick={e=>{navigate('explore')}}
+            >
+                Browse
             </div>
-            <div className="tab-btn" onClick={e=>{navigate('messages')}}>
+            <div 
+                className={`tab-btn ${route=='messages'?'active':null}`} 
+                onClick={e=>{navigate('messages')}}
+            >
                 Messages
             </div>
         </div>

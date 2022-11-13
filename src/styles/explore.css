@@ -24,6 +24,7 @@
     background-size: cover;
     background-position:  center;
     background-repeat: no-repeat;
+    border-radius: .5rem;
 } 
 #explore .user .image img{
     height: 100%;
@@ -52,10 +53,13 @@
 #explore .user .info .btns .like-btn{
     background-color: #FF6A6A;
     color: white;
-    width: 20%;
+    /* width: 20%; */
     padding: .6rem;
     margin-right: 1rem;
     border-radius: .3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #explore .user .info .btns .message-btn{
     /* padding: .7rem 2rem; */
