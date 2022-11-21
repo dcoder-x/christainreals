@@ -1,5 +1,5 @@
 import React from 'react'
-import { headerBg } from '../assets/assets'
+import {headerBg } from '../assets/assets'
 import Footer from '../components/Footer'
 import PageHeader from '../components/PageHeader'
 import { legalData } from '../data/legalData'
@@ -30,16 +30,14 @@ const Legal = () => {
                                                 data.text
                                             }
                                         </div> 
-                                        <button style={{borderRadius:'3px'}} className='Join-btn'>
+                                        <button onClick={e=>window.open(data.doclink)} style={{borderRadius:'3px'}} className='Join-btn'>
                                             Read more
                                         </button>
                                     </div>
                                 </>
-                      
                             )
                         })
                     }
-                    
 
             </section>
             <Footer/>

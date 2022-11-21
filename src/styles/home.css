@@ -102,4 +102,7 @@
     #home .testifier{
         width: 70%;
     }
+    #homeSections .section-text{
+        width: 90%;
+    }
 }

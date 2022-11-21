@@ -158,7 +158,7 @@ const Help = () => {
                 Safety advice
             </h2>
             <h4>
-            Your safety is our utmost priority. Click <a href="" style={{color:'red'}} >here</a> to read our safety tips.
+            Your safety is our utmost priority. Click <p onClick={e=>window.open('https://docs.google.com/document/d/e/2PACX-1vSUmRIYu2pVmBnhjmrxru4rPH2ryoaGh2FOvDQlj-DDiXbgAYxWZPf2mDVKXe3juw/pub')} style={{color:'red'}} >here</p> to read our safety tips.
             </h4>
         </section>
         <Footer/>

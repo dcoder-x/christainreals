@@ -48,6 +48,21 @@ import couple2 from "./headerImages/couple5.jpeg";
 import couple3 from "./headerImages/couple3.jpeg";
 import couple4 from "./headerImages/couple4.jpeg";
 
+//docs
+
+// import termsdoc from './docs/Terms.docx'
+// import cookiedoc from './docs/Cookie.docx'
+// import privacydoc from './docs/Privacy.docx'
+// import safetydoc from './docs/Safety.docx'
+
+
+
+// export const docs={
+//   termsdoc,
+//   privacydoc,
+//   safetydoc,
+//   cookiedoc
+// }
 export const images = {
   videoPoster,
   Logo,

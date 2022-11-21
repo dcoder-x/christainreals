@@ -4,6 +4,7 @@ import { images } from '../assets/assets'
 import { menuData } from '../data/menuData'
 import { Icon } from '@iconify/react'
 import '../styles/nav.css'
+import { Squash as Hamburger } from 'hamburger-react'
 
 const Nav = () => {
   const sublinkref = useRef(null)
@@ -21,7 +22,7 @@ const Nav = () => {
                     return(
                       <div className="nav-links">
                         <div style={{display:'flex',alignItems:"center"}}>
-                          <Link to={menu.link}  >
+                          <Link to={menu.link} onClick={e=>{setClicked(false)}}  >
                             <p className='.nav-link'>
                               {
                                 menu.name
@@ -30,7 +31,7 @@ const Nav = () => {
                           </Link>
 
                             {
-                              menu.sublinks? <Icon icon="ri:arrow-drop-down-line" onMouseEnter={  e=>{setisOpen(!isOpen); console.log(isOpen)}} width={30}  />:null
+                              menu.sublinks? <Icon icon="ri:arrow-drop-down-line" onClick={  e=>{setisOpen(!isOpen)}} onMouseEnter={  e=>{setisOpen(!isOpen)}} width={30}  />:null
                             }
                         </div>
                        
@@ -65,17 +66,12 @@ const Nav = () => {
               </Link>  
 
             </div>
-            <div 
-        className={`menuButtons ${clicked?'menu-clicked':null}`}
-        onClick={e=>{setClicked(!clicked);!clicked?e.target.classList.remove('menu-clicked'):null}}
+        <div 
+        className={`menuButtons`}
         >
-          {/* <p>
-            Menu
-          </p> */}
-          <div className="menuLines"></div>
-          <div className="menuLines"></div>
-          <div className="menuLines"></div>
+          <Hamburger color='white' toggled={clicked} toggle={setClicked} />
         </div>
+        
         </nav>
   )
 }

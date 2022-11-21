@@ -33,3 +33,11 @@
 .cookie a{
     color: red;
 }
+@media screen and (max-width:800px) {
+    .cookie{
+        padding: 1rem 0;
+    }
+    .cookie p{
+        width: 90%;
+    }
+}
