@@ -156,3 +156,65 @@
     padding: 2.693rem;
     color: white;
 }
+@media screen and (max-width:900px) {
+    #about .who-we-are{
+        flex-direction: column;
+    }
+    #about .text{
+        width: 90%;
+        
+    }
+    #about .who-image {
+        width: 80%;
+        display: none;
+    }
+    #about .more{
+        flex-direction: column;
+        padding: 1rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #about .more .desc{
+        width: 100%;
+    }
+    #about .more h1{
+        font-size: 40px;
+        padding: 0%;
+    }
+    #about .believe{
+        flex-direction: column;
+    }
+    #about .believes{
+        width: 90%;
+        align-items: center;
+    }
+    #about .vector{
+        width: 90%;
+    }
+    #about .vector .arrow{
+        display: none;
+    }
+    #about .core-values{
+        padding: 1rem;
+        width: 100%;
+    }
+    #about .core-values .title{
+        width: 90%;
+    }
+    #about .core-values .desc{
+        width: 90%;
+    }
+    #about .invitation{
+        width: 100%;
+        flex-direction: column;
+    }
+    #about .invitation .waiting{
+        width: 90%;
+    }
+    #about .invitation .special{
+        flex-direction: column;
+    }
+    #about .invitation .special .text{
+        width: 90%;
+    }
+}

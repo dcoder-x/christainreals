@@ -167,3 +167,38 @@
     margin-left: 5rem;
     border-radius: 2px;
 }
+@media screen and (max-width:900px) {
+    .signup-form .banner{
+        display: none;
+    }
+    .signup-form .form{
+        padding: 3rem 1rem;
+        width: 100%;
+    }
+    .signup-form .address, .personal{
+        flex-wrap: wrap;
+    }
+    .signup-form .post-code{
+        width: 90%;
+        flex-wrap: wrap;
+    }
+    form{
+        width: 100%;
+    }
+    .signup-form .dob{
+        margin: 0%;
+        width: 90%;
+    }
+    .signup-form .dob #dropdown-date{
+        padding: 0;
+    }
+    .call-to-action{
+        flex-direction: column;
+        justify-content: center;
+        margin: 1rem 0;
+        align-items: flex-start;
+    }
+    .call-to-action .Join-btn{
+        margin: 1rem 0;
+    }
+}

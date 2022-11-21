@@ -9,12 +9,13 @@ const Nav = () => {
   const sublinkref = useRef(null)
   const navigate = useNavigate()
   const [isOpen, setisOpen] = useState(false)
+  const [clicked, setClicked] = useState()
   
 
   return (
         <nav id='nav'>
             <img src={images.Logo} alt="" className="logo" />
-            <div className="menu-container">
+            <div className={`menu-container ${clicked?'show':'closed'}`}>
                 {
                   menuData.map((menu,i)=>{
                     return(
@@ -64,7 +65,17 @@ const Nav = () => {
               </Link>  
 
             </div>
-          
+            <div 
+        className={`menuButtons ${clicked?'menu-clicked':null}`}
+        onClick={e=>{setClicked(!clicked);!clicked?e.target.classList.remove('menu-clicked'):null}}
+        >
+          {/* <p>
+            Menu
+          </p> */}
+          <div className="menuLines"></div>
+          <div className="menuLines"></div>
+          <div className="menuLines"></div>
+        </div>
         </nav>
   )
 }

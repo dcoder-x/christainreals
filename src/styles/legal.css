@@ -18,3 +18,12 @@
     text-align: center;
     border: 1px rgba(203, 203, 203, 1) solid;
 }
+@media screen and (max-width:900px) {
+    #legal .legal-section{
+        flex-direction: column;
+    }
+    #legal .legal-div{
+        width: 80%;
+        margin-top: 1rem;
+    }
+}

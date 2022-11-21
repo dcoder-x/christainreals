@@ -92,3 +92,30 @@
   background-color:rgba(220, 20, 23, 1);
   color: #fff;
 }
+.hero{
+  display: none;
+}
+@media screen and (max-width:900px) {
+  .slider-text{
+    width: 90%;
+    color: black !important;
+    position: relative;
+    left: 0;
+  }
+  .slider-container{
+    display: none;
+  }
+  .slider-title{
+    font-size: 25px;
+    margin-top: 4rem;
+  }
+  .hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 4rem 0rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}

@@ -15,8 +15,11 @@ import "aos/dist/aos.css";
 import SignUp from './pages/SignUp'
 import Verify from './components/Verification'
 import DashBoard from './pages/DashBoard'
+import Faq from './pages/Faq'
+import { useScrollToTop } from './components/hooks'
 
 function App() {
+  useScrollToTop()
   return (
     <div className="App">
       <>
@@ -27,6 +30,7 @@ function App() {
           <Route path='/legal' element={<Legal/>}/>
           <Route path='/services' element={<Services/>}/>
           <Route path='/help' element={<Help/>}/>
+          <Route path='/faq' element={<Faq/>}/>
           <Route path='/events' element={<Events/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/verify' element={<Verify/>}/>

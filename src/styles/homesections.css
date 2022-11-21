@@ -33,3 +33,19 @@
     max-width: 50%;
     max-height: 400px;
 }
+@media screen and (max-width:900px) {
+    #homeSections{
+        flex-direction: column-reverse !important;
+        height: auto;
+    }
+    #homeSections .section-text{
+        width: 80%;
+    }
+    #homeSections .section-title{
+        line-height: 1;
+    }
+    #homeSections .section-img{
+        max-width: 80%;
+    }
+    
+}

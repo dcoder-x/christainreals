@@ -60,3 +60,46 @@
     position: absolute;
     transition:  .7s ease-in-out ;
 }
+@media screen and (max-width:900px) {
+    #home{
+        margin-top: 1rem !important;
+    }
+    #home .intro{
+        flex-direction: column-reverse;
+        padding:2rem 0rem;
+    }
+    #home .intro .vid{
+        max-width: 80%;
+    }
+    #home .intro-text{
+        width: 90%;
+
+    }
+    #home .intro-title {
+        font-size: 30px;
+        line-height: 44px;
+    }
+    #home .section-divider{
+        font-size: 30px;
+        padding: 0rem !important;
+    }
+    #home .intro-text {
+        font-size: 15px;
+    }
+    #home .testimonies{
+        flex-direction: column;
+        padding: 2rem 0rem;
+    }
+    #home .testimonies .swiper{
+        width: 100%;
+    }
+    #home .testimonies .slide{
+        flex-direction: column-reverse;
+    }
+    #home .testimony{
+        width: 80%;
+    }
+    #home .testifier{
+        width: 70%;
+    }
+}

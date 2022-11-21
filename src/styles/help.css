@@ -98,7 +98,7 @@
     padding: 1rem 0;
     border: none;
   }
-  .faq{
+  #help .faq{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -108,11 +108,11 @@
     /* margin: 5em 0; */
     background-color: rgba(220, 20, 23, 1);
 }
-.faq .header{
+#help .faq .header{
     color: white;
     text-align: center;
 }
-.accordion{
+#help .accordion{
     width: 55%;
     height: 70px;
     background: rgb(242, 242, 242);
@@ -124,13 +124,13 @@
     /* transition: 1s ease-in-out; */
     cursor: pointer;
 }
-.accordion:hover{
+#help .accordion:hover{
     background-color: rgb(216, 216, 216);
 }
-.open{
+#help .open{
     height: 245px;
 }
-.accordion-header{
+#help .accordion-header{
     min-height:80px;
     width: 100%;
     display: flex;
@@ -138,13 +138,13 @@
     justify-content: center;
     background-color: #00000005;
 }
-.accordion-text{
+#help .accordion-text{
     display: flex;
     justify-content: space-between;
     width: 90%;
     align-items: center;
 }
-.accordion-btn{
+#help .accordion-btn{
     text-align: center;
     height: 1.5em;
     width: 1.5em;
@@ -154,10 +154,10 @@
     justify-content: center;
     align-items: center;
 }
-.accordion-body{
+#help .accordion-body{
     padding: 2em;
 }
-.open{
+#help .open{
   height: 100%;
 }
 .safety{
@@ -181,7 +181,11 @@
         margin-bottom: 0.7em;  
     }
     .contact{
-      padding: 10rem 1rem;
+      /* padding: 10rem 1rem; */
+      width: 100%;
+    }
+    #help .contact-container{
+      /* padding: 1rem; */
     }
   }
   @media screen and (max-width:600px) {
@@ -189,6 +193,18 @@
       flex-direction: column;
     }
     .contact-banner{
-      height: 300px;
+      min-height: 300px;
+      width: 80%;
+      padding: 1rem;
+      padding-bottom: 0;
+    }
+    .contact-desc{
+      margin-left: 0;
+    }
+    .contact-form{
+      width: 100%;
+    }
+    #help .accordion{
+      width: fit-content;
     }
   }

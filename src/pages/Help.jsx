@@ -84,25 +84,6 @@ const Help = () => {
                     Here are some frequently asked questions
                 </p>
             </div>
-        
-            <div class={`accordion`}>
-                <div class="accordion-header">
-                    <div class="accordion-text">
-                        <p>
-                            How do i create an account
-                        </p>
-                        <div class="accordion-btn">
-                            +
-                        </div>
-                    </div>
-                
-                </div>
-                <div class="accordion-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Impedit at laboriosam ratione assumenda, dolores nisi eos obcaecati esse harum ad quas eum debitis magni 
-                    officia quasi ipsam inventore fugiat quibusdam?
-                </div>
-            </div>
             <div class={`accordion`}>
                 <div class="accordion-header">
                     <div class="accordion-text">
@@ -168,6 +149,9 @@ const Help = () => {
                 If you have forgotten your email or User ID, please <a href=""> contact us</a> .
                 </div>
             </div>
+            <p style={{color:'white'}}>
+                See more <a href="/faq">FAQs </a> here
+            </p>
         </section>
         <section className="safety">
             <h2>

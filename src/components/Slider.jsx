@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {sliderData} from '../data/sliderData'
+import { sliderData } from "../data/sliderData";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -8,82 +8,79 @@ import "swiper/css/navigation";
 import "../styles/slider.css";
 
 // import required modules
-import { Autoplay, Pagination, Navigation,EffectCreative } from "swiper";
+import { Autoplay, Pagination, Navigation, EffectCreative } from "swiper";
 import { Link } from "react-router-dom";
-
-
 
 const Slider = () => {
   return (
-    <div className="slider-container">
+    <>
+      <div className="slider-container">
         <Swiper
-        grabCursor={true}  
-        effect={"creative"}
-        creativeEffect={{
-          prev: {
-            shadow: true,
-            translate: [0, 0, -400],
-          },
-          next: {
-            translate: ["100%", 0, 0],
-          },
-        }}
-               
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation,EffectCreative]}
-
-
-        className="mySwiper"
+          grabCursor={true}
+          effect={"creative"}
+          creativeEffect={{
+            prev: {
+              shadow: true,
+              translate: [0, 0, -400],
+            },
+            next: {
+              translate: ["100%", 0, 0],
+            },
+          }}
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation, EffectCreative]}
+          className="mySwiper"
         >
+          {sliderData.map((data) => {
+            return (
+              <SwiperSlide>
+                <div
+                  className="slide"
+                  style={{
+                    background: `linear-gradient(0deg,rgba(203, 11, 11, 0.26),rgba(203, 11, 11, 0.16)),url(${data.bgImage})`,
+                  }}
+                >
+                  {/* <img src={data.bgImage} alt="" className="slider-bg" /> */}
 
-        {sliderData.map((data)=>{
-          
-          return(
-            <SwiperSlide 
-            > 
-              <div className="slide" style={{background:`linear-gradient(0deg,rgba(203, 11, 11, 0.26),rgba(203, 11, 11, 0.16)),url(${data.bgImage})`}} >
-              {/* <img src={data.bgImage} alt="" className="slider-bg" /> */}
-
-                <div className="slider-text">
-                  <p className="slider-title">
-                    {
-                      data.title
-                    }
-                  </p>
-                  <p className="slider-desc">
-                    {
-                      data.text
-                    }
-                  </p>
-                  <Link to={'/signup'}>
-                    <button className="Join-btn">
-                      Join now
-                    </button>
-                  </Link>
-
-
+                  <div className="slider-text">
+                    <p className="slider-title">{data.title}</p>
+                    <p className="slider-desc">{data.text}</p>
+                    <Link to={"/signup"}>
+                      <button className="Join-btn">Join now</button>
+                    </Link>
+                  </div>
                 </div>
-
-              </div>
-            </SwiperSlide>
-
-            
-          )
-        })}
-        
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
-    
-    </div>
-  )
-}
 
-export default Slider
+      </div>
+      <div className="hero">
+          <div className="slider-text">
+            <p className="slider-title">
+              Your No. 1 Christian singles,dating and social networking site!
+            </p>
+            <p className="slider-desc">
+              Join Christian Reals today and start connecting immediately with
+              like-minded single Christians for dating and more….'
+            </p>
+            <Link to={"/signup"}>
+              <button className="Join-btn">Join now</button>
+            </Link>
+          </div>
+      </div>
+    </>
+  );
+};
+
+export default Slider;

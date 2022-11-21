@@ -62,3 +62,97 @@
     color: white;
     border-radius: 0;
 }
+.menuButtons{
+    display: none;
+}
+@media screen and (max-width:900px) {
+    #nav{
+        padding: 0 1rem;
+        padding-right: 1rem;
+        width: 100vw;
+        height: 80px;
+    }
+    .menu-container{
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top:5rem;
+        background-color: rgb(255, 255, 255);
+        text-align: right;
+        align-items: flex-end !important;
+        padding: 2rem;
+        width: 50%;
+        height: 100vh;
+        margin-right: 0 !important;
+        transition: 1s ease-out;
+        justify-content: flex-start !important;
+        /* background-color: rgba(37, 37, 37, 1); */
+    }
+    .nav-links{
+        margin: .5rem 1rem !important;
+        font-size: 20px;
+        color: #000 !important;
+    }
+    .nav-links a{
+        color: #000 !important;
+    }
+    .menuButtons{
+        width: 10%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        transition: 1s ease-in-out;
+        margin-right: 2rem;
+        flex-direction: column;
+    }
+    .menuButtons p{
+        font-size: 20px;
+        font-weight: 500;
+        margin: 0 1rem;
+    }
+    .menuButtons img{
+        height: 30%;
+    }
+    #nav .logo{
+        width: 35%;
+        margin: 0;
+    }
+    #nav .logo img{
+        width: 100%;
+    }
+    .menuLines{
+        background-color: rgb(255, 255, 255);
+        border-radius: 2px;
+        width: 90%;
+        height: 10%;
+        max-width: 2.5rem;
+        transition: 1s ease-in-out;
+    }
+    /* .menu-clicked:nth-of-type(1){
+        transform: rotate(45deg);
+    }
+    .menu-clicked:nth-child(3){
+        transform: rotate(-45deg);
+    }
+    .menu-clicked:nth-child(2){
+        opacity: 0;
+    } */
+    #nav .login-btn {
+        margin: 0rem 1rem !important;
+        border-radius: .3rem;
+    }
+    .show{
+        right: 0;
+    }
+    .closed{
+        right: -100% !important;
+    }
+    #nav .sublinks{
+        padding: 0;
+        width: max-content;
+        font-size: 15px;
+        padding-right: 2rem;
+        font-weight: 500;
+    }
+}

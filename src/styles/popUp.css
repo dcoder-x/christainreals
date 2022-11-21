@@ -38,3 +38,12 @@
     font-weight: 900;
     margin: 0.2rem;
 }
+@media screen and (max-width:900px) {
+    .popup{
+        bottom: 2%;
+        right: 1%;
+        box-shadow: grey 1px 1px 10px;
+        max-width: 80%;
+        position: fixed;
+    }
+}
