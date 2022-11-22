@@ -10,6 +10,9 @@ import PageHeader from "../components/PageHeader";
 import { headerBg } from "../assets/assets";
 import Footer from "../components/Footer";
 import { Icon } from "@iconify/react";
+import { useId } from "react";
+import { useEffect } from "react";
+import { useWindowDimensions } from "../components/hooks";
 headerBg;
 
 const Events = () => {
@@ -26,6 +29,8 @@ const Events = () => {
 
 export const EventSwiper = ({ eventgroup, isheader, data,past,upcoming }) => {
     const [liked, setliked] = useState(false)
+    const {width,height}=useWindowDimensions()
+    
     return (
     <section className="events">
       {isheader ? (
@@ -53,7 +58,7 @@ export const EventSwiper = ({ eventgroup, isheader, data,past,upcoming }) => {
         //   delay: 3500,
         //   disableOnInteraction: false,
         // }}
-        slidesPerView={3}
+        slidesPerView={width<801?1:3}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation, EffectCreative]}
         className="mySwiper"

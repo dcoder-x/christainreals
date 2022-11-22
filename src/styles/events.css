@@ -108,3 +108,9 @@
     text-align: left;
     margin-top: -.7rem;
 }
+@media screen and (max-width:800px) {
+    #events .swiper {
+        width: 90%;
+        height: 100%;
+      }
+}

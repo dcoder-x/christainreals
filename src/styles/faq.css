@@ -75,4 +75,11 @@
     #faq .accordion{
         width: 90%;
     }
+    #faq .section-title{
+        font-size: 20px;
+        text-align: center;
+    }
+    #faq .faq .header{
+        width: 80%;
+    }
 }
