@@ -47,6 +47,7 @@ import couple1 from "./headerImages/couple1.jpg";
 import couple2 from "./headerImages/couple5.jpeg";
 import couple3 from "./headerImages/couple3.jpeg";
 import couple4 from "./headerImages/couple4.jpeg";
+import rightArrow from './icons/rightArrow.svg'
 
 //docs
 
@@ -96,8 +97,11 @@ export const icons = {
   Help,
   Settings,
   Meetups,
-  AddFile
+  AddFile,
 };
+export const Vectors = {
+  rightArrow
+}
 export const eventsimg = { event1, event2, event3 };
 export const about = { whoImage, fancyArrow, invitation };
 export const signUp = { signup, verify };
