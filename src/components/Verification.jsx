@@ -1,288 +1,150 @@
-import React,{useState} from 'react'
-import { DropdownDate,DropdownComponent } from 'react-dropdown-date'
-import PhoneInputWithCountrySelect from 'react-phone-number-input'
-import { signUp } from '../assets/assets' 
-import '../styles/signup.css'
-import { countryCode } from '../data/CountryCodes' 
+import React, { useState } from "react";
+import { DropdownDate, DropdownComponent } from "react-dropdown-date";
+import PhoneInputWithCountrySelect from "react-phone-number-input";
+import { signUp } from "../assets/assets";
+import "../styles/signup.css";
+import { countryCode } from "../data/CountryCodes";
 // import * as country from 'countrycitystatejson'
-import {country,states,city} from '../data/address'
-import { useRef,useEffect } from 'react'
-import { questionBank } from '../data/questionBank'
-import { useNavigate } from 'react-router'
+import { country, states, city } from "../data/address";
+import { useRef, useEffect } from "react";
+import { questionBank } from "../data/questionBank";
+import { useLocation, useNavigate } from "react-router";
+import Profile1 from "./Profile1";
+import Profile2 from "./Profile2";
+import Profile3 from "./Profile3";
+import Profile4 from "./Profile4";
+import Profile5 from "./Profile5";
+import Profile6 from "./Profile6";
+import Modal from "./Modal";
 
+const profileSetup = [
+  {
+    img: signUp.verify,
+    form: Profile1,
+  },
+  {
+    img: signUp.profileBanner2,
+    form: Profile2,
+  },
+  {
+    img: signUp.profileBanner3,
+    form: Profile3,
+  },
+  {
+    img: signUp.profileBanner4,
+    form: Profile4,
+  },
+  {
+    img: signUp.profileBanner5,
+    form: Profile5,
+  },
+  {
+    img: signUp.profileBanner6,
+    form: Profile6,
+  },
+];
+const message = [
+  {
+    title: "Almost done",
+    desc: `Don't quit now! you are almost there, your're not a quitter. Keep Going!!`,
+  },
+  {
+    title: "Well done",
+    desc: `Just a little more, your're not a quitter. Keep Going!!`,
+  },
+  {
+    title: "Almost there",
+    desc: `This is a neccesary part of your registration and it shows how serious you are, your're not a quitter. Keep Going!!`,
+  },
+  {
+    title: "Almost done",
+    desc: `Don't quit now! you are almost there, your're not a quitter. Keep Going!!`,
+  },
+  {
+    title: "Almost there",
+    desc: `This is a neccesary part of your registration and it shows how serious you are, your're not a quitter. Keep Going!!`,
+  },
+  {
+    title: "Last one I promise",
+    desc: `Don't quit now! you are almost there, your're not a quitter. Keep Going!!`,
+  },
+];
 const Verify = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [index, setindex] = useState(0);
+  const Form = profileSetup[index].form;
+  const [showModal, setshowModal] = useState(false);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [index]);
+  function handleForm() {
+    const form = document.querySelector('form')
+    form.onsubmit=(e)=>{
+        e.preventDefault()
+        console.log(form)
+    }
+    form.submit()
 
-    const {Education,Employment,Ethnicity,relationship,Language,BodyType,EyeColour,Children,HairColour} = questionBank
+ 
+  }
+
   return (
     <main id="sign-up">
-        <section className="signup-form">
-            <img src={signUp.verify} alt="" className="banner" />
-            <div className="form">
-                <h2>
-                    Congratulations your email has been verified
-                </h2>
-                <form action="" method="post" >
-                    <div className="address">
-                        <div className="country">
-                            <label htmlFor="country">
-                                Relationship status
-                            </label>
-                            <select name="relationship" id="relationship">
-                                <optgroup>
-                                    {
-                                        relationship.map((status)=>{
-                                            return(
-                                                <option value={status}>
-                                                    {
-                                                        status
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                        <div className="state">
-                            <label htmlFor="state">
-                                Ethnic Background
-                            </label>
-                            <select name="Ethnic" id="Ethnic">
-                                <optgroup>
-                                    {
-                                        Ethnicity.map((ethnic)=>{
-                                            return(
-                                                <option value={ethnic}>
-                                                    {
-                                                        ethnic
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="address">
-                        <div className="country">
-                            <label htmlFor="country">
-                                Highest Educational Attainment
-                            </label>
-                            <select name="country" id="Education">
-                                <optgroup>
-                                    {
-                                        Education.map((education)=>{
-                                            return(
-                                                <option value={education}>
-                                                    {
-                                                        education
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                        <div className="state">
-                            <label htmlFor="state">
-                                Employment Status
-                            </label>
-                            <select name="state" id="state">
-                                <optgroup>
-                                    {
-                                        Employment.map((employment)=>{
-                                            return(
-                                                <option value={employment}>
-                                                    {
-                                                        employment
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="mail">
-                        <label htmlFor="email">
-                            What kind of work do you do currently?
-                        </label>
-                        <p>
-                        If unemployed, enter the kind of work you are seeking.
-                        </p>
-                        <input placeholder='e.g:software' required type="text" name="Job" id="job" className='email' />
-                    </div>
-                    <div className="mail">
-                        <label htmlFor="email">What is your future career goal?</label>
-                        <input placeholder='e.g:ayofaluyi@gmail.com' required type="email" name="email" id="email" className='email' />
-                    </div>
-
-                    <div className="address">
-                        <div className="country">
-                            <label htmlFor="country">
-                                Height (feet/cm)
-                            </label>
-                            <input type="text" placeholder='e.g:6 feet' />
-                        </div>
-                        <div className="country">
-                            <label htmlFor="country">
-                                Weight (stone/kg)
-                            </label>
-                            <input type="text" placeholder='e.g:62 kg' />
-                        </div>
-                        <div className="state">
-                            <label htmlFor="state">
-                                Bodytype
-                            </label>
-                            <select name="state" id="state">
-                                <optgroup>
-                                    {
-                                        BodyType.map((body)=>{
-                                            return(
-                                                <option value={body}>
-                                                    {
-                                                        body
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="address">
-                        <div className="country">
-                            <label htmlFor="country">
-                                Natural Hair Colour
-                            </label>
-                            <select name="country" id="country">
-                                <optgroup>
-                                    {
-                                        HairColour.map((color)=>{
-                                            return(
-                                                <option value={color}>
-                                                    {
-                                                        color
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                        <div className="state">
-                            <label htmlFor="state">
-                                Eye Colour
-                            </label>
-                            <select name="state" id="state">
-                                <optgroup>
-                                    {
-                                        EyeColour.map((state)=>{
-                                            return(
-                                                <option value={state}>
-                                                    {
-                                                        state
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                        <div className="state">
-                            <label htmlFor="">
-                                Languages spoken
-                            </label>
-                            <select name="state" id="state">
-                                <optgroup>
-                                    {
-                                        Language.map((state)=>{
-                                            return(
-                                                <option value={state}>
-                                                    {
-                                                        state
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                        <div className="">
-                            <label htmlFor="state">
-                                How many children have you?
-                            </label>
-                            <select name="state" id="state">
-                                <optgroup>
-                                    {
-                                        Children.map((state)=>{
-                                            return(
-                                                <option value={state}>
-                                                    {
-                                                        state
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-                        <div className="mail">
-                        <label htmlFor="childAge">What is the age of your oldest child?</label>
-                        <input placeholder='e.g:18' required type="text" name="childAge" id="childAge"  className='email'/>
-                        </div>
-                        <div className="mail">
-                        <label htmlFor="childAge">What is the age of your youngest child?</label>
-                        <input placeholder='e.g:18' required type="text" name="childAge" id="childAge"  className='email'/>
-                        </div>
-                        <div className="mail">
-                        <label htmlFor="childAge">How many of your children live with you on a permanent basis?</label>
-                        <input placeholder='e.g:2' required type="text" name="childAge" id="childAge"  className='email'/>
-                        </div>
-                        <div className="">
-                            <label htmlFor="state">
-                            Do you want children / more children?
-                            </label>
-                            <select name="state" id="state">
-                                <optgroup>
-                                    {
-                                        ['Yes','No','Open to the idea'].map((state)=>{
-                                            return(
-                                                <option value={state}>
-                                                    {
-                                                        state
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
-
-                </form>
-                <div className="call-to-action">
-                    <i style={{color:'red',fontStyle:"italic"}} >
-                    Please fill in accurate information !
-                    </i>
-                    <button className="Join-btn" onClick={e=>{navigate('/dashboard')}}>
-                        Continue
-                    </button>
-                </div>
-            </div>
-        </section>
+      <section className="signup-form">
+        <img src={profileSetup[index].img} alt="" className="banner" />
+        <div className="form">
+          <div className="progressBar">
+            <div
+              className="progressDone"
+              style={{
+                width: `${(index / (profileSetup.length - 1)) * 100}%`,
+              }}
+            ></div>
+          </div>
+          {<Form />}
+          <div className="call-to-action">
+            <i style={{ color: "red", fontStyle: "italic" }}>
+              Please fill in accurate information !
+            </i>
+            <button
+              className="Join-btn"
+              onClick={(e) => {
+                if (index != profileSetup.length - 1) {
+                //   handleForm()
+                  setindex(index + 1);
+                  setshowModal(true);
+                } else {
+                  setindex(5);
+                }
+              }}
+            >
+              {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+            </button>
+          </div>
+        </div>
+      </section>
+      <Modal
+        message={message[index].desc}
+        show={showModal}
+        onAccept={(e) => {
+          setshowModal(false);
+        }}
+        title={message[index].title}
+        icon="icon-park-solid:good-one"
+        iconSize={50}
+        iconColor={"#DC1417"}
+        onclose={(e) => {
+          setshowModal(false);
+        }}
+        modalStyle={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+        actionText="Keep going"
+      />
     </main>
-  )
-}
+  );
+};
 
-export default Verify
+export default Verify;

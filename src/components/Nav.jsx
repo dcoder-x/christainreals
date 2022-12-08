@@ -59,7 +59,7 @@ const Nav = () => {
                     )
                   })
                 }
-              <Link to={'/signup'}>
+              <Link to={'/signin'}>
                 <button className='login-btn'>
                   Login/Sign Up
                 </button>

@@ -1,0 +1,70 @@
+#loveQuest{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F9F9F9;
+    margin: 0rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#loveQuest .questions{
+    margin: 0rem 3rem;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding-left: 2rem;
+    width: 100%;
+    padding-top: 4rem;
+    align-self: flex-start;
+}
+#loveQuest .question{
+    padding: .8rem 4rem;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem 0;
+    /* cursor: pointer; */
+    clip-path: polygon(50% 0%, 100% 0, 100% 43%, 100% 79%, 100% 100%, 32% 100%, 2% 100%, 2% 11%, 0 0);
+    width: 70%;
+    background: rgb(236, 236, 236);
+    border-radius: .5rem;
+}
+#loveQuest .question-name{
+    padding: .5rem;
+    background-color: rgba(255, 255, 255, 0.747);
+    color: rgba(165, 165, 165, 1);
+    font-size: 14px;
+}
+#loveQuest .answer{
+    font-size: 14px;
+}
+#loveQuest .Ask{
+    padding: .5rem 1.5rem;
+    width: fit-content;
+    background-color: rgba(255, 106, 106, 1);
+    color: white;
+    border-radius: 0;
+    margin-top: 1rem;
+    position: fixed;
+    bottom: 1%;
+    right: 2%;
+}
+#loveQuest .like{
+    width: max-content;
+    align-self: flex-end;
+    display: flex;
+}
+#loveQuest .like p{
+    margin: 0;
+}
+#loveQuest .likebutton{
+    color: #373737;
+    stroke: black;
+    margin-right: 1rem;
+    font-size: 20px;
+}
+#loveQuest .liked{
+    color: rgba(255, 106, 106, 1);
+}

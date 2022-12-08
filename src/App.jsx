@@ -1,5 +1,5 @@
 import {useEffect } from 'react'
-import { BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import { BrowserRouter as Router,Routes,Route, useLocation} from 'react-router-dom'
 // import reactLogo from './assets/react.svg'
 import './App.css'
 
@@ -10,16 +10,22 @@ import Help from './pages/Help'
 import Home from './pages/Home'
 import Legal from './pages/Legal'
 import Services from './pages/Services'
-import AOS from "aos";
+import Aos from "aos";
 import "aos/dist/aos.css";
 import SignUp from './pages/SignUp'
 import Verify from './components/Verification'
 import DashBoard from './pages/DashBoard'
 import Faq from './pages/Faq'
 import { useScrollToTop } from './components/hooks'
+import Signin from './pages/Signin'
 
 function App() {
-  useScrollToTop()
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    Aos.init()
+  }, [pathname])
+  
   return (
     <div className="App">
       <>
@@ -33,6 +39,7 @@ function App() {
           <Route path='/faq' element={<Faq/>}/>
           <Route path='/events' element={<Events/>}/>
           <Route path='/signup' element={<SignUp/>}/>
+          <Route path='/signin' element={<Signin/>}/>
           <Route path='/verify' element={<Verify/>}/>
           <Route path='/dashboard/*' element={<DashBoard/>}>
           </Route>

@@ -38,6 +38,11 @@ import whoImage from "./images/whoImage.png";
 import fancyArrow from "./images/fancyArrow.png";
 import invitation from "./images/invitation.png";
 import signup from "./images/signup.png";
+import profileBanner2 from './images/profilebanner2.png'
+import profileBanner3 from './images/profilebanner3.png'
+import profileBanner4 from './images/profilebanner4.png'
+import profileBanner5 from './images/profilebanner5.png'
+import profileBanner6 from './images/profilebanner6.png'
 import verify from "./images/verify.png";
 import couple from "./images/couple.jpeg";
 import catherine from "./images/catherine.jpeg";
@@ -104,7 +109,7 @@ export const Vectors = {
 }
 export const eventsimg = { event1, event2, event3 };
 export const about = { whoImage, fancyArrow, invitation };
-export const signUp = { signup, verify };
+export const signUp = { signup, verify,profileBanner2,profileBanner3,profileBanner4,profileBanner5,profileBanner6 };
 export const testimonials = { couple, rachelcraig, dansarah, catherine };
 export const headerBg = {
   headerimage,

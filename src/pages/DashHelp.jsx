@@ -2,19 +2,19 @@ import { Icon } from '@iconify/react'
 import React from 'react'
 import { useNavigate } from 'react-router'
 import { Vectors } from '../assets/assets'
-import { settings } from '../data/options'
+import { help} from '../data/options'
 import '../styles/settings.css'
 
-const Settings = () => {
+const DashHelp = () => {
     const navigate = useNavigate()
   return (
     <main id="settings">
         <section className='options' >
             <h1 className='page-title'>
-                Settings
+                Help
             </h1>
             {
-                settings.map((option,index)=>{
+                help.map((option,index)=>{
                     return(
 
                         <div className="option" onClick={e=>{option.link?navigate(option.link):null}}>
@@ -26,13 +26,13 @@ const Settings = () => {
                     )
                 })
             }
-            <button className='logout'>
+            {/* <button className='logout'>
                 Logout
-            </button>
+            </button> */}
 
         </section>
     </main>
   )
 }
 
-export default Settings
+export default DashHelp

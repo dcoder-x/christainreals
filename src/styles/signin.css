@@ -1,0 +1,31 @@
+.password-container {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  border: 1px solid rgba(122, 122, 122, 1);
+  padding-right: 1rem;
+}
+.password-container input {
+  border: none !important;
+  height: 30px;
+  margin-bottom: 0;
+}
+.login-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 36px;
+  gap: 10px;
+  margin: 1rem 0;
+  color: white;
+  background: #dc1417;
+  width: max-content;
+  box-shadow: 0px 3px 3px rgba(220, 20, 23, 0.09);
+}
+a{
+    color: #1075D3;
+}
+.form{
+    width: 100%;
+}

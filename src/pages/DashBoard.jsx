@@ -6,9 +6,12 @@ import { useScrollToTop } from '../components/hooks'
 import { sideMenu } from '../data/sideBar'
 import '../styles/dashBoard.css'
 import DashEvents from './DashEvents'
+import DashHelp from './DashHelp'
 import Events from './Events'
+import Lovequest from './Lovequest'
 import MeetUp from './MeetUp'
 import Onboard from './Onboard'
+import Settings from './Settings'
 
 
 
@@ -99,7 +102,7 @@ const DashBoard = () => {
 
             </div>
             <div className="options">
-                <div className="menu">
+                <div className="menu" onClick={e=>{navigate('settings')}}>
                     <div className="icon">
                         <img src={icons.Settings} alt="" />
                     </div>
@@ -107,7 +110,7 @@ const DashBoard = () => {
                         Settings
                     </div>
                 </div>
-                <div className="menu">
+                <div className="menu" onClick={e=>{navigate('help')}}>
                     <div className="icon">
                         <img src={icons.Help} alt="" />
                     </div>
@@ -121,8 +124,11 @@ const DashBoard = () => {
             <Routes>
                 <Route index path='/*'  element={<Onboard/>}/>
                 <Route path='event' element={<Events/>}/>
-                <Route index path='dashEvents' element={<DashEvents/>}/>
-                <Route index path='meetup' element={<MeetUp/>}/>
+                <Route path='dashEvents' element={<DashEvents/>}/>
+                <Route path='meetup' element={<MeetUp/>}/>
+                <Route path='settings' element={<Settings/>}/>
+                <Route path='help' element={<DashHelp/>}/>
+                <Route path='lovequest' element={<Lovequest/>}/>
 
             </Routes>
         </div>

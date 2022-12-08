@@ -61,6 +61,7 @@ const SignUp = () => {
         <section className="signup-form">
             <img src={signUp.signup} alt="" className="banner" />
             <div className="form">
+
                 <h2>
                     Sign Up
                 </h2>
@@ -349,7 +350,7 @@ const SignUp = () => {
                 </form>
                 <div className="call-to-action">
                     <p >
-                    Already a member? <a> Sign In</a>
+                    Already a member? <a href='/signin'> Sign In</a>
                     </p>
                     <Link to={'/verify'} >
                         <button className="Join-btn">
