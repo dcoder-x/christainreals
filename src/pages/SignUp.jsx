@@ -163,7 +163,7 @@ const SignUp = () => {
                     <div className="address">
                         <div className="country">
                             <label htmlFor="country">
-                                Country/State
+                                Country
                             <p style={{color:'red'}}> *</p></label>
                             <select name="country" id="country" onChange={e=>{
                                 // country.filter(country=>{country.name==e.target.value})
@@ -188,7 +188,7 @@ const SignUp = () => {
                         </div>
                         <div className="state">
                             <label htmlFor="state">
-                                state
+                                Town/City
                             <p style={{color:'red'}}> *</p></label>
                             <select name="state" id="state"
                             onChange={e=>{
@@ -212,7 +212,7 @@ const SignUp = () => {
                                 </optgroup>
                             </select>
                         </div>
-                        <div className="city">
+                        {/* <div className="city">
                             <label htmlFor="city">
                                 Town/City
                             <p style={{color:'red'}}> *</p></label>
@@ -231,7 +231,7 @@ const SignUp = () => {
                                     }
                                 </optgroup>
                             </select>
-                        </div>
+                        </div> */}
                     </div>
                     
                     <div className="post-code">
