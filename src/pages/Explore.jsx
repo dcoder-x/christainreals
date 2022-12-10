@@ -21,9 +21,10 @@ const Explore = () => {
           onClick={(e) => {
             setshowMessage(!showMessage);
           }}
-          icon={"ph:chat-circle-fill"}
+          icon={showMessage?"ion:close-circle-sharp":"material-symbols:menu-open"}
           className={"liked"}
           width={30}
+          style={{margin:'1rem 0'}}
         />
       </div>
       <section
