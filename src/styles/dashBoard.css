@@ -78,6 +78,9 @@
     /* padding: 1rem 0rem; */
     padding-left: 3rem;
 }
+#dashboard .options .menu{
+    margin: 1rem 0 !important;
+}
 #dashboard .sideBar .menu:hover,
 #dashboard .sideBar .menu:focus-visible{
     background-color: #FF6A6A;

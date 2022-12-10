@@ -7,10 +7,12 @@ import { sideMenu } from '../data/sideBar'
 import '../styles/dashBoard.css'
 import DashEvents from './DashEvents'
 import DashHelp from './DashHelp'
+import Discussion from './Discussion'
 import Events from './Events'
 import Lovequest from './Lovequest'
 import MeetUp from './MeetUp'
 import Onboard from './Onboard'
+import Profile from './Profile'
 import Settings from './Settings'
 
 
@@ -129,6 +131,9 @@ const DashBoard = () => {
                 <Route path='settings' element={<Settings/>}/>
                 <Route path='help' element={<DashHelp/>}/>
                 <Route path='lovequest' element={<Lovequest/>}/>
+                <Route path='discussion' element={<Discussion/>}/>
+                <Route path='profile' element={<Profile/>}/>
+
 
             </Routes>
         </div>

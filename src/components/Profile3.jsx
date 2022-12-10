@@ -1,7 +1,7 @@
 import React from "react";
 import { CheckBox, SimpleText } from "./Formcomps";
 
-const Profile3 = () => {
+const Profile3 = ({index,onClick,profileSetup}) => {
   return (
     <form>
       <div className="checkBoxes">
@@ -61,7 +61,18 @@ const Profile3 = () => {
 
         <CheckBox label={"I do not belong to a church"} />
       </div>
-      
+      <div className="call-to-action">
+            <i style={{ color: "red", fontStyle: "italic" }}>
+              Please fill in accurate information !
+            </i>
+            <button
+              className="Join-btn"
+              onClick={onClick}
+              type="button" 
+            >
+              {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+            </button>
+          </div>
     </form>
   );
 };

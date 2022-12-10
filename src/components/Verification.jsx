@@ -69,7 +69,8 @@ const message = [
     desc: `Don't quit now! you are almost there, your're not a quitter. Keep Going!!`,
   },
 ];
-const Verify = () => {
+
+const Verify =  () => {
   const navigate = useNavigate();
   const [index, setindex] = useState(0);
   const Form = profileSetup[index].form;
@@ -77,16 +78,23 @@ const Verify = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [index]);
-  function handleForm() {
-    const form = document.querySelector('form')
-    form.onsubmit=(e)=>{
-        e.preventDefault()
-        console.log(form)
-    }
-    form.submit()
+//   function handleForm() {
+//     const form = document.querySelector('form')
+//     console.log(form)
+//     form.submit()
+//     form.addEventListener('submit',e=>{e.preventDefault()})
+
 
  
-  }
+//   }
+function handleIncrement() {
+    if (index != profileSetup.length - 1) {
+      setindex(index + 1);
+      setshowModal(true);
+    } else {
+      setindex(5);
+    }
+}
 
   return (
     <main id="sign-up">
@@ -101,26 +109,18 @@ const Verify = () => {
               }}
             ></div>
           </div>
-          {<Form />}
-          <div className="call-to-action">
+          {<Form index={index} onClick={handleIncrement} profileSetup={profileSetup} />}
+          {/* <div className="call-to-action">
             <i style={{ color: "red", fontStyle: "italic" }}>
               Please fill in accurate information !
             </i>
             <button
               className="Join-btn"
-              onClick={(e) => {
-                if (index != profileSetup.length - 1) {
-                //   handleForm()
-                  setindex(index + 1);
-                  setshowModal(true);
-                } else {
-                  setindex(5);
-                }
-              }}
+              
             >
               {index == profileSetup.length - 1 ? "Submit" : "Continue"}
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
       <Modal

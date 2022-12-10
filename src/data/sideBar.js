@@ -2,7 +2,7 @@ import { icons } from "../assets/assets";
 
 export const sideMenu = [
     {
-        name:'Inbox',
+        name:'Dating',
         link:"inbox",
         icon: icons.Help,
     },

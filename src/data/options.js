@@ -48,17 +48,37 @@ export const help = [
   // },
 ];
 
-export const discQuestion = [
+export const loveQuestion = [
   {
     question: " What do i do on a first date? and what do i wear?",
     answer:
       " When I say I love you more, I don’t mean I love you more than you love me. I mean I love you more than the bad days ahead of us, I love you more than any fight we will ever have. I love you more than the distance between us Ans: “When I say I love you more, I don’t mean I love you more than you love me. I mean I love you more than the bad days ahead of us, I love you more than any fight we will ever have. I love you more than the distance between us",
-    likes:0,
+    likes: 0,
   },
   {
     question: " What do i do on a first date? and what do i wear?",
     answer:
       " When I say I love you more, I don’t mean I love you more than you love me. I mean I love you more than the bad days ahead of us, I love you more than any fight we will ever have. I love you more than the distance between us Ans: “When I say I love you more, I don’t mean I love you more than you love me. I mean I love you more than the bad days ahead of us, I love you more than any fight we will ever have. I love you more than the distance between us",
-    likes:20,
+    likes: 20,
+  },
+];
+export const discQuestion = [
+  {
+    question: " What do i do on a first date? and what do i wear?",
+    answer:
+      " When I say I love you more, I don’t mean I love you more than you love me. I mean I love you more than the bad days ahead of us, I love you more than any fight we will ever have. I love you more than the distance between us Ans: “When I say I love you more, I don’t mean I love you more than you love me. I mean I love you more than the bad days ahead of us, I love you more than any fight we will ever have. I love you more than the distance between us",
+    likes: 0,
+    comments: [
+      {
+        comment:
+          "When I say I love you more, I don’t mean I love you more than ",
+        replies: [
+          {
+            reply:
+              "When I think you are",
+          },
+        ],
+      },
+    ],
   },
 ];

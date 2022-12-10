@@ -24,7 +24,7 @@ const Cookies = () => {
             <div className='cookie' ref={cookieRef}  >
                 <p>
                     This website uses Cookies to work properly and for analytics and marketing purposes
-                    To find out mpre abou our use of cookies, please see our Privacy Policy and Cookie Policy.
+                    To find out more about our use of cookies, please see our Privacy Policy and Cookie Policy.
                     By continuing to browse our website, you agree to our use of cookies.  
                 </p>
                 <div>

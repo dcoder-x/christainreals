@@ -13,10 +13,10 @@ const Onboard = () => {
     const route = useRoute().route
   return (
     <main id="onboard">
-        <div className="tab">
+        {/* <div className="tab">
             <div 
                 className={`tab-btn ${route=='explore'?'active':null}`} 
-                onClick={e=>{navigate('explore')}}
+                onClick={e=>{navigate('/dashboard')}}
             >
                 Browse
             </div>
@@ -26,7 +26,7 @@ const Onboard = () => {
             >
                 Messages
             </div>
-        </div>
+        </div> */}
         <div className="content">
             <Routes>
                 <Route index path='/*' element={<Explore/>}/>

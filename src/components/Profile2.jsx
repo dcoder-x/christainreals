@@ -1,7 +1,7 @@
 import React from "react";
 import { CheckBox, Select, SimpleText } from "./Formcomps";
 
-const Profile2 = () => {
+const Profile2 = ({index,onClick,profileSetup}) => {
   return (
     <form>
       <SimpleText
@@ -42,9 +42,7 @@ const Profile2 = () => {
         }}
       />
       <div className="checkBoxes">
-        <label htmlFor="">
-        What do you want more than anything right now?
-        </label>
+        <label htmlFor="">What do you want more than anything right now?</label>
         <CheckBox label={"To be successful at work or school"} />
         <CheckBox label={"To make new friends"} />
         <CheckBox
@@ -65,7 +63,7 @@ const Profile2 = () => {
           minHeight: "100px",
         }}
       />
-      
+
       <SimpleText
         // extralabel={
         //   "This is your opportunity to sell yourself. Tell us a little about yourself and your personality. E. g. How would a good friend describe you? What makes you unique? What drives you? What are your likes and dislikes? Which things are you passionate about? What activities do you enjoy doing? What activities bring out the best in you?"
@@ -77,7 +75,14 @@ const Profile2 = () => {
           minHeight: "100px",
         }}
       />
-      
+      <div className="call-to-action">
+        <i style={{ color: "red", fontStyle: "italic" }}>
+          Please fill in accurate information !
+        </i>
+        <button type="button"  className="Join-btn" onClick={onClick}>
+          {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+        </button>
+      </div>
     </form>
   );
 };

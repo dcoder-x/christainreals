@@ -1,7 +1,7 @@
 import React from "react";
 import { CheckBox, Select } from "./Formcomps";
 
-const Profile4 = () => {
+const Profile4 = ({index,onClick,profileSetup}) => {
   return (
     <form>
       <Select
@@ -124,7 +124,18 @@ const Profile4 = () => {
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
       </div>
-      
+      <div className="call-to-action">
+            <i style={{ color: "red", fontStyle: "italic" }}>
+              Please fill in accurate information !
+            </i>
+            <button
+              className="Join-btn"
+              onClick={onClick}
+              type="button" 
+            >
+              {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+            </button>
+          </div>
     </form>
   );
 };

@@ -2,14 +2,15 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { discQuestion } from "../data/options";
+import { testimonials } from "../assets/assets";
+import { loveQuestion } from "../data/options";
 import "../styles/loveQuest.css";
 
 const Lovequest = () => {
   return (
     <main id="loveQuest">
       <section className="questions">
-        {discQuestion.map((question, index) => {
+        {loveQuestion.map((question, index) => {
           return (
             <div
               className="question"
@@ -17,12 +18,22 @@ const Lovequest = () => {
                 question.link ? navigate(question.link) : null;
               }}
             >
-              <h3 style={{ margin: 0 }}>Admin</h3>
+              <div className="admin-profile">
+                <img src={testimonials.dansarah} alt="" />
+                <div className="admin">
+                  <p>{"admin name"}</p>
+                  <p className="admin-title">
+                    {
+                      'Relationship expert'
+                    }
+                  </p>
+                </div>
+              </div>
               <p className="question-name">
                 {`Question: ${question.question}`}
               </p>
               <p className="answer">{question.answer}</p>
-              <LikeButton count={parseInt(question.likes)}/>
+              <LikeButton count={parseInt(question.likes)} />
             </div>
           );
         })}
@@ -32,19 +43,19 @@ const Lovequest = () => {
   );
 };
 
-const LikeButton = ({count}) => {
+const LikeButton = ({ count }) => {
   const [liked, setliked] = useState(false);
-  const [likecount, setcount] = useState(count)
+  const [likecount, setcount] = useState(count);
   return (
     <div className="like">
       <Icon
         onClick={(e) => {
           setliked(!liked);
-          !liked?setcount(likecount+1):setcount(likecount-1)
+          !liked ? setcount(likecount + 1) : setcount(likecount - 1);
         }}
-        className={`likebutton ${liked?'liked':null}`}
+        className={`likebutton ${liked ? "liked" : null}`}
         stroke="black"
-        icon="ant-design:like-filled"
+        icon="mdi:cards-heart"
       />
       <p className="likecount">{likecount}</p>
     </div>

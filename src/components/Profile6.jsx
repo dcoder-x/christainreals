@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { CheckBox, Select } from "./Formcomps";
 
-const Profile6 = () => {
+const Profile6 = ({ index, onClick, profileSetup }) => {
+  const navigate = useNavigate()
+  const handleForm = (e) =>{
+      navigate('/signin')
+      console.log('gtey')
+  }
   return (
-    <form>
+    <form onSubmit={e=>{handleForm()}} method='POST'>
       <Select
         options={[
           "When alone with them",
@@ -72,10 +78,9 @@ const Profile6 = () => {
       />
       <Select
         options={[
-            'Access their phone secretly to find out what’s going. You don’t want to be left guessing.',
-            'Ask them directly what’s going on. You trust they’ll be honest with you.',
-            'Do nothing. After all what you don’t know won’t hurt you.',
-            
+          "Access their phone secretly to find out what’s going. You don’t want to be left guessing.",
+          "Ask them directly what’s going on. You trust they’ll be honest with you.",
+          "Do nothing. After all what you don’t know won’t hurt you.",
         ]}
         name={"flirtingPartner"}
         label={
@@ -83,7 +88,14 @@ const Profile6 = () => {
         }
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
       />
-      
+      <div className="call-to-action">
+        <i style={{ color: "red", fontStyle: "italic" }}>
+          Please fill in accurate information !
+        </i>
+        <button type="submit" className="Join-btn" onClick={onClick}>
+          {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+        </button>
+      </div>
     </form>
   );
 };

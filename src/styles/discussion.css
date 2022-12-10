@@ -1,0 +1,150 @@
+#discussion {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  margin: 0rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#discussion .questions {
+  margin: 0rem 1rem;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding-left: 2rem;
+  width: 100%;
+  padding-top: 4rem;
+  align-self: flex-start;
+}
+#discussion .question {
+  padding: 0.8rem 4rem;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem 0;
+  /* cursor: pointer; */
+  clip-path: polygon(
+    50% 0%,
+    100% 0,
+    100% 43%,
+    100% 79%,
+    100% 100%,
+    32% 100%,
+    2% 100%,
+    2% 11%,
+    0 0
+  );
+  width: 80%;
+  background: #ffffff;
+  border-radius: 0.5rem;
+}
+#discussion .question-name {
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.747);
+  color: rgba(165, 165, 165, 1);
+  font-size: 14px;
+  margin: 0.5rem 0;
+}
+#discussion .answer {
+  font-size: 14px;
+}
+#discussion p {
+  margin: 0;
+}
+#discussion .time {
+  font-size: 9px;
+  color: #2d2d2d;
+}
+#discussion .admin-profile {
+  display: flex;
+  align-items: center;
+}
+#discussion .admin-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+#discussion .admin-profile p {
+  margin: 0 1rem;
+}
+#discussion .pin {
+  color: rgba(255, 106, 106, 1);
+  width: 30px;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+}
+#discussion .Ask {
+  padding: 0.5rem 1.5rem;
+  width: fit-content;
+  background-color: rgba(255, 106, 106, 1);
+  color: white;
+  border-radius: 0;
+  margin-top: 1rem;
+  position: fixed;
+  bottom: 1%;
+  right: 2%;
+}
+#discussion .chat-input {
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #f3f3f3;
+  /* position: fixed; */
+  bottom: 0;
+}
+#discussion .text {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  border: none;
+  margin: 0;
+}
+#discussion .like {
+  width: max-content;
+  align-self: flex-end;
+  display: flex;
+  margin: 0 1rem;
+}
+#discussion .like p {
+  margin: 0;
+}
+.likebutton {
+  color: transparent;
+  stroke-width: 2px;
+  stroke: rgba(255, 106, 106, 1);
+  margin-right: 1rem;
+  font-size: 20px;
+}
+.liked {
+  color: rgba(255, 106, 106, 1);
+  stroke: transparent;
+}
+#discussion .comment-input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 1rem 0;
+}
+#discussion .comment {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 1rem 3rem;
+}
+#discussion .comment .question{
+    width: max-content;
+    padding: 0 2rem;
+}
+#discussion .comment img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }

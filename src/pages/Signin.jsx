@@ -36,7 +36,7 @@ const Signin = () => {
                 <input
                   placeholder={"fill in your password"}
                   required={true}
-                  type={password ? "password" : "text"}
+                  type={!password ? "password" : "text"}
                   name={"password"}
                   //   style={{ ...inputStyle }}
                   //   id={id}

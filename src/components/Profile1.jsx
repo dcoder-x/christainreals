@@ -2,7 +2,7 @@ import React from "react";
 import { questionBank } from '../data/questionBank'
 const {Education,Employment,Ethnicity,relationship,Language,BodyType,EyeColour,Children,HairColour} = questionBank
 
-const Profile1 = () => {
+const Profile1 = ({index,onClick,profileSetup}) => {
   function handleSubmit(e) {
     e.preventDefault()
     console.log('submited')
@@ -10,7 +10,7 @@ const Profile1 = () => {
   return (
     <>
       <h2>Congratulations your email has been verified</h2>
-      <form onSubmit={e=>{handleSubmit(e)}}>
+      <form onSubmit={e=>{handleSubmit}} method>
         <div className="address">
           <div className="country">
             <label htmlFor="country">Relationship status</label>
@@ -190,7 +190,19 @@ const Profile1 = () => {
             </optgroup>
           </select>
         </div>
-        
+        <div className="call-to-action">
+            <i style={{ color: "red", fontStyle: "italic" }}>
+              Please fill in accurate information !
+            </i>
+            <button
+              className="Join-btn"
+              onClick={onClick}
+              type="button" 
+              
+            >
+              {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+            </button>
+          </div>
       </form>
     </>
   );

@@ -1,73 +1,216 @@
-#explore{
-    width: 100%;
+#explore {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background: #F9F9F9; */
 }
-#explore .users{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    flex-wrap: wrap;
+#explore .users {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-wrap: wrap;
 }
-#explore .user{
-    width: 30% ;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 200px;
-    background-color: rgb(255, 255, 255);
-    margin: 2rem 3rem;
+#explore .optTab {
+  position: fixed;
+  right: 2%;
+  top: 12%;
 }
-#explore .user .image{
-    width: 45%;
-    height: 200px;
-    background: url(../assets/images/catherine.jpeg);
-    background-size: cover;
-    background-position:  center;
-    background-repeat: no-repeat;
-    border-radius: .5rem;
-} 
-#explore .user .image img{
-    height: 100%;
-    width: 100%;
+#explore .users .user {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 200px;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  margin: 2rem 3rem;
 }
-#explore .user .info{
-    width: 50%;
+#explore .user .group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-#explore .user .info .name{
-    font-weight: 600;
-    font-size: 16px;
+#explore .user .group .personal {
+  display: flex;
+  flex-direction: column;
 }
-#explore .user .info .address{
-    font-size: 13px;
+#explore .user p {
+  margin: 0;
 }
-#explore .user .info .age{
-    font-size: 13px;
+/* //sliding image */
+#explore .user .swiper {
+  height: 100%;
 }
-#explore .user .info .btns{
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-    margin: 1rem 0;
-    width: 100%;
+#explore .user .swiper-wrapper {
+  height: 100%;
 }
-#explore .user .info .btns .like-btn{
-    background-color: #FF6A6A;
-    color: white;
-    /* width: 20%; */
-    padding: .6rem;
-    margin-right: 1rem;
-    border-radius: .3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#explore .user .slide {
+  height: 100%;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-radius: 10px 10px 0px 0px !important;
 }
-#explore .user .info .btns .message-btn{
-    /* padding: .7rem 2rem; */
-    /* width: 60%; */
-    background-color: #FF6A6A;
-    color: white;
-    padding: .6rem;
-    display: flex;
-    justify-content: center;
-    border-radius: .3rem;
+#explore .user .swiper-pagination-bullet {
+  width: 15%;
+  border-radius: 100px;
+  height: 3px;
+  opacity: 1 !important;
+  background-color: #ffffffa2 !important;
+}
+#explore .user .swiper-pagination-bullet-active {
+  background-color: #ff6a6a !important;
+}
+#explore .user .image {
+  width: 100%;
+  height: 300px;
+  border-radius: 30px 0 0 30px !important;
+  /* background: url(../assets/images/catherine.jpeg); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+}
+#explore .user .image img {
+  height: 100%;
+  width: 100%;
+}
+#explore .user .info {
+  width: 100%;
+  padding: 1rem;
+}
+#explore .user .info .name {
+  font-weight: 600;
+  font-size: 16px;
+}
+#explore .user .info .address {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+#explore .user .info .age {
+  font-size: 13px;
+}
+#explore .user .about-user {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 1rem 0;
+}
+#explore .user .hobbies-section p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+#explore .user .hobbies-section .hobby {
+  padding: 0.05rem 0.3rem;
+  font-size: 13px;
+  color: white;
+  background-color: #ff6a6a;
+}
+#explore .user .info .btns {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  margin: 1rem 0;
+  width: 100%;
+}
+#explore .user .info .btns .like-btn {
+  background-color: #ff6a6a;
+  color: white;
+  /* width: 20%; */
+  padding: 0.6rem;
+  margin-right: 1rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#explore .user .info .btns .message-btn {
+  /* padding: .7rem 2rem; */
+  /* width: 60%; */
+  background-color: #ff6a6a;
+  color: white;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.3rem;
+}
+
+#explore .messages {
+  width: 25%;
+  height: 78vh;
+  position: fixed;
+  right: 5%;
+  top: 15%;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.227);
+  border-radius: 25px;
+}
+#explore .messages .header {
+  color: #ff6a6a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#explore .messages .header h1 {
+  font-family: Space Grotesk;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+#explore .messages .messages-holder {
+  width: 100%;
+  height: 100%;
+}
+#explore .messages .messages-holder .message {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem;
+  margin: 0.5rem 0;
+}
+#explore .messages .messages-holder .message:hover{
+  background-color: aliceblue;
+}
+#explore .messages .messages-holder .message .user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#explore .messages .messages-holder .message .user .name {
+  font-family: Space Grotesk;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0;
+}
+#explore .messages .messages-holder .message .user .snippet {
+  font-family: Space Grotesk;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0;
+  height: 2rem;
+}
+#explore .messages .messages-holder .message .user img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: .5rem;
 }

@@ -8,7 +8,7 @@
     justify-content: center;
 }
 #loveQuest .questions{
-    margin: 0rem 3rem;
+    margin: 0rem 1rem;
     display: flex;
     /* align-items: center; */
     justify-content: space-evenly;
@@ -27,8 +27,8 @@
     margin: 1rem 0;
     /* cursor: pointer; */
     clip-path: polygon(50% 0%, 100% 0, 100% 43%, 100% 79%, 100% 100%, 32% 100%, 2% 100%, 2% 11%, 0 0);
-    width: 70%;
-    background: rgb(236, 236, 236);
+    width: 80%;
+    background: #FFFFFF;
     border-radius: .5rem;
 }
 #loveQuest .question-name{
@@ -36,9 +36,29 @@
     background-color: rgba(255, 255, 255, 0.747);
     color: rgba(165, 165, 165, 1);
     font-size: 14px;
+    margin: .5rem 0;
 }
 #loveQuest .answer{
     font-size: 14px;
+}
+#loveQuest p{
+    margin: 0;
+}
+#loveQuest .admin-profile{
+    display: flex;
+    align-items: center;
+}
+#loveQuest .admin-profile img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+#loveQuest .admin-profile p{
+    margin: 0 1rem;
+}
+#loveQuest .admin-title{
+    font-size: 9px;
+    color: #2d2d2d;
 }
 #loveQuest .Ask{
     padding: .5rem 1.5rem;
@@ -60,11 +80,14 @@
     margin: 0;
 }
 #loveQuest .likebutton{
-    color: #373737;
+    color: #e5e5e5;
     stroke: black;
     margin-right: 1rem;
     font-size: 20px;
 }
 #loveQuest .liked{
     color: rgba(255, 106, 106, 1);
+    stroke: transparent
+    
+    ;
 }

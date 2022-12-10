@@ -1,9 +1,9 @@
 import React from "react";
 import { CheckBox, Select } from "./Formcomps";
 
-const Profile5 = () => {
+const Profile5 = ({ index, onClick, profileSetup }) => {
   return (
-    <form >
+    <form>
       <Select
         options={[
           "I am very systematic and always plan ahead",
@@ -47,22 +47,28 @@ const Profile5 = () => {
       />
       <Select
         options={[
-            'Beach/Seaside',
-            'Resorts/Hotels/Spas',
-            'Cruises',
-            'Road trips',
-            'City tour',
-            'Outdoors/Adventures',
-            'Camping',
-            'Staycation',
-            'Group travel' 
-            
+          "Beach/Seaside",
+          "Resorts/Hotels/Spas",
+          "Cruises",
+          "Road trips",
+          "City tour",
+          "Outdoors/Adventures",
+          "Camping",
+          "Staycation",
+          "Group travel",
         ]}
         name={"holiday"}
         label={"What are your ideal holiday types?"}
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
       />
-      
+      <div className="call-to-action">
+        <i style={{ color: "red", fontStyle: "italic" }}>
+          Please fill in accurate information !
+        </i>
+        <button type="submit"  className="Join-btn" onClick={onClick}>
+          {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+        </button>
+      </div>
     </form>
   );
 };
