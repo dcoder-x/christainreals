@@ -127,7 +127,7 @@ export const MultiSelect = ({label, options, optionClass, containerClass }) => {
                   e.currentTarget.classList.toggle('selected')
                   console.log(selections)
                 } else {
-                  alert('you can only select 5')
+                  // alert('you can only select 5')
                   console.log(selections.length)
                   e.currentTarget
                   .querySelector(".icon")
