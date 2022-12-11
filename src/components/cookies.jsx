@@ -31,9 +31,9 @@ const Cookies = () => {
                     <button onClick={accept}>
                         Accept
                     </button>
-                    <button style={{background:'rgb(159, 22, 40)'}} onClick={decline}>
+                    {/* <button style={{background:'rgb(159, 22, 40)'}} onClick={decline}>
                         Decline
-                    </button>
+                    </button> */}
                 </div>
 
                 

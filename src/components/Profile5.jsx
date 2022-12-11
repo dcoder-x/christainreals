@@ -1,26 +1,32 @@
 import React from "react";
-import { CheckBox, Select } from "./Formcomps";
+import { useNavigate } from "react-router";
+import { CheckBox, Select, SimpleText } from "./Formcomps";
 
 const Profile5 = ({ index, onClick, profileSetup }) => {
+  const navigate = useNavigate()
+  const handleForm = (e) =>{
+      navigate('/signin')
+      console.log('gtey')
+  }
   return (
-    <form>
-      <Select
-        options={[
-          "I am very systematic and always plan ahead",
-          "I am very relaxed and just let things work themselves out",
-          "It depends on my mood",
-        ]}
-        name={"planning"}
-        label={"What’s your approach to planning?"}
-        selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
-      />
-      <Select
+    <form onSubmit={e=>{handleForm()}} method='POST'>
+      {/* <Select
         options={["Yes, definitely", "Not really"]}
         name={"cleaning"}
         label={
           "Is it important to you that the house is kept clean at all times?"
         }
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+      /> */}
+      <SimpleText
+        label={
+          "What are the things that you do not like in a partner or in a relationship?"
+        }
+      />
+      <SimpleText
+        label={
+          "What are the things that you like most in a partner or in a relationship?"
+        }
       />
       <Select
         options={["Yes, definitely", "Not really"]}
@@ -29,23 +35,50 @@ const Profile5 = ({ index, onClick, profileSetup }) => {
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
       />
       <Select
-        options={["Yes, I eat at set times", "No, I eat whenever I'm hungry"]}
-        name={"eat"}
-        label={"Are regular mealtimes important to you?"}
+        options={[
+          "When alone with them",
+          "When in the company of friends",
+          "When in a large gathering ",
+          "No preference",
+        ]}
+        name={"easeWithPartner"}
+        label={"When would you feel most at ease with a partner?"}
+        selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+      />
+      <Select
+        options={["Yes", "No"]}
+        name={"oppositeSexFriends"}
+        label={
+          "Would you be comfortable if your partner keeps friends of the opposite sex that you are not friends with?"
+        }
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
       />
       <Select
         options={[
-          "Every day",
-          "Once or twice a week",
-          "Several times a month",
-          "That’s not my thing",
+          "Yes – I don’t see them as a threat",
+          "No – Exes should remain in the past",
         ]}
-        name={"excercise"}
-        label={"How often do you exercise?"}
+        name={"exes"}
+        label={
+          "Would you be comfortable if your partner still maintains a close friendship with their ex?"
+        }
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
       />
       <Select
+        options={[
+          "Cheating",
+          "Domestic Violence",
+          "Verbal Abuse",
+          "Dishonesty",
+        ]}
+        name={"offense"}
+        label={
+          "What, in your opinion is the gravest offence your partner can commit against you?"
+        }
+        selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+      />
+
+      {/* <Select
         options={[
           "Beach/Seaside",
           "Resorts/Hotels/Spas",
@@ -60,12 +93,12 @@ const Profile5 = ({ index, onClick, profileSetup }) => {
         name={"holiday"}
         label={"What are your ideal holiday types?"}
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
-      />
+      /> */}
       <div className="call-to-action">
         <i style={{ color: "red", fontStyle: "italic" }}>
           Please fill in accurate information !
         </i>
-        <button type="submit"  className="Join-btn" onClick={onClick}>
+        <button type="submit" className="Join-btn" onClick={onClick}>
           {index == profileSetup.length - 1 ? "Submit" : "Continue"}
         </button>
       </div>

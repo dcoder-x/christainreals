@@ -19,9 +19,9 @@ const Events = () => {
   return (
     <main id="events">
       <PageHeader headerImage={headerBg.headerimage5} pageTitle={"Events"} />
-      <EventSwiper eventgroup={"My events"} data={eventsData} />
-      <EventSwiper eventgroup={"Past events"} data={eventsData} />
-      <EventSwiper eventgroup={"Upcoming"} data={eventsData} />
+      <EventSwiper eventgroup={'My Scheduled events'} data={eventsData} isheader/> 
+        <EventSwiper eventgroup={'All Upcoming events'} upcoming data={eventsData} isheader/> 
+        <EventSwiper eventgroup={'All Past events'} past data={eventsData} isheader/> 
       <Footer />
     </main>
   );

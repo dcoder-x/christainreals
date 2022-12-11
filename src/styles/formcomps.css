@@ -1,0 +1,41 @@
+#multiselect {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#multiselect .choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0.5rem;
+  height: 40px;
+  /* width: 120px; */
+  border: 1px solid #ff6a6a;
+  margin: 0.2rem;
+  text-align: center;
+}
+#multiselect .choice:hover {
+  background-color: #ff6a6a;
+  color: white;
+}
+#multiselect .choice.selected {
+    background-color: #ff6a6a;
+    color: white;
+  }
+#multiselect .choice p {
+  margin: 0;
+  font-family: Space Grotesk;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+#multiselect .choice .icon{
+    display: none;
+}
+#multiselect .choice .selected{
+    display: block;
+}
+

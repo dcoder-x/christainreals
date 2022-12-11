@@ -1,235 +1,246 @@
-#sign-up .signup-form{
-    display: flex;
-    margin-top: 5rem;
+#sign-up .signup-form {
+  display: flex;
+  margin-top: 5rem;
 }
-.signup-form .banner{
-    width: 40%;
-    /* height: 1682; */
-    /* max-height: 100vh; */
+.signup-form .banner {
+  width: 40%;
+  /* height: 1682; */
+  /* max-height: 100vh; */
 }
 .progressBar {
-	background-color: #d8d8d8;
-	border-radius: 20px;
-	position: relative;
-	margin: 15px 0;
-	height: 20px;
-	width: 100%;
+  background-color: #d8d8d8;
+  border-radius: 20px;
+  position: relative;
+  margin: 15px 0;
+  height: 20px;
+  width: 100%;
 }
 
 .progressDone {
-	background: linear-gradient(to left, #F2709C, #FF9472);
-	box-shadow: 0 3px 3px -5px #F2709C, 0 2px 5px #F2709C;
-	border-radius: 20px;
-	color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	width: 0;
-	transition: 1s ease 0.3s;
+  background: linear-gradient(to left, #f2709c, #ff9472);
+  box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
+  border-radius: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 0;
+  transition: 1s ease 0.3s;
 }
-.signup-form .form{
-    padding: 3rem 5rem;
+.signup-form .form {
+  padding: 3rem 5rem;
 }
-.signup-form .radios{
-    display: flex;
+.signup-form .radios {
+  display: flex;
 }
-.signup-form .genders, .seeking{
-    margin: 1rem 1rem 0 0;
+.signup-form .genders,
+.seeking {
+  margin: 1rem 1rem 0 0;
 }
-.signup-form .gender{
-    border: 1px solid #FF0000;
-    font-size: 15px;
-    font-weight: 500;
-    /* line-height: 60px; */
-    letter-spacing: 0em;
-    text-align: left;
-    padding:0 1rem;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    margin-top: .5rem;
+.signup-form .gender {
+  border: 1px solid #ff0000;
+  font-size: 15px;
+  font-weight: 500;
+  /* line-height: 60px; */
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  margin-top: 0.5rem;
 }
-.signup-form .radio{
-    margin-top: 1rem;
-    border: #FF0000 1px solid
+.signup-form .radio {
+  margin-top: 1rem;
+  border: #ff0000 1px solid;
 }
-.signup-form input{
-    margin-top: .2rem;
-    margin-bottom: 1rem;
-    border-radius: 2px;
-    height: 30px;
-    font-size: 13px;
-    padding-left: 1rem;
-    background-color: white;
-    border: 1px solid rgba(122, 122, 122, 1)
+.signup-form input {
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  height: 30px;
+  font-size: 13px;
+  padding-left: 1rem;
+  background-color: white;
+  border: 1px solid rgba(122, 122, 122, 1);
 }
-.signup-form label{
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0em;
-    text-align: left;
-
+.signup-form label {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: left;
 }
-.signup-form .mail{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
+.signup-form .field-info {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 90%;
 }
-.signup-form select{
-    width: fit-content;
+.signup-form .mail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.email{
-    width: 80%;
-    height: 33px;
+.signup-form select {
+  width: fit-content;
 }
-.signup-form .names{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.email {
+  width: 80%;
+  height: 33px;
 }
-.signup-form .name{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 80%;
+.signup-form .names {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
-.signup-form .name input{
-    width: 70%;
+.signup-form .name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
 }
-.signup-form .address,.personal{
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    margin: 1rem 0;
+.signup-form .name input {
+  width: 70%;
 }
-.signup-form .country,.state,.city{
-    display: flex;
-    flex-direction: column;
+.signup-form .address,
+.personal {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin: 1rem 0;
 }
-.signup-form .address select{
-    /* border: none; */
-    height: 30px;
-    border: 1px solid rgba(122, 122, 122, 1);
-    width: 80%;
-    padding-bottom: 1rem 0;
-    font-size: 12px;
-    min-width: 150px;
-    /* padding-top: .1rem; */
+.signup-form .country,
+.state,
+.city {
+  display: flex;
+  flex-direction: column;
 }
-.signup-form .post-code{
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-    justify-content: space-between;
+.signup-form .address select {
+  /* border: none; */
+  height: 30px;
+  border: 1px solid rgba(122, 122, 122, 1);
+  width: 80%;
+  padding-bottom: 1rem 0;
+  font-size: 12px;
+  min-width: 150px;
+  /* padding-top: .1rem; */
 }
-.signup-form .postcode{
-    display: flex;
-    flex-direction: column;
-    /* width: 50%; */
+.signup-form .post-code {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  justify-content: space-between;
 }
-.signup-form .postcode label{
-    margin-top: 0;
+.signup-form .postcode {
+  display: flex;
+  flex-direction: column;
+  /* width: 50%; */
 }
-.signup-form .post-code p{
-    /* font-family: Space Grotesk; */
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 15px;
-    letter-spacing: 0em;
-    text-align: left;
-    max-width: 55%;
-    margin: 0;
+.signup-form .postcode label {
+  margin-top: 0;
 }
-.signup-form .phone{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 .5rem;
-    margin-right: 2rem;
-    border: 1px solid rgba(122, 122, 122, 1);
-    max-width: 300px;
+.signup-form .post-code p {
+  /* font-family: Space Grotesk; */
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  max-width: 55%;
+  margin: 0;
 }
-.signup-form .phone select{
-    max-width: 120px;
-    border: none;
+.signup-form .phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  margin-right: 2rem;
+  border: 1px solid rgba(122, 122, 122, 1);
+  max-width: 300px;
 }
-.signup-form .phone input{
-    border: none;
-    margin: .5rem;
+.signup-form .phone select {
+  max-width: 120px;
+  border: none;
+}
+.signup-form .phone input {
+  border: none;
+  margin: 0.5rem;
 }
 .signup-form .dob {
-    width: 100%;
-    margin-left: 1rem;
+  width: 100%;
+  margin-left: 1rem;
 }
-.signup-form .dob #dropdown-date{
-    display: flex;
-    align-items: center;
+.signup-form .dob #dropdown-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  border: 1px solid rgba(122, 122, 122, 1);
+  min-height: 50px;
+  width: 100%;
+}
+.signup-form .dob select {
+  border: none;
+}
+.call-to-action {
+  display: flex;
+  align-items: center;
+  margin: 4rem 0;
+  justify-content: space-between;
+}
+.call-to-action a {
+  color: red;
+}
+.call-to-action .Join-btn {
+  margin-left: 5rem;
+  border-radius: 2px;
+}
+.checkField {
+  display: flex;
+  align-items: center;
+}
+.checkField label {
+  margin: 0 1rem;
+}
+.checkField input {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 900px) {
+  .signup-form .banner {
+    display: none;
+  }
+  .signup-form .form {
+    padding: 3rem 1rem;
+    width: 100%;
+  }
+  .signup-form .address,
+  .personal {
+    flex-wrap: wrap;
+  }
+  .signup-form .post-code {
+    width: 90%;
+    flex-wrap: wrap;
+  }
+  form {
+    width: 100%;
+  }
+  .signup-form .dob {
+    margin: 0%;
+    width: 90%;
+  }
+  .signup-form .dob #dropdown-date {
+    padding: 0;
+  }
+  .call-to-action {
+    flex-direction: column;
     justify-content: center;
-    padding: 0 .5rem;
-    border: 1px solid rgba(122, 122, 122, 1);
-    min-height: 50px;
-    width: 100%;
-}
-.signup-form .dob select{
-    border: none;
-}
-.call-to-action{
-    display: flex;
-    align-items: center;
-    margin: 4rem 0;
-    /* justify-content: space-between; */
-}
-.call-to-action a{
-    color: red;
-}
-.call-to-action .Join-btn{
-    margin-left: 5rem;
-    border-radius: 2px;
-}
-.checkField{
-    display: flex;
-    align-items: center;
-}
-.checkField label{
-    margin: 0 1rem;
-}
-.checkField input{
-    margin-bottom: 0;
-}
-@media screen and (max-width:900px) {
-    .signup-form .banner{
-        display: none;
-    }
-    .signup-form .form{
-        padding: 3rem 1rem;
-        width: 100%;
-    }
-    .signup-form .address, .personal{
-        flex-wrap: wrap;
-    }
-    .signup-form .post-code{
-        width: 90%;
-        flex-wrap: wrap;
-    }
-    form{
-        width: 100%;
-    }
-    .signup-form .dob{
-        margin: 0%;
-        width: 90%;
-    }
-    .signup-form .dob #dropdown-date{
-        padding: 0;
-    }
-    .call-to-action{
-        flex-direction: column;
-        justify-content: center;
-        margin: 1rem 0;
-        align-items: flex-start;
-    }
-    .call-to-action .Join-btn{
-        margin: 1rem 0;
-    }
+    margin: 1rem 0;
+    align-items: flex-start;
+  }
+  .call-to-action .Join-btn {
+    margin: 1rem 0;
+  }
 }

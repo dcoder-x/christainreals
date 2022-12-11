@@ -38,10 +38,10 @@ const profileSetup = [
     img: signUp.profileBanner5,
     form: Profile5,
   },
-  {
-    img: signUp.profileBanner6,
-    form: Profile6,
-  },
+  // {
+  //   img: signUp.profileBanner6,
+  //   form: Profile6,
+  // },
 ];
 const message = [
   {
@@ -60,10 +60,10 @@ const message = [
     title: "Almost done",
     desc: `Don't quit now! you are almost there, your're not a quitter. Keep Going!!`,
   },
-  {
-    title: "Almost there",
-    desc: `This is a neccesary part of your registration and it shows how serious you are, your're not a quitter. Keep Going!!`,
-  },
+  // {
+  //   title: "Almost there",
+  //   desc: `This is a neccesary part of your registration and it shows how serious you are, your're not a quitter. Keep Going!!`,
+  // },
   {
     title: "Last one I promise",
     desc: `Don't quit now! you are almost there, your're not a quitter. Keep Going!!`,
@@ -92,7 +92,7 @@ function handleIncrement() {
       setindex(index + 1);
       setshowModal(true);
     } else {
-      setindex(5);
+      setindex(profileSetup.length - 1);
     }
 }
 

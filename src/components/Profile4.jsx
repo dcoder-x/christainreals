@@ -1,19 +1,21 @@
 import React from "react";
 import { CheckBox, Select } from "./Formcomps";
 
-const Profile4 = ({index,onClick,profileSetup}) => {
+const Profile4 = ({ index, onClick, profileSetup }) => {
   return (
     <form>
-      <Select
+      {/* <Select
         options={["Yes", "No"]}
         name={"relationshipGoal"}
         label={
           "Do you believe that marriage should be the goal of every relationship?"
         }
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
-      />
+      /> */}
       <div className="checkBoxes">
-        <label htmlFor="">What is your view about marriage?</label>
+        <label htmlFor="">
+          What is your view about gender roles in marriage?
+        </label>
         <CheckBox
           label={
             "The man should be in control. That is how it was designed to be."
@@ -82,6 +84,41 @@ const Profile4 = ({index,onClick,profileSetup}) => {
         />
         <Select
           options={[
+            "I am very systematic and always plan ahead",
+            "I am very relaxed and just let things work themselves out",
+            "It depends on my mood",
+          ]}
+          name={"planning"}
+          label={"What’s your approach to planning?"}
+          selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+        />
+        <Select
+          options={["Yes, definitely", "Not really"]}
+          name={"cleaning"}
+          label={
+            "Is it important to you that the house is kept clean at all times?"
+          }
+          selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+        />
+        <Select
+          options={["Yes, I eat at set times", "No, I eat whenever I'm hungry"]}
+          name={"eat"}
+          label={"Are regular mealtimes important to you?"}
+          selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+        />
+        <Select
+          options={[
+            "Every day",
+            "Once or twice a week",
+            "Several times a month",
+            "That’s not my thing",
+          ]}
+          name={"excercise"}
+          label={"How often do you exercise?"}
+          selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+        />
+        <Select
+          options={[
             "No – I am a teetotal",
             "Yes – light drinker",
             "Yes – moderate drinker",
@@ -99,7 +136,7 @@ const Profile4 = ({index,onClick,profileSetup}) => {
           label={"Do you smoke?"}
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
-        <Select
+        {/* <Select
           options={['None',
             'Dog',
             'Cat',
@@ -122,20 +159,16 @@ const Profile4 = ({index,onClick,profileSetup}) => {
             "Would you live with someone who keeps a pet?"
           }
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
-        />
+        /> */}
       </div>
       <div className="call-to-action">
-            <i style={{ color: "red", fontStyle: "italic" }}>
-              Please fill in accurate information !
-            </i>
-            <button
-              className="Join-btn"
-              onClick={onClick}
-              type="button" 
-            >
-              {index == profileSetup.length - 1 ? "Submit" : "Continue"}
-            </button>
-          </div>
+        <i style={{ color: "red", fontStyle: "italic" }}>
+          Please fill in accurate information !
+        </i>
+        <button className="Join-btn" onClick={onClick} type="button">
+          {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+        </button>
+      </div>
     </form>
   );
 };

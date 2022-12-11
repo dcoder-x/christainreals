@@ -1,5 +1,6 @@
 import React from "react";
 import { questionBank } from '../data/questionBank'
+import { Select } from "./Formcomps";
 const {Education,Employment,Ethnicity,relationship,Language,BodyType,EyeColour,Children,HairColour} = questionBank
 
 const Profile1 = ({index,onClick,profileSetup}) => {
@@ -190,6 +191,30 @@ const Profile1 = ({index,onClick,profileSetup}) => {
             </optgroup>
           </select>
         </div>
+        <Select
+          options={['None',
+            'Dog',
+            'Cat',
+            'Bird',
+            'Fish',
+            'Reptile',
+            'Other',
+            ]}
+          name={"pets"}
+          label={
+            "Do you have pets?"
+          }
+          selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+        />
+
+        <Select
+          options={["Yes", "No"]}
+          name={"liveWithPets"}
+          label={
+            "Would you live with someone who keeps a pet?"
+          }
+          selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+        />
         <div className="call-to-action">
             <i style={{ color: "red", fontStyle: "italic" }}>
               Please fill in accurate information !
