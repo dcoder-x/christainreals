@@ -7,7 +7,7 @@ import { countryCode } from "../data/CountryCodes";
 // import * as country from 'countrycitystatejson'
 import { country, states, city } from "../data/address";
 import { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [selectedDate, setdate] = useState("2004-12-31");
@@ -15,6 +15,7 @@ const SignUp = () => {
   const [stateSelect, setStateSelect] = useState();
   const [iswoman, setiswoman] = useState(false);
   const [isman, setisman] = useState(false);
+  const navigate = useNavigate()
   const [seekingMan, setseekingMan] = useState(false);
   const [seekingWoman, setseekingWoman] = useState(false);
 
@@ -58,7 +59,10 @@ const SignUp = () => {
         <img src={signUp.signup} alt="" className="banner" />
         <div className="form">
           <h2>Sign Up</h2>
-          <form action="" method="post">
+          <form action="" onSubmit={e=>{
+            e.preventDefault()
+            navigate('/verify')
+          }} method="post">
             <div className="radios">
               <div className="genders">
                 <p>I am</p>
@@ -393,18 +397,15 @@ const SignUp = () => {
                   Only age will be displayed on your profile, your full date of
                   birth will not be displayed.
                 </p>
-                
               </div>
             </div>
+            <div className="call-to-action">
+              <p>
+                Already a member? <a href="/signin"> Sign In</a>
+              </p>
+                <button type="submit" className="Join-btn">Continue</button>
+            </div>
           </form>
-          <div className="call-to-action">
-            <p>
-              Already a member? <a href="/signin"> Sign In</a>
-            </p>
-            <Link to={"/verify"}>
-              <button className="Join-btn">Sign Up</button>
-            </Link>
-          </div>
         </div>
       </section>
     </main>

@@ -3,16 +3,23 @@ import { CheckBox, SimpleText } from "./Formcomps";
 
 const Profile3 = ({ index, onClick, profileSetup }) => {
   return (
-    <form>
+    <form
+      action=""
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log("submited");
+        onClick();
+      }}
+      method="POST"
+    >
       <div className="checkBoxes">
         <label htmlFor="">Faith Status</label>
-        <CheckBox label={"To be successful at work or school"} />
-        <CheckBox label={"To make new friends"} />
-        <CheckBox
-          label={"To find someone I can spend the rest of my life with"}
-        />
-        <CheckBox label={"To have a closer stronger relationship with God"} />
-        {/* <CheckBox label={"To be successful at work or school"} /> */}
+        <CheckBox options={[
+          {labels:'To be successful at work or school',value:'To be successful at work or school'},
+          {labels:'To make new friends',value:'To make new friends'},
+          {labels:'To find someone I can spend the rest of my life with',value:'To find someone I can spend the rest of my life with'},
+          {labels:'To have a closer stronger relationship with God',value:'To have a closer stronger relationship with God'},
+        ]} />
       </div>
       <SimpleText
         label={"About my christain faith"}
@@ -22,6 +29,7 @@ const Profile3 = ({ index, onClick, profileSetup }) => {
         inputStyle={{
           minHeight: "100px",
         }}
+        required
       />
       <SimpleText
         label={
@@ -33,11 +41,25 @@ const Profile3 = ({ index, onClick, profileSetup }) => {
         inputStyle={{
           minHeight: "100px",
         }}
+        required
       />
       <div className="checkBoxes">
-        <label htmlFor="">Do you play any role in your church? (choose as many as applicable)</label>
-        <CheckBox label={"Pastoral"} />
-        <CheckBox label={"Choir"} />
+        <label htmlFor="">
+          Do you play any role in your church? (choose as many as applicable)
+        </label>
+        <CheckBox options={[
+          {value:'Pastoral',labels:'Pastoral'},
+          {value:'Choir',labels:'Choir'},
+          {value:'Ushering',labels:'Ushering'},
+          {value:'Children worker',labels:'Children worker'},
+          {value:'Youth worker',labels:'Youth worker'},
+          {value:'Member of a group',labels:'Member of a group',textInput:true,textInputName:'groupMember'},
+          {value:'Leader of a group',labels:'Leader of a group',textInput:true,textInputName:'groupLeader'},
+          {value:'Other',labels:'Other',textInput:true,textInputName:'Other'},
+          {value:'None',labels:'None'},
+          {value:'I do not belong to a church',labels:'I do not belong to a church'},
+      ]} />
+        {/* <CheckBox label={"Choir"} />
         <CheckBox label={"Ushering"} />
         <CheckBox label={"Children worker"} />
         <CheckBox label={"Youth worker"} />
@@ -54,13 +76,13 @@ const Profile3 = ({ index, onClick, profileSetup }) => {
         <CheckBox label={"Other"} textInput textInputName={"otherRoles"} />
         <CheckBox label={"None"} />
 
-        <CheckBox label={"I do not belong to a church"} />
+        <CheckBox label={"I do not belong to a church"} /> */}
       </div>
       <div className="call-to-action">
         <i style={{ color: "red", fontStyle: "italic" }}>
           Please fill in accurate information !
         </i>
-        <button className="Join-btn" onClick={onClick} type="button">
+        <button className="Join-btn"  type="submit">
           {index == profileSetup.length - 1 ? "Submit" : "Continue"}
         </button>
       </div>

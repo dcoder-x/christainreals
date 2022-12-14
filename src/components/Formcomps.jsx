@@ -68,7 +68,6 @@ export const SimpleText = ({
   );
 };
 
-
 // I have to restucture the check box to collect data in group e.g multichoice
 export const CheckBox = ({
   label,
@@ -79,81 +78,136 @@ export const CheckBox = ({
   textInput,
   onTextInputChange,
   textInputName,
+  options,
 }) => {
-  return (
-    <div className="checkField">
-      <input
-        name={name}
-        id={id}
-        onChange={onChange}
-        checked={checked}
-        type="checkbox"
-        placeholder="check here"
-      />
-      <label htmlFor="">{label}</label>
-      {textInput ? (
-        <input
-          type={"text"}
-          onChange={onTextInputChange}
-          name={textInputName}
-        />
-      ) : null}
-    </div>
-  );
-};
-
-export const MultiSelect = ({label, options, optionClass, containerClass }) => {
-  // const [selections, setselections] = useState([]);
   const selections = []
   return (
-      <>
-      <label htmlFor="" style={{
-        marginBottom:'1rem'
-      }}>
-        {
-          label
-        }
-      </label>
-          <section id="multiselect" className={`conatiner ${containerClass}`}>
+    <>
       {options.map((option, i) => {
         return (
-          <div
-            onClick={(e) => {
-                if (selections.length<=4 && !e.currentTarget.classList.contains('selected') ) {
-                  selections.push(option)
-                  e.currentTarget
-                    .querySelector(".icon")
-                    .classList.toggle("selected");
-                  e.currentTarget.classList.toggle('selected')
-                  console.log(selections)
+          <div className="checkField">
+            <input
+            key={i}
+              name={name}
+              id={id}
+              onChange={onChange}
+              checked={checked}
+              type="checkbox"
+              placeholder="check here"
+              onClick={(e) => {
+                if (
+                  e.currentTarget.checked
+                ) {
+                  selections.push(option.value);
+                  console.log(selections);
                 } else {
                   // alert('you can only select 5')
-                  console.log(selections.length)
-                  e.currentTarget
-                  .querySelector(".icon")
-                  .classList.remove("selected");
-                e.currentTarget.classList.remove('selected')
-                console.log(selections)
+                  console.log(selections.length);
+                  const index = selections.indexOf(option.value);
+                  if (index > -1) {
+                    // only splice array when item is found
+                    selections.splice(index, 1); // 2nd parameter means remove one item only
+                  }
+                  console.log(selections);
                 }
-            }}
-            key={i}
-            className={`choice ${optionClass}`}
-          >
-            <p> {option}</p>
-            <Icon
-              // onClick={(e) => {
-              //   setshowMessage(!showMessage);
-              // }}
-              icon={"ion:close-circle-sharp"}
-              className={"icon"}
-              width={30}
-              color={"white"}
-              // style={{ margin: "1rem 0" }}
+              }}
             />
+            <label htmlFor="">{option.labels}</label>
+            {option.textInput ? (
+              <input
+                type={"text"}
+                key={i}
+                onChange={onTextInputChange}
+                name={option.textInputName}
+              />
+            ) : null}
           </div>
         );
       })}
-    </section>
-      </>
+    </>
+  );
+};
+
+export const MultiSelect = ({
+  label,
+  options,
+  optionClass,
+  containerClass,
+}) => {
+  // const [selections, setselections] = useState([]);
+  const selections = [];
+  return (
+    <>
+      <label
+        htmlFor=""
+        style={{
+          marginBottom: "1rem",
+        }}
+      >
+        {label}
+      </label>
+      <label
+        htmlFor=""
+        style={{
+          marginBottom: "1rem",
+          color: "red",
+          fontSize: "12px",
+        }}
+      >
+        {selections.length < 4
+          ? "You must pick at least five options in this section "
+          : null}
+      </label>
+
+      <section id="multiselect" className={`conatiner ${containerClass}`}>
+        {options.map((option, i) => {
+          return (
+            <div
+              onClick={(e) => {
+                if (
+                  selections.length <= 4 &&
+                  !e.currentTarget.classList.contains("selected")
+                ) {
+                  selections.push(option);
+                  e.currentTarget
+                    .querySelector(".icon")
+                    .classList.toggle("selected");
+                  e.currentTarget.classList.toggle("selected");
+                  console.log(selections);
+                } else {
+                  // alert('you can only select 5')
+                  console.log(selections.length);
+                  const index = selections.indexOf(option);
+                  if (index > -1) {
+                    // only splice array when item is found
+                    selections.splice(index, 1); // 2nd parameter means remove one item only
+                  }
+                  console.log(selections);
+                  e.currentTarget
+                    .querySelector(".icon")
+                    .classList.remove("selected");
+                  e.currentTarget.classList.remove("selected");
+                  console.log(selections);
+                }
+              }}
+              key={i}
+              className={`choice ${optionClass}`}
+            >
+              <p> {option}</p>
+              <Icon
+                // onClick={(e) => {
+                //   setshowMessage(!showMessage);
+                // }}
+                icon={"ion:close-circle-sharp"}
+                className={"icon"}
+                width={30}
+                color={"white"}
+                // style={{ margin: "1rem 0" }}
+              />
+            </div>
+          );
+        })}
+      </section>
+    </>
   );
 };

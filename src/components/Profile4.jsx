@@ -3,7 +3,15 @@ import { CheckBox, Select } from "./Formcomps";
 
 const Profile4 = ({ index, onClick, profileSetup }) => {
   return (
-    <form>
+    <form
+      action=""
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log("submited");
+        onClick();
+      }}
+      method="POST"
+    >
       {/* <Select
         options={["Yes", "No"]}
         name={"relationshipGoal"}
@@ -16,7 +24,13 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
         <label htmlFor="">
           What is your view about gender roles in marriage?
         </label>
-        <CheckBox
+        <CheckBox options={[
+          {labels:'The man should be in control. That is how it was designed to be.',value:'The man should be in control. That is how it was designed to be.'},
+          {labels:'The woman should be in control. That’s how you can have peace.',value:'The woman should be in control. That’s how you can have peace.'},
+          {labels:'Each party has their unique roles, according to the Bible, which complement each other',value:'Each party has their unique roles, according to the Bible, which complement each other'},
+          {labels:'It is a partnership where both parties are equal. This is 21st century.'},
+        ]} />
+        {/* <CheckBox
           label={
             "The man should be in control. That is how it was designed to be."
           }
@@ -35,7 +49,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
           label={
             "It is a partnership where both parties are equal. This is 21st century."
           }
-        />
+        /> */}
 
         <Select
           options={[
@@ -165,7 +179,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
         <i style={{ color: "red", fontStyle: "italic" }}>
           Please fill in accurate information !
         </i>
-        <button className="Join-btn" onClick={onClick} type="button">
+        <button className="Join-btn"  type="submit">
           {index == profileSetup.length - 1 ? "Submit" : "Continue"}
         </button>
       </div>

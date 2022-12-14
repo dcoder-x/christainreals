@@ -1,21 +1,40 @@
 import React from "react";
-import { questionBank } from '../data/questionBank'
+import { questionBank } from "../data/questionBank";
 import { Select } from "./Formcomps";
-const {Education,Employment,Ethnicity,relationship,Language,BodyType,EyeColour,Children,HairColour} = questionBank
+const {
+  Education,
+  Employment,
+  Ethnicity,
+  relationship,
+  Language,
+  BodyType,
+  EyeColour,
+  Children,
+  HairColour,
+} = questionBank;
 
-const Profile1 = ({index,onClick,profileSetup}) => {
+const Profile1 = ({ index, onClick, profileSetup }) => {
   function handleSubmit(e) {
-    e.preventDefault()
-    console.log('submited')
+    e.preventDefault();
+    console.log("submited");
+    onClick();
   }
   return (
     <>
       <h2>Congratulations your email has been verified</h2>
-      <form onSubmit={e=>{handleSubmit}} method>
+      <form
+        action=""
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("submited");
+          onClick();
+        }}
+        method="POST"
+      >
         <div className="address">
           <div className="country">
             <label htmlFor="country">Relationship status</label>
-            <select name="relationship" id="relationship">
+            <select required name="relationship" id="relationship">
               <optgroup>
                 {relationship.map((status) => {
                   return <option value={status}>{status}</option>;
@@ -25,7 +44,7 @@ const Profile1 = ({index,onClick,profileSetup}) => {
           </div>
           <div className="state">
             <label htmlFor="state">Ethnic Background</label>
-            <select name="Ethnic" id="Ethnic">
+            <select required name="Ethnic" id="Ethnic">
               <optgroup>
                 {Ethnicity.map((ethnic) => {
                   return <option value={ethnic}>{ethnic}</option>;
@@ -37,7 +56,7 @@ const Profile1 = ({index,onClick,profileSetup}) => {
         <div className="address">
           <div className="country">
             <label htmlFor="country">Highest Educational Attainment</label>
-            <select name="country" id="Education">
+            <select required name="country" id="Education">
               <optgroup>
                 {Education.map((education) => {
                   return <option value={education}>{education}</option>;
@@ -73,9 +92,9 @@ const Profile1 = ({index,onClick,profileSetup}) => {
           <input
             placeholder="e.g:ayofaluyi@gmail.com"
             required
-            type="email"
-            name="email"
-            id="email"
+            type="text"
+            name="futureCareer"
+            id="futureCareer"
             className="email"
           />
         </div>
@@ -83,15 +102,15 @@ const Profile1 = ({index,onClick,profileSetup}) => {
         <div className="address">
           <div className="country">
             <label htmlFor="country">Height (feet/cm)</label>
-            <input type="text" placeholder="e.g:6 feet" />
+            <input required type="text" placeholder="e.g:6 feet" />
           </div>
           <div className="country">
             <label htmlFor="country">Weight (stone/kg)</label>
-            <input type="text" placeholder="e.g:62 kg" />
+            <input required type="text" placeholder="e.g:62 kg" />
           </div>
           <div className="state">
             <label htmlFor="state">Bodytype</label>
-            <select name="state" id="state">
+            <select required name="state" id="state">
               <optgroup>
                 {BodyType.map((body) => {
                   return <option value={body}>{body}</option>;
@@ -192,42 +211,30 @@ const Profile1 = ({index,onClick,profileSetup}) => {
           </select>
         </div>
         <Select
-          options={['None',
-            'Dog',
-            'Cat',
-            'Bird',
-            'Fish',
-            'Reptile',
-            'Other',
-            ]}
+          options={["None", "Dog", "Cat", "Bird", "Fish", "Reptile", "Other"]}
           name={"pets"}
-          label={
-            "Do you have pets?"
-          }
+          label={"Do you have pets?"}
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
 
         <Select
           options={["Yes", "No"]}
           name={"liveWithPets"}
-          label={
-            "Would you live with someone who keeps a pet?"
-          }
+          label={"Would you live with someone who keeps a pet?"}
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
         <div className="call-to-action">
-            <i style={{ color: "red", fontStyle: "italic" }}>
-              Please fill in accurate information !
-            </i>
-            <button
-              className="Join-btn"
-              onClick={onClick}
-              type="button" 
-              
-            >
-              {index == profileSetup.length - 1 ? "Submit" : "Continue"}
-            </button>
-          </div>
+          <i style={{ color: "red", fontStyle: "italic" }}>
+            Please fill in accurate information !
+          </i>
+          <button
+            className="Join-btn"
+            // onClick={onClick}
+            type="submit"
+          >
+            {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+          </button>
+        </div>
       </form>
     </>
   );

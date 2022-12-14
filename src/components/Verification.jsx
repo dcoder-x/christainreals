@@ -3,9 +3,6 @@ import { DropdownDate, DropdownComponent } from "react-dropdown-date";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 import { signUp } from "../assets/assets";
 import "../styles/signup.css";
-import { countryCode } from "../data/CountryCodes";
-// import * as country from 'countrycitystatejson'
-import { country, states, city } from "../data/address";
 import { useRef, useEffect } from "react";
 import { questionBank } from "../data/questionBank";
 import { useLocation, useNavigate } from "react-router";
@@ -16,6 +13,7 @@ import Profile4 from "./Profile4";
 import Profile5 from "./Profile5";
 import Profile6 from "./Profile6";
 import Modal from "./Modal";
+import { Icon } from "@iconify/react";
 
 const profileSetup = [
   {
@@ -95,12 +93,24 @@ function handleIncrement() {
       setindex(profileSetup.length - 1);
     }
 }
+function handleDecrement() {
+  if (index != 0) {
+    setindex(index - 1);
+    setshowModal(true);
+  } else {
+    navigate(-1);
+  }
+}
 
   return (
     <main id="sign-up">
       <section className="signup-form">
         <img src={profileSetup[index].img} alt="" className="banner" />
         <div className="form">
+        <Icon
+        style={{cursor:"pointer"}}
+        onClick={e=>{handleDecrement()}}
+         icon="mdi:arrow-left-bottom" width={30} />
           <div className="progressBar">
             <div
               className="progressDone"

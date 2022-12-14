@@ -29,7 +29,7 @@
   transition: 1s ease 0.3s;
 }
 .signup-form .form {
-  padding: 3rem 5rem;
+  padding: 3rem 3rem;
 }
 .signup-form .radios {
   display: flex;

@@ -6,6 +6,7 @@ const Profile5 = ({ index, onClick, profileSetup }) => {
   const navigate = useNavigate()
   const handleForm = (e) =>{
       navigate('/signin')
+      onClick()
       console.log('gtey')
   }
   return (
@@ -22,14 +23,19 @@ const Profile5 = ({ index, onClick, profileSetup }) => {
         label={
           "What are the things that you do not like in a partner or in a relationship?"
         }
+        required
+
       />
       <SimpleText
         label={
           "What are the things that you like most in a partner or in a relationship?"
         }
+        required
+
       />
       <Select
         options={["Yes, definitely", "Not really"]}
+        required
         name={"arrangement"}
         label={"Is it important to you that everything is in its proper place?"}
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
@@ -41,6 +47,7 @@ const Profile5 = ({ index, onClick, profileSetup }) => {
           "When in a large gathering ",
           "No preference",
         ]}
+        required
         name={"easeWithPartner"}
         label={"When would you feel most at ease with a partner?"}
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
@@ -98,7 +105,7 @@ const Profile5 = ({ index, onClick, profileSetup }) => {
         <i style={{ color: "red", fontStyle: "italic" }}>
           Please fill in accurate information !
         </i>
-        <button type="submit" className="Join-btn" onClick={onClick}>
+        <button type="submit" className="Join-btn">
           {index == profileSetup.length - 1 ? "Submit" : "Continue"}
         </button>
       </div>

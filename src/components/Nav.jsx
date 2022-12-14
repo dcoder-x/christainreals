@@ -41,7 +41,7 @@ const Nav = () => {
                           {
                             menu.sublinks.map((sublink)=>{
                               return(
-                                <Link to={sublink.link}>
+                                <Link to={'/signin'}>
 
                                 
                                 <p >

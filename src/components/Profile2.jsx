@@ -3,7 +3,15 @@ import { options } from "../data/form";
 import { CheckBox, MultiSelect, Select, SimpleText } from "./Formcomps";
 const Profile2 = ({ index, onClick, profileSetup }) => {
   return (
-    <form>
+    <form
+      action=""
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log("submited");
+        onClick();
+      }}
+      method="POST"
+    >
       <SimpleText
         extralabel={
           "This is your opportunity to sell yourself. Tell us a little about yourself and your personality. E. g. How would a good friend describe you? What makes you unique? What drives you? What are your likes and dislikes? Which things are you passionate about? What activities do you enjoy doing? What activities bring out the best in you?"
@@ -14,6 +22,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         inputStyle={{
           minHeight: "100px",
         }}
+        required
       />
       <MultiSelect
         options={options}
@@ -46,24 +55,40 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         label={" Where and how do you like to spend your free time?"}
         // label={"About me"}
         name={"About"}
+        required
         type={"text"}
         inputStyle={{
           minHeight: "100px",
         }}
       />
-      <div className="checkBoxes" style={{display:'flex', alignItems:'center', flexWrap:'wrap'}}>
-        <label htmlFor="">What do you want more than anything right now? (choose as many as applicable)</label>
-        <CheckBox label={"Beach/Seaside"} />
+      <div
+        className="checkBoxes"
+        style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
+      >
+        <label htmlFor="">
+          What do you want more than anything right now? (choose as many as
+          applicable)
+        </label>
+        <CheckBox options={[
+          {labels:'Beach/Seaside',value:'Beach/Seaside'},
+          {labels:'Resorts/Hotels/Spas ',value:'Resorts/Hotels/Spas '},
+          {labels:'Cruises',value:'Cruises'},
+          {labels:'Road trips',value:'Road trips'},
+          {labels:'City tour',value:'City tour'},
+          {labels:'Outdoors/Adventures',value:'Outdoors/Adventures'},
+          {labels:'Camping',value:'Camping'},
+          {labels:'Staycation',value:'Staycation'},
+          {labels:'Group travel',value:'Group travel'},
+        ]} />
+        {/* <CheckBox  label={"Beach/Seaside"} />
         <CheckBox label={"Resorts/Hotels/Spas "} />
-        <CheckBox
-          label={"Cruises"}
-        />
+        <CheckBox label={"Cruises"} />
         <CheckBox label={"Road trips"} />
         <CheckBox label={"City tour"} />
         <CheckBox label={"Outdoors/Adventures"} />
         <CheckBox label={"Camping"} />
         <CheckBox label={"Staycation"} />
-        <CheckBox label={"Group travel"} />
+        <CheckBox label={"Group travel"} /> */}
         {/* <CheckBox label={"To be successful at work or school"} /> */}
       </div>
       <SimpleText
@@ -76,6 +101,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         inputStyle={{
           minHeight: "100px",
         }}
+        required
       />
 
       <SimpleText
@@ -90,6 +116,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         inputStyle={{
           minHeight: "100px",
         }}
+        required
       />
 
       <SimpleText
@@ -102,12 +129,13 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         inputStyle={{
           minHeight: "100px",
         }}
+        required
       />
       <div className="call-to-action">
         <i style={{ color: "red", fontStyle: "italic" }}>
           Please fill in accurate information !
         </i>
-        <button type="button" className="Join-btn" onClick={onClick}>
+        <button type="submit" className="Join-btn">
           {index == profileSetup.length - 1 ? "Submit" : "Continue"}
         </button>
       </div>
