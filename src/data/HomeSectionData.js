@@ -25,7 +25,7 @@ export const sectionData = [
         image:images.discussion,
     },
     {
-        title:'Love Quest',
+        title:'Love Quests',
         desc:"Do you have any relationship question that you may want to ask our relationship experts on behalf of yourself or on behalf of someone? Love Quests is a platform for you to ask your questions anonymously and get the answers that you need.",
         image:images.lovequest,
         bgImage:sectionBg.sectionbg,

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { images } from '../assets/assets'
-import { menuData } from '../data/menuData'
+import { menuData, socials } from '../data/menuData'
 import '../styles/footer.css'
+import { Icon } from '@iconify/react'
 
 const Footer = () => {
   return (
@@ -17,6 +18,18 @@ const Footer = () => {
             <p className="copyright">
                 © 2022 Christian Reals All rights reserved
             </p>
+            <div className="socials">
+                {
+                    socials.map((social,i)=>{
+                        return(
+                            <a href={social.link}>
+                                <Icon style={{marginRight:'1rem'}} color='white' icon={social.icon} width={25}/>
+
+                            </a>
+                        )
+                    })
+                }
+            </div>
         </section>
         <section className="footer-links">
             {

@@ -68,7 +68,7 @@ const Slider = () => {
       <div className="hero">
           <div className="slider-text">
             <p className="slider-title">
-              Your No. 1 Christian singles,dating and social networking site!
+            Your No. 1 Christian singles dating and social networking site!
             </p>
             <p className="slider-desc">
               Join Christian Reals today and start connecting immediately with

@@ -57,3 +57,22 @@ export const menuData =[
     //     link:'/home'
     // },
 ]
+
+export const socials = [
+    {
+        icon:'ion:social-whatsapp',
+        link:"",
+    },
+    {
+        icon:'typcn:social-twitter',
+        link:"",
+    },
+    {
+        icon:'typcn:social-instagram',
+        link:"",
+    },
+    {
+        icon:'typcn:social-facebook',
+        link:"",
+    },  
+]
