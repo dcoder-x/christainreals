@@ -24,7 +24,7 @@ export const menuData =[
                 link:'/events',
             },
             {
-                name:'Love Quest',
+                name:'Love Quests',
                 link:'/Lovequests',
             },
             {

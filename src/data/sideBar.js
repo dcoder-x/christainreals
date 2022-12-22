@@ -22,7 +22,7 @@ export const sideMenu = [
         icon: icons.Discussion,
     },
     {
-        name:'Love Quest',
+        name:'Love Quests',
         link:"lovequest",
         icon: icons.Quest,
     },
