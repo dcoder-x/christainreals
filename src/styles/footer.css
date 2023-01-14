@@ -29,8 +29,9 @@
     align-items: center;
     color: white;
 }
-#footer .links a{
+#footer .links a ,#footer .links p{
     color: rgba(255, 255, 255, 0.611);
+    cursor: pointer;
 }
 
 #footer .socials{
@@ -47,6 +48,7 @@
 }
 #footer .icon{
     color: white;
+    margin-left: 2rem !important;
 }
 @media screen and (max-width:768px) {
     #footer{

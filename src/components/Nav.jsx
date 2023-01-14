@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Link, useNavigate} from 'react-router-dom'
 import { images } from '../assets/assets'
-import { menuData } from '../data/menuData'
+import { navData } from '../data/navData'
 import { Icon } from '@iconify/react'
 import '../styles/nav.css'
 import { Squash as Hamburger } from 'hamburger-react'
@@ -18,12 +18,12 @@ const Nav = () => {
             <img src={images.Logo} alt="" className="logo" />
             <div className={`menu-container ${clicked?'show':'closed'}`}>
                 {
-                  menuData.map((menu,i)=>{
+                  navData.map((menu,i)=>{
                     return(
                       <div className="nav-links">
                         <div style={{display:'flex',alignItems:"center"}}>
                           <Link to={menu.link} onClick={e=>{setClicked(false)}}  >
-                            <p className='.nav-link'>
+                            <p className='nav-link'>
                               {
                                 menu.name
                               }

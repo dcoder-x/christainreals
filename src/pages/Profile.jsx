@@ -153,14 +153,15 @@ const Profile = () => {
               </div>
             </div>
           </div>
+          <input type="button" className="join" value="Save changes" />
         </form>
         <div className="pictures">
           <p style={{ color: "#ff6a6a", float: "right" }}>upload Photos</p>
           <div className="images">
-            <img src={images.videoPoster} alt="" />
-            <img src={images.videoPoster} alt="" />
-            <img src={images.videoPoster} alt="" />
-            <img src={images.videoPoster} alt="" />
+            <img src={testimonials.catherine} alt="" />
+            <img src={images.photos} alt="" />
+            <img src={images.photos} alt="" />
+            <img src={images.photos} alt="" />
           </div>
         </div>
       </section>

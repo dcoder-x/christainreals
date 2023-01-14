@@ -83,8 +83,11 @@
 }
 #dashboard .sideBar .menu:hover,
 #dashboard .sideBar .menu:focus-visible{
-    background-color: #FF6A6A;
+    background-color: #ff6a6a;
     color: white;
+    .icon{
+        color: white !important;
+    }
 }
 #dashboard .sideBar .menu .icon{
     margin: 0;

@@ -62,7 +62,7 @@ const Help = () => {
                     <input type="text" name="first-name" id="first-name" placeholder="First Name"/>
                     <label for="surname">Surname name</label>
                     <input type="text" name="surname" id="surname" placeholder="Surname"/>
-                    <label for="full-name">User Id</label>
+                    <label for="full-name">User Id ('for members only')</label>
                     <input type="text" name="userid" id="userId" placeholder="User ID"/>
                     <label for="e-name">E-mail</label>
                     <input type="email" name="e-mail" id="e-mail" placeholder="e-mail address"/>

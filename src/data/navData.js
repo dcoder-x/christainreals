@@ -1,4 +1,4 @@
-export const menuData =[
+export const navData =[
     {
         name:'Home',
         link:'/'

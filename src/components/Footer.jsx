@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { images } from "../assets/assets";
-import { menuData, socials } from "../data/menuData";
+import {  socials } from "../data/navData";
 import "../styles/footer.css";
 import { Icon } from "@iconify/react";
+import { footerData } from "../data/footerData";
 
 const Footer = () => {
   return (
@@ -17,15 +18,28 @@ const Footer = () => {
       </section>
       <section className="footer-links">
         <div className="links">
-          {menuData.map((link) => {
-            return <Link to={link.link}>{link.name}</Link>;
+          {footerData.map((footerlink) => {
+            return (
+            <>
+            {
+              footerlink.link?<Link to={footerlink.link}>
+              {footerlink.name}
+              </Link>
+              :
+              <p onClick={e=>{window.open(footerlink.doclink)}}>
+                {
+                  footerlink.name
+                }
+              </p>
+            }
+            </>);
           })}
         </div>
         <div className="socials">
           {socials.map((social, i) =>  (
               <a href={social.link}>
                 <Icon
-                  style={{ marginLeft: "1rem" }}
+                  // style={{ marginLeft: "1rem" }}
                 //   color="white"
                 className='icon'
                   icon={social.icon}

@@ -4,26 +4,31 @@ export const sideMenu = [
     {
         name:'Dating',
         link:"inbox",
-        icon: icons.Help,
+        icon: 'mdi:account-heart',
+    },
+    {
+        name:'Messages',
+        link:"messages",
+        icon: 'ph:chats-duotone',
     },
     {
         name:'Meetups',
         link:"meetup",
-        icon: icons.Meetups,
+        icon: 'carbon:location-person-filled',
     },
     {
         name:'Events',
         link:"dashEvents",
-        icon: icons.Events,
+        icon: 'mdi:event-heart',
     },
     {
         name:'Discussion Board',
         link:"discussion",
-        icon: icons.Discussion,
+        icon: 'healthicons:group-discussion-meeting',
     },
     {
         name:'Love Quests',
         link:"lovequest",
-        icon: icons.Quest,
+        icon: 'ri:chat-heart-fill',
     },
 ]

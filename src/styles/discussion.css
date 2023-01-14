@@ -125,6 +125,7 @@
 .liked {
   color: rgba(255, 106, 106, 1);
   stroke: transparent;
+  cursor: pointer;
 }
 #discussion .comment-input {
   display: flex;

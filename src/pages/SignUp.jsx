@@ -132,6 +132,7 @@ const SignUp = () => {
                   placeholder="e.g:Ayo"
                   name="username"
                   id="username"
+                  required
                 />
                 <p className="field-info">
                   (Enter your unique username/ID. Your user name must be at
@@ -149,6 +150,7 @@ const SignUp = () => {
                   type="Password"
                   name="password"
                   id="password"
+                  required
                 />
                 <p className="field-info">
                   (Enter your password. A strong password helps keep your

@@ -21,9 +21,9 @@ const Explore = () => {
           onClick={(e) => {
             setshowMessage(!showMessage);
           }}
-          icon={showMessage?"ion:close-circle-sharp":"material-symbols:menu-open"}
+          icon={showMessage?"ion:close-circle-sharp":"ph:chats-duotone"}
           className={"liked"}
-          width={30}
+          width={40}
           style={{margin:'1rem 0'}}
         />
       </div>

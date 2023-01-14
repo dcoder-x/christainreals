@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { icons, images, testimonials } from "../assets/assets";
 import { useScrollToTop } from "../components/hooks";
 import { sideMenu } from "../data/sideBar";
-import "../styles/dashBoard.css";
+import "../styles/dashBoard.scss";
 import DashEvents from "./DashEvents";
 import DashHelp from "./DashHelp";
 import Discussion from "./Discussion";
@@ -15,6 +15,7 @@ import MeetUp from "./MeetUp";
 import Onboard from "./Onboard";
 import Profile from "./Profile";
 import Settings from "./Settings";
+import { Icon } from "@iconify/react";
 
 const BumpUp = ({ show, onclose }) => {
   return (
@@ -85,7 +86,7 @@ const DashBoard = () => {
                   navigate(menu.link);
                 }}
               >
-                <img className="icon" src={menu.icon} alt="" />
+                <Icon width={20} className="icon" icon={menu.icon} alt="" />
 
                 <p className="menu-name">{menu.name}</p>
               </div>

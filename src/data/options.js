@@ -1,7 +1,7 @@
 export const settings = [
   {
     name: "My Account",
-    link: "/profile",
+    link: "../profile",
   },
   {
     name: "Blocked Accounts",
@@ -28,19 +28,15 @@ export const settings = [
 export const help = [
   {
     name: "About",
-    link: "../about",
+    link: "../../about",
   },
   {
     name: "Legal",
-    link: "/profile",
-  },
-  {
-    name: "Contact",
-    link: "/profile",
+    link: "../../legal",
   },
   {
     name: "Help and Support",
-    link: "/profile",
+    link: "../../help",
   },
   // {
   //     name:"My Account",

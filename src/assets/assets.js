@@ -35,6 +35,7 @@ import event1 from "./images/event1.png";
 import event2 from "./images/event2.png";
 import event3 from "./images/event3.png";
 import whoImage from "./images/whoImage.png";
+import photos from "./images/photos.png";
 import fancyArrow from "./images/fancyArrow.png";
 import invitation from "./images/invitation.png";
 import signup from "./images/signup.png";
@@ -76,6 +77,7 @@ export const images = {
   discussion,
   meetups,
   lovequest,
+  photos,
   onlineDating,
 };
 export const sectionBg = { introvector, sectionbg, sectionbg1, introbg };
