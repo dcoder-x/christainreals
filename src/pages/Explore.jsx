@@ -3,7 +3,7 @@ import React from "react";
 import { images, testimonials } from "../assets/assets";
 import { messages, profileData } from "../data/explore";
 import { LikeButton } from "./Discussion";
-import "../styles/explore.css";
+import "../styles/explore.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

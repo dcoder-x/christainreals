@@ -16,6 +16,7 @@ import Onboard from "./Onboard";
 import Profile from "./Profile";
 import Settings from "./Settings";
 import { Icon } from "@iconify/react";
+import Payments from "../components/Payment.";
 
 const BumpUp = ({ show, onclose }) => {
   return (
@@ -129,6 +130,7 @@ const DashBoard = () => {
           <Route path="lovequest" element={<Lovequest />} />
           <Route path="discussion" element={<Discussion />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="payments" element={<Payments />} />
         </Routes>
       </div>
       <BumpUp

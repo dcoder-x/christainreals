@@ -153,7 +153,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <input type="button" className="join" value="Save changes" />
+          <input type="button" className="login-btn" value="Save changes" />
         </form>
         <div className="pictures">
           <p style={{ color: "#ff6a6a", float: "right" }}>upload Photos</p>
