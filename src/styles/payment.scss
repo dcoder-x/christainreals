@@ -1,0 +1,151 @@
+$background-color_1: lightgray;
+$background-color_2: white;
+$background-color_3: rgb(46, 115, 194);
+
+
+
+
+#payments-page{
+    width: 80%;
+    padding: 2rem;
+    .page-title{
+        font-size: 35px;
+    }
+    .plans{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .subscription{
+            width: 40%;
+            min-width: 300px;
+            border: #FF6A6A 2px solid;
+            border-radius: 5px;
+            padding: 1rem;
+            cursor: pointer;
+            .activate{
+                background-color: #FF6A6A;
+                color: white;
+            }
+            p{
+                margin: 0;
+            }
+            .plan-name{
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .header{
+                display: flex;
+                // align-items: center;
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 1.5rem;
+            }
+            .action-btn{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            &.active-card{
+                background-color: #FF6A6A;
+                color: white;
+                button{
+                    background-color: white;
+                    color: black;
+                }
+            }
+            &:hover{
+                background-color: #fb5656;
+                color: white;
+                button{
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+    }
+    .cards{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .credit-card{
+            padding: 1rem;
+            border: 2px rgba(128, 128, 128, 0.475) solid;
+            border-radius: 5px;
+            cursor: pointer;
+            min-width: 300px;
+            .card-type{
+                color: rgba(128, 128, 128, 0.625) ;
+            }
+            .details{
+                display: flex;
+                align-items: center;
+                .card-issuer{
+                    margin-right: 1rem;
+                }
+            }
+            .delete-card{
+                position: relative;
+                float: right;
+                color: rgba(128, 128, 128, 0.566);
+            }
+            &:hover{
+                border-color: #FF6A6A;
+                .card-type{
+                    color: #FF6A6A;
+                }
+            }
+        }
+    }
+    .info{
+        margin: 1rem 0;
+        width: 100%;
+        .header{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+            margin: 1rem 0;
+        }
+    }
+}
+.toggle-btn button {
+	background-color: $background-color_1;
+	border: 0;
+	border-radius: 50px;
+	cursor: pointer;
+	height: 25px;
+	position: relative;
+	width: 50px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	&:hover {
+		background-color: $background-color_1;
+	}
+	&:focus {
+		outline: none;
+	}
+	&:active {
+		outline: none;
+	}
+	&::-moz-focus-inner {
+		border: 0;
+	}
+    .pin {
+        background-color: $background-color_2;
+        border-radius: 98px;
+        height: 22px;
+        left: 2px;
+        position: absolute;
+        top: 1px;
+        width: 24px;
+        transition: left ease .5s;
+    }
+    &.on {
+        // background-color: $background-color_3;
+        .pin {
+            left: 24px;
+            background: #FF6A6A;
+        }
+    }
+    
+}

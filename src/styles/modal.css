@@ -21,10 +21,11 @@
 }
 #modal .modal-section{
     /* mheight: 30vh; */
-    width: 100%;
+    /* width: 100%; */
     padding: 1.5rem;
     border-radius: 1rem;
     background-color: #ffffff;
+    max-width: 70%;
 }
 #modal .modal-section .title{
     font-family: 'Space Grotesk';

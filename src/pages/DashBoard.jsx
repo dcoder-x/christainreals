@@ -17,8 +17,9 @@ import Profile from "./Profile";
 import Settings from "./Settings";
 import { Icon } from "@iconify/react";
 import Payments from "../components/Payment.";
+import Blocked from "../components/Blocked";
 
-const BumpUp = ({ show, onclose }) => {
+const BumpUp = ({ show, onclose,onAccept }) => {
   return (
     <main id="bump-up" style={{ display: show == true ? "flex" : "none" }}>
       <section className="bumpUp-holder">
@@ -36,7 +37,7 @@ const BumpUp = ({ show, onclose }) => {
             you know!
           </p>
           <div className="buttons">
-            <button>Bump up now!</button>
+            <button onClick={onAccept}>Bump up now!</button>
             <button className="cancel" onClick={onclose}>
               Cancel
             </button>
@@ -131,10 +132,12 @@ const DashBoard = () => {
           <Route path="discussion" element={<Discussion />} />
           <Route path="profile" element={<Profile />} />
           <Route path="payments" element={<Payments />} />
+          <Route path="blocked" element={<Blocked />} />
         </Routes>
       </div>
       <BumpUp
         show={show}
+        onAccept = {e=>{navigate('./payments');setshow(false)}}
         onclose={(e) => {
           setshow(false);
         }}

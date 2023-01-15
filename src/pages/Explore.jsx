@@ -23,7 +23,7 @@ const Explore = () => {
           }}
           icon={showMessage?"ion:close-circle-sharp":"ph:chats-duotone"}
           className={"liked"}
-          width={40}
+          width={30}
           style={{margin:'1rem 0'}}
         />
       </div>

@@ -5,24 +5,20 @@ export const settings = [
   },
   {
     name: "Blocked Accounts",
-    link: "/blocked",
+    link: "../blocked",
   },
-  {
-    name: "My Membership",
-    link: "/membership",
-  },
-  {
-    name: "Password",
-    link: "/password",
-  },
+  // {
+  //   name: "Password",
+  //   link: "/password",
+  // },
   {
     name: "Payment Settings",
-    link: "/payment",
+    link: "../payments",
   },
-  {
-    name: "Delete Account",
-    link: "/delete",
-  },
+  // {
+  //   name: "Delete Account",
+  //   link: "/delete",
+  // },
 ];
 
 export const help = [

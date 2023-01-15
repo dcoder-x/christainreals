@@ -20,7 +20,12 @@ import headerimage3 from "./bgImages/headerimage3.png";
 import headerimage4 from "./bgImages/headerimage4.png";
 import headerimage5 from "./bgImages/headerimage5.png";
 import testvid from "./videos/testvid.mp4";
-import terms from "../assets/icons/terms.png";
+import terms from "./icons/terms.png";
+import mastercard from "./icons/mastercard.png";
+
+import interswitch from "./icons/interswitch.png";
+
+import visa from "./icons/visa.png";
 import cookie from "../assets/icons/cookie.png";
 import bumpUp from "../assets/icons/bumpUp.png";
 import privacy from "../assets/icons/privacy.png";
@@ -105,6 +110,9 @@ export const icons = {
   Settings,
   Meetups,
   AddFile,
+  interswitch,
+  mastercard,
+  visa
 };
 export const Vectors = {
   rightArrow
