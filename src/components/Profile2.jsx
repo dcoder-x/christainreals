@@ -1,6 +1,6 @@
 import React from "react";
 import { options } from "../data/form";
-import { CheckBox, MultiSelect, Select, SimpleText } from "./Formcomps";
+import { CheckBox, MultiLineText, MultiSelect, Select, SimpleText } from "./Formcomps";
 const Profile2 = ({ index, onClick, profileSetup }) => {
   return (
     <form
@@ -12,7 +12,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
       }}
       method="POST"
     >
-      <SimpleText
+      <MultiLineText
         extralabel={
           "This is your opportunity to sell yourself. Tell us a little about yourself and your personality. E .g What makes you unique? What are your likes and dislikes? What keeps you awake at night and what wakes you up in the morning? What are the things that you are passionate about? What activities do you enjoy doing and what activities would you rather not engage in? What brought you to this website? What kind of person would you like to meet on this website? Anything else that you would like your potential matches to know about you."
         }

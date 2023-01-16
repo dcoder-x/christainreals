@@ -71,6 +71,40 @@ export const SimpleText = ({
     </div>
   );
 };
+export const MultiLineText = ({
+  placeholder,
+  containerClass,
+  type,
+  inputStyle,
+  className,
+  extralabel,
+  label,
+  onChange,
+  required,
+  name,
+  id,
+  minLength,
+  maxLength
+}) => {
+  return (
+    <div className={`mail ${containerClass}`}>
+      <label htmlFor="email">{label}</label>
+      {extralabel ? <p>{extralabel}</p> : null}
+      <textarea
+        placeholder={placeholder}
+        required={required}
+        type={type}
+        name={name}
+        style={{ ...inputStyle }}
+        id={id}
+        className={`email ${className}`}
+        onChange={onChange}
+        minLength={minLength}
+        maxLength={maxLength}
+      />
+    </div>
+  );
+};
 
 // I have to restucture the check box to collect data in group e.g multichoice
 export const CheckBox = ({

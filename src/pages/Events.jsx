@@ -42,7 +42,7 @@ const Events = () => {
   );
 };
 
-export const EventSwiper = ({ eventgroup, isheader, data, past, upcoming }) => {
+export const EventSwiper = ({ eventgroup, isheader, data, past, upcoming,scheduled }) => {
   const [liked, setliked] = useState(false);
   const { width, height } = useWindowDimensions();
   const [deleteEvent, setdeleteEvent] = useState()
@@ -111,11 +111,11 @@ export const EventSwiper = ({ eventgroup, isheader, data, past, upcoming }) => {
                         setliked(!liked);
                         console.log(liked);
                       }}
-                      fill={liked}
-                      className={"icon"}
+                      fill={liked?'FF6A6A':null}
+                      className={`icon ${liked?'liked':null}`}
                     />
                   ) : null}
-                  {!upcoming || past ? (
+                  {scheduled? (
                     <Icon
                       color="FF6A6A"
                       icon="material-symbols:delete-outline"
