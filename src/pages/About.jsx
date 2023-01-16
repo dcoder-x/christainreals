@@ -37,7 +37,7 @@ const About = () => {
           </p>
         </div>
       </section>
-      <section className="believe">
+      <section id="believe" className="believe">
         <div className="vector">
           <p className="title">What We Believe</p>
           <img src={about.fancyArrow} alt="" className="arrow" />
@@ -120,7 +120,7 @@ const About = () => {
             beliefs or traditions of any member, whether directly or indirectly,
             whether online or offline. We only ask that you join us if you
             believe and accept
-            <a href="" onClick={(e) => window.open()}>
+            <a href="#believe" >
               {" "}
               What we believe{" "}
             </a>

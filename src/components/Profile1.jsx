@@ -96,7 +96,8 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
               type={"text"}
               minLength={1}
               label={"Other ethnic group"}
-              required
+              name={'otherEthnic'}
+              required = {showOtherEthnic}
               placeholder={"Enter other ethnicity not specified"}
             />
           </div>
@@ -130,8 +131,9 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
               <SimpleText
                 type={"text"}
                 minLength={1}
+                name={'otherEducation'}
                 label={"Other educational levels"}
-                required
+                required = {showOtherEducation}
                 placeholder={"Enter other educational levels attained"}
               />
             </div>
@@ -162,7 +164,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
         <div className="mail">
           <label htmlFor="email">What is your future career goal?</label>
           <input
-            placeholder="e.g:ayofaluyi@gmail.com"
+            placeholder="e.g:software developer"
             required
             type="text"
             name="futureCareer"
@@ -173,12 +175,24 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
 
         <div className="address">
           <div className="country">
-            <label htmlFor="country">Height (feet/cm)</label>
-            <input required type="text" placeholder="e.g:6 feet" />
+            <label htmlFor="country">Height</label>
+            <input name="height" required type="number" placeholder="e.g:6, this field accepts only number" />
+            <select name="heightUnit" id="" defaultValue={'please select a unit'}>
+              <optgroup>
+                <option value="Ft"> Ft</option>
+                <option value="Cm"> Cm</option>
+              </optgroup>
+            </select>
           </div>
           <div className="country">
-            <label htmlFor="country">Weight (stone/kg)</label>
-            <input required type="text" placeholder="e.g:62 kg" />
+            <label htmlFor="country">Weight</label>
+            <input required type="number" placeholder="e.g:62 , this field accepts only number" />
+            <select name="WeightUnit" id="" defaultValue={'please select a unit'}>
+              <optgroup>
+                <option value="Lb"> lb</option>
+                <option value="kg"> kg</option>
+              </optgroup>
+            </select>
           </div>
           <div className="state">
             <label htmlFor="state">Bodytype</label>
@@ -214,7 +228,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
         </div>
         <div className="state">
-          <label htmlFor="">Main Languages spoken</label>
+          <label htmlFor="">Main Language spoken</label>
           <select
             name="state"
             id="state"
@@ -238,9 +252,10 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           >
             <SimpleText
               type={"text"}
+              name={'otherLanguages'}
               minLength={1}
               label={"Other main language  group"}
-              required
+              required = {showOtherLanguages}
               placeholder={"Enter other main language not specified"}
             />
           </div>
@@ -332,6 +347,8 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             type={"text"}
             minLength={1}
             label={"Other Pets"}
+            name={'otherPets'}
+            required={showOtherPets}
             placeholder={"Enter other pets not specified"}
           />
         </div>

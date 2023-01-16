@@ -28,8 +28,8 @@ export const navData =[
                 link:'/Lovequests',
             },
             {
-                name:'Online dating',
-                link:'/online dating',
+                name:'Dating',
+                link:'/dating',
             },
 
 

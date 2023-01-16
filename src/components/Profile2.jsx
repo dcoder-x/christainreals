@@ -14,7 +14,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
     >
       <SimpleText
         extralabel={
-          "This is your opportunity to sell yourself. Tell us a little about yourself and your personality. E. g. How would a good friend describe you? What makes you unique? What drives you? What are your likes and dislikes? Which things are you passionate about? What activities do you enjoy doing? What activities bring out the best in you?"
+          "This is your opportunity to sell yourself. Tell us a little about yourself and your personality. E .g What makes you unique? What are your likes and dislikes? What keeps you awake at night and what wakes you up in the morning? What are the things that you are passionate about? What activities do you enjoy doing and what activities would you rather not engage in? What brought you to this website? What kind of person would you like to meet on this website? Anything else that you would like your potential matches to know about you."
         }
         label={"About me"}
         name={"About"}
@@ -23,7 +23,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
           minHeight: "100px",
         }}
         required
-        minLength={200}
+        minLength={50}
       />
       <MultiSelect
         options={options}
