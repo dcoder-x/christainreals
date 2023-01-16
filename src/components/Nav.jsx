@@ -20,7 +20,7 @@ const Nav = () => {
                 {
                   navData.map((menu,i)=>{
                     return(
-                      <div className="nav-links">
+                      <div className="nav-links" key={i}>
                         <div style={{display:'flex',alignItems:"center"}}>
                           <Link to={menu.link} onClick={e=>{setClicked(false)}}  >
                             <p className='nav-link'>
@@ -39,9 +39,9 @@ const Nav = () => {
                         menu.sublinks? 
                         <div ref={sublinkref} onMouseLeave={e=>{setisOpen(false)}} className="sublinks" style={{height:isOpen?'auto':0}}>
                           {
-                            menu.sublinks.map((sublink)=>{
+                            menu.sublinks.map((sublink,i)=>{
                               return(
-                                <Link to={'/signin'}>
+                                <Link key={i} to={'/signin'}>
 
                                 
                                 <p >

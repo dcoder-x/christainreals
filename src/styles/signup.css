@@ -15,7 +15,11 @@
   height: 20px;
   width: 100%;
 }
-
+.back-icon:hover{
+  color: #ff2a00;
+  font-size: 50px;
+  transition: .2s ease-in-out;
+}
 .progressDone {
   background: linear-gradient(to left, #f2709c, #ff9472);
   box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
@@ -111,6 +115,7 @@
   align-items: start;
   justify-content: space-between;
   margin: 1rem 0;
+  flex-wrap: wrap;
 }
 .signup-form .country,
 .state,

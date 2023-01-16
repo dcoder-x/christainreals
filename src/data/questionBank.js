@@ -19,8 +19,7 @@ Ethnicity =[
     'Mixed – White/Black African',
     'Mixed – White/Black Caribbean',
     'Mixed – White/Asian',
-    'Mixed – Other',
-    'My ethnic background is not listed here '
+    'Other'
 ],
 Education=[
     'Elementary/Primary School',
@@ -76,13 +75,20 @@ EyeColour =[
     'Black',
     'Brown',
     'Blue',
-    'Green'
+    'Green',
+    'Hazel',
+    'Gray',
+    'Amber'
 ],
 HairColour=[
     'Black',
     'Blonde',
     'Brunette',
-    'Ginger'
+    'Ginger',
+    'Auburn',
+    'Gray',
+    'White',
+    'Red hair',
 ],
 Children=[
     '0',

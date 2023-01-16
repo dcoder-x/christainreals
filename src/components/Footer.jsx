@@ -18,9 +18,9 @@ const Footer = () => {
       </section>
       <section className="footer-links">
         <div className="links">
-          {footerData.map((footerlink) => {
+          {footerData.map((footerlink,i) => {
             return (
-            <>
+            <div key={i}>
             {
               footerlink.link?<Link to={footerlink.link}>
               {footerlink.name}
@@ -32,12 +32,12 @@ const Footer = () => {
                 }
               </p>
             }
-            </>);
+            </div>);
           })}
         </div>
         <div className="socials">
           {socials.map((social, i) =>  (
-              <a href={social.link}>
+              <a href={social.link} key={i}>
                 <Icon
                   // style={{ marginLeft: "1rem" }}
                 //   color="white"

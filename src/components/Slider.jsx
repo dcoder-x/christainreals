@@ -54,7 +54,7 @@ const Slider = () => {
                   <div className="slider-text">
                     <p className="slider-title">{data.title}</p>
                     <p className="slider-desc">{data.text}</p>
-                    <Link to={"/signup"}>
+                    <Link to={"/signin"}>
                       <button className="Join-btn">Join now</button>
                     </Link>
                   </div>

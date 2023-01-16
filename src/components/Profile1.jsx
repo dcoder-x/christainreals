@@ -1,6 +1,9 @@
 import React from "react";
 import { questionBank } from "../data/questionBank";
-import { Select } from "./Formcomps";
+import { Select, SimpleText } from "./Formcomps";
+import { useState } from "react";
+
+//destructure question back
 const {
   Education,
   Employment,
@@ -14,6 +17,18 @@ const {
 } = questionBank;
 
 const Profile1 = ({ index, onClick, profileSetup }) => {
+  const [showOtherEthnic, setshowOtherEthnic] = useState(false);
+  const [ethnic, setEthnic] = useState("");
+
+  const [showOtherLanguages, setshowOtherLanguages] = useState(false);
+ const [Languages, setLanguages] = useState("");
+
+   const [showOtherPets, setshowOtherPets] = useState(false);
+  const [pet, setPet] = useState("");
+
+  const [showOtherEducation, setshowOtherEducation] = useState(false);
+  const [education, setEducation] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log("submited");
@@ -36,33 +51,90 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             <label htmlFor="country">Relationship status</label>
             <select required name="relationship" id="relationship">
               <optgroup>
-                {relationship.map((status) => {
-                  return <option value={status}>{status}</option>;
+                {relationship.map((status, i) => {
+                  return (
+                    <option key={i} value={status}>
+                      {status}
+                    </option>
+                  );
                 })}
               </optgroup>
             </select>
           </div>
           <div className="state">
             <label htmlFor="state">Ethnic Background</label>
-            <select required name="Ethnic" id="Ethnic">
+            <select
+              required
+              value={ethnic}
+              name="Ethnic"
+              id="Ethnic"
+              onChange={(e) => {
+                setEthnic(e.currentTarget.value);
+                console.log(e.currentTarget.value);
+                console.log(ethnic);
+                e.currentTarget.value == "Other"
+                  ? setshowOtherEthnic(true)
+                  : setshowOtherEthnic(false);
+              }}
+            >
               <optgroup>
-                {Ethnicity.map((ethnic) => {
-                  return <option value={ethnic}>{ethnic}</option>;
+                {Ethnicity.map((ethnic, i) => {
+                  return (
+                    <option key={i} value={ethnic}>
+                      {ethnic}
+                    </option>
+                  );
                 })}
               </optgroup>
             </select>
+          </div>
+          <div
+            style={{ display: showOtherEthnic ? "block" : "none" }}
+            className="otherEthnicGroup"
+          >
+            <SimpleText
+              type={"text"}
+              minLength={1}
+              label={"Other ethnic group"}
+              required
+              placeholder={"Enter other ethnicity not specified"}
+            />
           </div>
         </div>
         <div className="address">
           <div className="country">
             <label htmlFor="country">Highest Educational Attainment</label>
-            <select required name="country" id="Education">
+            <select
+              required
+              name="country"
+              id="Education"
+              onChange={(e) => {
+                setEducation(e.currentTarget.value);
+                console.log(e.currentTarget.value);
+                console.log(ethnic);
+                e.currentTarget.value == "Other"
+                  ? setshowOtherEducation(true)
+                  : setshowOtherEducation(false);
+              }}
+            >
               <optgroup>
                 {Education.map((education) => {
                   return <option value={education}>{education}</option>;
                 })}
               </optgroup>
             </select>
+            <div
+              style={{ display: showOtherEducation ? "block" : "none" }}
+              className="otherEthnicGroup"
+            >
+              <SimpleText
+                type={"text"}
+                minLength={1}
+                label={"Other educational levels"}
+                required
+                placeholder={"Enter other educational levels attained"}
+              />
+            </div>
           </div>
           <div className="state">
             <label htmlFor="state">Employment Status</label>
@@ -142,14 +214,42 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
         </div>
         <div className="state">
-          <label htmlFor="">Languages spoken</label>
-          <select name="state" id="state">
+          <label htmlFor="">Main Languages spoken</label>
+          <select
+            name="state"
+            id="state"
+            onChange={(e) => {
+              setLanguages(e.currentTarget.value);
+              console.log(e.currentTarget.value);
+              e.currentTarget.value == "Others"
+                ? setshowOtherLanguages(true)
+                : setshowOtherLanguages(false);
+            }}
+          >
             <optgroup>
               {Language.map((state) => {
                 return <option value={state}>{state}</option>;
               })}
             </optgroup>
           </select>
+          <div
+            style={{ display: showOtherLanguages ? "block" : "none" }}
+            className="otherEthnicGroup"
+          >
+            <SimpleText
+              type={"text"}
+              minLength={1}
+              label={"Other main language  group"}
+              required
+              placeholder={"Enter other main language not specified"}
+            />
+          </div>
+          <SimpleText
+            placeholder={
+              'other languages you speak ; seperate with "," if more than one'
+            }
+            label={"Second language(s)"}
+          />
         </div>
         <div className="">
           <label htmlFor="state">How many children have you?</label>
@@ -214,9 +314,27 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           options={["None", "Dog", "Cat", "Bird", "Fish", "Reptile", "Other"]}
           name={"pets"}
           label={"Do you have pets?"}
+          onChange={(e) => {
+            setPet(e.currentTarget.value);
+            console.log(e.currentTarget.value);
+            console.log(ethnic);
+            e.currentTarget.value == "Other"
+              ? setshowOtherPets(true)
+              : setshowOtherPets(false);
+          }}
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
-
+        <div
+          style={{ display: showOtherPets ? "block" : "none" }}
+          className="otherEthnicGroup"
+        >
+          <SimpleText
+            type={"text"}
+            minLength={1}
+            label={"Other Pets"}
+            placeholder={"Enter other pets not specified"}
+          />
+        </div>
         <Select
           options={["Yes", "No"]}
           name={"liveWithPets"}

@@ -24,9 +24,9 @@ const Signin = () => {
             method="POST"
           >
             <SimpleText
-              label={"Email"}
+              label={"Email or User ID"}
               placeholder="e.g ayomikun@gamil.com"
-              type={"Email"}
+              type={"text"}
               name="email"
               required
             />

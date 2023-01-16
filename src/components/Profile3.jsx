@@ -15,10 +15,10 @@ const Profile3 = ({ index, onClick, profileSetup }) => {
       <div className="checkBoxes">
         <label htmlFor="">Faith Status</label>
         <CheckBox options={[
-          {labels:'To be successful at work or school',value:'To be successful at work or school'},
-          {labels:'To make new friends',value:'To make new friends'},
-          {labels:'To find someone I can spend the rest of my life with',value:'To find someone I can spend the rest of my life with'},
-          {labels:'To have a closer stronger relationship with God',value:'To have a closer stronger relationship with God'},
+          {labels:'I am a born-again Christian and a regular church-goer.',value:'I am a born-again Christian and a regular church-goer.'},
+          {labels:'I am not born again but I am a regular church-goer.',value:'I am not born again but I am a regular church-goer.'},
+          {labels:'I am not born again, church is not really my thing but I try my best to live a good Christian life.',value:'I am not born again, church is not really my thing but I try my best to live a good Christian life.'},
+          {labels:'I only identify with Christianity as a religion, nothing more',value:'I only identify with Christianity as a religion, nothing more'},
         ]} />
       </div>
       <SimpleText

@@ -17,6 +17,6 @@ export const footerData =[
     },
     {
         name:'Contact us',
-        link:'/contact'
+        link:'/help'
     },
 ]

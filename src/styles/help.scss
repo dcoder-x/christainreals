@@ -1,0 +1,228 @@
+#help .contact-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10rem 0;
+}
+.contact {
+  width: 70%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.contact-banner {
+  min-height: 100vh;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+      0deg,
+      rgba(244, 68, 70, 0.18),
+      rgba(253, 56, 59, 0.18)
+    ),
+    url(../assets/bgImages/contact.png);
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  text-align: left;
+  padding-left: 3rem;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+.contact-banner h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.3vw;
+}
+.banner-text {
+  position: sticky;
+  top: 0%;
+  align-self: flex-start;
+  font-size: 1.3vw;
+}
+.contact-desc {
+  width: 100%;
+  height: 15%;
+  font-size: 11px;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.29);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -2rem;
+  line-height: 1.3;
+}
+.contact-banner img {
+  margin-bottom: -25rem;
+  margin-left: -3rem;
+  width: 10rem;
+}
+.contact-form {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  input,
+  select {
+    border: black 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 1rem;
+    min-height: 2rem;
+  }
+  label {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+  }
+}
+#full-name,
+#e-mail {
+}
+
+#message {
+  min-height: 10rem;
+  text-align: start;
+  text-align: start;
+}
+#send-btn {
+  /* height: 2rem; */
+  background-color: rgba(220, 20, 23, 1);
+  color: white;
+  padding: 1rem 0;
+  border: none;
+}
+#help .faq {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  /* margin: 5em 0; */
+  background-color: rgba(220, 20, 23, 1);
+}
+#help .faq .header {
+  color: white;
+  text-align: center;
+}
+#help .accordion {
+  width: 55%;
+  height: 70px;
+  background: rgb(242, 242, 242);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  overflow: hidden;
+  /* transition: 1s ease-in-out; */
+  cursor: pointer;
+}
+#help .accordion:hover {
+  background-color: rgb(216, 216, 216);
+}
+#help .open {
+  height: 245px;
+}
+#help .accordion-header {
+  min-height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000005;
+}
+#help .accordion-text {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+}
+#help .accordion-btn {
+  text-align: center;
+  height: 1.5em;
+  width: 1.5em;
+  border: 1.5px black solid;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#help .accordion-body {
+  padding: 2em;
+}
+#help .open {
+  height: 100%;
+}
+.safety {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  h4 {
+    display: flex;
+    p {
+      margin: 0;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .page-header p {
+    width: 90%;
+    font-weight: 100;
+    font-size: 15px;
+  }
+  .page-header h3 {
+    width: 70%;
+    font-family: Circular Std;
+    font-size: 2em;
+    font-weight: 400;
+    margin-bottom: 0.7em;
+  }
+  .contact-banner h6 {
+    font-size: 20px;
+  }
+  .contact-banner h3 {
+    font-size: 20px;
+  }
+  .contact {
+    /* padding: 10rem 1rem; */
+    width: 80%;
+  }
+  #help .contact-container {
+    padding: 1rem 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .contact {
+    flex-direction: column;
+  }
+  .contact-banner {
+    min-height: 300px;
+    width: 90%;
+    padding: 1rem;
+    padding-bottom: 0;
+  }
+  .contact-desc {
+    margin-left: 0;
+  }
+  .contact-form {
+    width: 100%;
+  }
+  #help .accordion {
+    width: fit-content;
+  }
+}

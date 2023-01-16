@@ -13,25 +13,43 @@ import { Icon } from "@iconify/react";
 import { useId } from "react";
 import { useEffect } from "react";
 import { useWindowDimensions } from "../components/hooks";
+import Modal from "../components/Modal";
 headerBg;
 
 const Events = () => {
   return (
     <main id="events">
       <PageHeader headerImage={headerBg.headerimage5} pageTitle={"Events"} />
-      <EventSwiper eventgroup={'My Scheduled events'} data={eventsData} isheader/> 
-        <EventSwiper eventgroup={'All Upcoming events'} upcoming data={eventsData} isheader/> 
-        <EventSwiper eventgroup={'All Past events'} past data={eventsData} isheader/> 
+      <EventSwiper
+        eventgroup={"My Scheduled events"}
+        data={eventsData}
+        isheader
+      />
+      <EventSwiper
+        eventgroup={"All Upcoming events"}
+        upcoming
+        data={eventsData}
+        isheader
+      />
+      <EventSwiper
+        eventgroup={"All Past events"}
+        past
+        data={eventsData}
+        isheader
+      />
       <Footer />
     </main>
   );
 };
 
-export const EventSwiper = ({ eventgroup, isheader, data,past,upcoming }) => {
-    const [liked, setliked] = useState(false)
-    const {width,height}=useWindowDimensions()
-    
-    return (
+export const EventSwiper = ({ eventgroup, isheader, data, past, upcoming }) => {
+  const [liked, setliked] = useState(false);
+  const { width, height } = useWindowDimensions();
+  const [deleteEvent, setdeleteEvent] = useState()
+  const [registerEvent, setregisterEvent] = useState()
+
+
+  return (
     <section className="events">
       {isheader ? (
         <div className="events-header">
@@ -58,15 +76,15 @@ export const EventSwiper = ({ eventgroup, isheader, data,past,upcoming }) => {
         //   delay: 3500,
         //   disableOnInteraction: false,
         // }}
-        slidesPerView={width<801?1:3}
+        slidesPerView={width < 801 ? 1 : 3}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation, EffectCreative]}
         className="mySwiper"
       >
         <section className="events-holder">
-          {data.map((event) => {
+          {data.map((event, i) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <div className="event">
                   <div className="image">
                     <img src={event.image} alt="" className="eventimg" />
@@ -79,16 +97,31 @@ export const EventSwiper = ({ eventgroup, isheader, data,past,upcoming }) => {
                     </div>
                     <div className="text">
                       <p className="title">{event.name}</p>
-                      <p className="desc">{event.desc.slice(0,40)} ... <b> read more </b></p>
+                      <p className="desc">
+                        {event.desc.slice(0, 40)} ... <b> read more </b>
+                      </p>
                     </div>
                   </div>
-                  {upcoming ? <div className="register"> Register</div> : null}
+                  {upcoming ? <div className="register" onClick={e=>setregisterEvent(true)}> Register</div> : null}
                   {past ? (
                     <Icon
                       color="FF6A6A"
                       icon="mdi:cards-heart-outline"
-                      onClick={e=>{setliked(!liked);console.log(liked)}}
+                      onClick={(e) => {
+                        setliked(!liked);
+                        console.log(liked);
+                      }}
                       fill={liked}
+                      className={"icon"}
+                    />
+                  ) : null}
+                  {!upcoming || past ? (
+                    <Icon
+                      color="FF6A6A"
+                      icon="material-symbols:delete-outline"
+                      onClick={(e) => {
+                        setdeleteEvent(true);
+                      }}
                       className={"icon"}
                     />
                   ) : null}
@@ -98,6 +131,32 @@ export const EventSwiper = ({ eventgroup, isheader, data,past,upcoming }) => {
           })}
         </section>
       </Swiper>
+      <Modal
+        show={deleteEvent}
+        onclose={(e) => {
+          setdeleteEvent(false);
+        }}
+        message={"Are you sure you want to delete this event?"}
+        title={"Delete event"}
+        actionText={"delete"}
+        onAccept={(e) => {
+          setdeleteEvent(false);
+        }}
+        closeText={"cancel"}
+      />
+            <Modal
+        show={registerEvent}
+        onclose={(e) => {
+          setregisterEvent(false);
+        }}
+        message={"Are you sure you want to register this event?"}
+        title={"Register event"}
+        actionText={"register"}
+        onAccept={(e) => {
+          setregisterEvent(false);
+        }}
+        closeText={"cancel"}
+      />
     </section>
   );
 };

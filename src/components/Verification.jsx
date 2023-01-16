@@ -108,6 +108,7 @@ function handleDecrement() {
         <img src={profileSetup[index].img} alt="" className="banner" />
         <div className="form">
         <Icon
+        className="back-icon"
         style={{cursor:"pointer"}}
         onClick={e=>{handleDecrement()}}
          icon="mdi:arrow-left-bottom" width={30} />

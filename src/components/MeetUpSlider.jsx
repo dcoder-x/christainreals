@@ -55,9 +55,9 @@ export const MeetSwiper = ({
         className="mySwiper"
       >
         <section className="events-holder">
-          {data.map((event) => {
+          {data.map((event,i) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <div className="event">
                   {scheduled ? (
                     <Icon
@@ -125,6 +125,8 @@ export const MeetSwiper = ({
         message={"Do you want to rsvp this meetup?"}
         title={"RSVP"}
         actionText={"OK"}
+        onAccept={e=>{setrsvpShow(false)}}
+        closeText={'cancel'}
       />
       <Modal
         show={deleteMeetup}
@@ -136,6 +138,8 @@ export const MeetSwiper = ({
         }
         title={"Cancel Meetup"}
         actionText={"OK"}
+        onAccept={e=>{setdeleteMeetup(false)}}
+        closeText={'cancel'}
       />
       <Modal
         show={reportMeetup}
@@ -153,6 +157,8 @@ export const MeetSwiper = ({
         }
         title={"Report Meetup"}
         actionText={"Report"}
+        onAccept={e=>{setreportMeetup(false)}}
+        closeText={'cancel'}
       />
     </section>
   );

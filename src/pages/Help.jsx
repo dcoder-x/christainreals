@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { headerBg } from '../assets/assets'
 import Footer from '../components/Footer'
 import PageHeader from '../components/PageHeader'
-import '../styles/help.css'
+import '../styles/help.scss'
 
 const Help = () => {
     const [show, setShow] = useState(false)
@@ -67,7 +67,20 @@ const Help = () => {
                     <label for="e-name">E-mail</label>
                     <input type="email" name="e-mail" id="e-mail" placeholder="e-mail address"/>
                     <label for="full-name">Subject</label>
-                    <input type="text" name="subject" id="subject" placeholder="Subject"/>
+                    <select name="subject" required id="">
+                        <optgroup>
+                            <option value="Complaint">
+                                Complaint
+                            </option>
+                            <option value="Request">
+                                Request
+                            </option>
+                            <option value="Enquiry">
+                                Enquiry
+                            </option>
+
+                        </optgroup>
+                    </select>
                     <label for="message">Message</label>
                     <input type="text" name="message" id="message" placeholder="Enter message..."/>
                     <input type="submit" value="Submit" id="send-btn"/>

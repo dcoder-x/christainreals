@@ -49,6 +49,8 @@ export const SimpleText = ({
   required,
   name,
   id,
+  minLength,
+  maxLength
 }) => {
   return (
     <div className={`mail ${containerClass}`}>
@@ -63,6 +65,8 @@ export const SimpleText = ({
         id={id}
         className={`email ${className}`}
         onChange={onChange}
+        minLength={minLength}
+        maxLength={maxLength}
       />
     </div>
   );
@@ -155,7 +159,7 @@ export const MultiSelect = ({
         }}
       >
         {selections.length < 4
-          ? "You must pick at least five options in this section "
+          ? "You must pick five options in this section "
           : null}
       </label>
 

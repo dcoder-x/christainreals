@@ -236,7 +236,7 @@ const SignUp = () => {
               </div>
               <div className="state">
                 <label htmlFor="state">
-                  Town/City
+                  Region/State
                   <p style={{ color: "red" }}> *</p>
                 </label>
                 <select
@@ -257,7 +257,7 @@ const SignUp = () => {
                   </optgroup>
                 </select>
               </div>
-              {/* <div className="city">
+              <div className="city">
                             <label htmlFor="city">
                                 Town/City
                             <p style={{color:'red'}}> *</p></label>
@@ -276,7 +276,7 @@ const SignUp = () => {
                                     }
                                 </optgroup>
                             </select>
-                        </div> */}
+                        </div>
             </div>
 
             <div className="post-code">

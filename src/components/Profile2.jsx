@@ -23,6 +23,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
           minHeight: "100px",
         }}
         required
+        minLength={200}
       />
       <MultiSelect
         options={options}
@@ -66,8 +67,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
       >
         <label htmlFor="">
-          What do you want more than anything right now? (choose as many as
-          applicable)
+        What are your ideal holiday types? (Choose as many as are applicable)
         </label>
         <CheckBox options={[
           {labels:'Beach/Seaside',value:'Beach/Seaside'},
