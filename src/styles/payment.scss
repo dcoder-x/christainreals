@@ -11,16 +11,43 @@ $background-color_3: rgb(46, 115, 194);
     .page-title{
         font-size: 35px;
     }
+    .bar-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .progressBar {
+        background-color: #d8d8d8;
+        border-radius: 20px;
+        position: relative;
+        margin: 15px 0;
+        height: 15px;
+        width: 100%;
+      }
+      .progressDone {
+        background: linear-gradient(to left, #f2709c, #ff9472);
+        box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
+        border-radius: 20px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 0;
+        transition: 1s ease 0.3s;
+      }
     .plans{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
         .subscription{
             width: 40%;
             min-width: 300px;
             border: #FF6A6A 2px solid;
             border-radius: 5px;
             padding: 1rem;
+            margin: 1rem 0;
             cursor: pointer;
             .activate{
                 background-color: #FF6A6A;

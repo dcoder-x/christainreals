@@ -8,6 +8,9 @@ import { countryCode } from "../data/CountryCodes";
 import { country, states, city } from "../data/address";
 import { useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { validate } from "../components/ErrorModal";
 
 const SignUp = () => {
   const [selectedDate, setdate] = useState("2004-12-31");
@@ -15,18 +18,27 @@ const SignUp = () => {
   const [stateSelect, setStateSelect] = useState();
   const [iswoman, setiswoman] = useState(false);
   const [isman, setisman] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [seekingMan, setseekingMan] = useState(false);
   const [seekingWoman, setseekingWoman] = useState(false);
+
+  //State and town filter logic
+
+  //set empty array for filtered data
 
   var filteredStates = [];
   var filteredCities = [];
 
+  //calling filter method on data arrays
+
   city.map((city) => {
     if (stateSelect) {
-      if (city.state_id == stateSelect[0].id) {
-        filteredCities.push(city);
+      if (stateSelect.length>0) {
+        if (city.state_id == stateSelect[0].id) {
+          filteredCities.push(city);
+        }
       }
+
     } else {
       filteredCities.push(city);
     }
@@ -53,16 +65,29 @@ const SignUp = () => {
     return [year, month, day].join("-");
   };
 
+  //handling form on submit
+
+  const handleForm = async (e)=>{
+    e.preventDefault();
+     const formData = await new FormData(e.currentTarget)
+     const formDataObj = Object.fromEntries(formData.entries());
+     console.log(formDataObj);
+    navigate("/verify");
+
+  }
+
+
   return (
     <main id="sign-up">
       <section className="signup-form">
         <img src={signUp.signup} alt="" className="banner" />
         <div className="form">
           <h2>Sign Up</h2>
-          <form action="" onSubmit={e=>{
-            e.preventDefault()
-            navigate('/verify')
-          }} method="post">
+          <form
+            action=""
+            onSubmit={handleForm}
+            method="post"
+          >
             <div className="radios">
               <div className="genders">
                 <p>I am</p>
@@ -77,6 +102,7 @@ const SignUp = () => {
                     id="woman"
                     checked={iswoman}
                     disabled={isman}
+                    value={"woman"}
                   />
                   <p htmlFor="woman">A woman</p>
                 </div>
@@ -91,6 +117,7 @@ const SignUp = () => {
                     type="radio"
                     name="man"
                     id="man"
+                    value={"man"}
                   />
                   <p htmlFor="woman">A man</p>
                 </div>
@@ -132,6 +159,13 @@ const SignUp = () => {
                   placeholder="e.g:Ayo"
                   name="username"
                   id="username"
+                  minLength={5}
+                  pattern="[A-Za-z0-9]+"
+                  onInputCapture={(e) => {
+                    validate("username", {
+                      patternError: "Username cannot contain symbols",
+                    });
+                  }}
                   required
                 />
                 <p className="field-info">
@@ -151,6 +185,13 @@ const SignUp = () => {
                   name="password"
                   id="password"
                   required
+                  pattern="^(?=(.*[a-z]){1,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$"
+                  minLength={8}
+                  onChange={(e) => {
+                    validate("password", {
+                      patternError: "Your password is weak",
+                    });
+                  }}
                 />
                 <p className="field-info">
                   (Enter your password. A strong password helps keep your
@@ -168,6 +209,11 @@ const SignUp = () => {
                 type="email"
                 name="email"
                 id="email"
+                onChange={(e) => {
+                  validate("email", {
+                    patternError: "This is not a valid email",
+                  });
+                }}
                 style={{ width: "100%" }}
               />
               <p className="field-info">
@@ -184,8 +230,16 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="e.g:Ayo"
-                  name="fname"
-                  id="fname"
+                  name="firstName"
+                  id="firstName"
+                  required
+                  minLength={1}
+                  onChange={(e) => {
+                    validate("firstName", {
+                      patternError:
+                        "your input does not match field requirements",
+                    });
+                  }}
                 />
               </div>
               <div className="name">
@@ -196,8 +250,16 @@ const SignUp = () => {
                 <input
                   placeholder="e.g:Philips"
                   type="text"
-                  name="sname"
-                  id="sname"
+                  name="lastName"
+                  id="lastName"
+                  required
+                  minLength={1}
+                  onChange={(e) => {
+                    validate("lastName", {
+                      patternError:
+                        "your input does not match field requirements",
+                    });
+                  }}
                 />
               </div>
             </div>
@@ -216,6 +278,7 @@ const SignUp = () => {
                 <select
                   name="country"
                   id="country"
+                  required
                   onChange={(e) => {
                     // country.filter(country=>{country.name==e.target.value})
                     setCountryselect(
@@ -223,6 +286,10 @@ const SignUp = () => {
                         return country.name == e.target.value;
                       })
                     );
+                    // validate("country", {
+                    //   patternError:
+                    //     "your input does not match field requirements",
+                    // });
                   }}
                 >
                   <optgroup>
@@ -242,12 +309,14 @@ const SignUp = () => {
                 <select
                   name="state"
                   id="state"
+                  required
                   onChange={(e) => {
                     setStateSelect(
                       states.filter((state) => {
                         return state.name == e.target.value;
                       })
                     );
+                    // validate("state", { patternError: "invalid character" });
                   }}
                 >
                   <optgroup>
@@ -258,25 +327,18 @@ const SignUp = () => {
                 </select>
               </div>
               <div className="city">
-                            <label htmlFor="city">
-                                Town/City
-                            <p style={{color:'red'}}> *</p></label>
-                            <select name="city" id="city">
-                                <optgroup>
-                                    {
-                                        filteredCities.map((city)=>{
-                                            return(
-                                                <option value={city.name}>
-                                                    {
-                                                        city.name
-                                                    }
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </optgroup>
-                            </select>
-                        </div>
+                <label htmlFor="city">
+                  Town/City
+                  <p style={{ color: "red" }}> *</p>
+                </label>
+                <select name="city" id="city" required>
+                  <optgroup>
+                    {filteredCities.map((city) => {
+                      return <option value={city.name}>{city.name}</option>;
+                    })}
+                  </optgroup>
+                </select>
+              </div>
             </div>
 
             <div className="post-code">
@@ -284,7 +346,20 @@ const SignUp = () => {
                 <label htmlFor="postcode">
                   Post/Zip code<p style={{ color: "red" }}> *</p>
                 </label>
-                <input type="text" name="postcode" id="postcode" />
+                <input
+                  type="text"
+                  name="postcode"
+                  id="postcode"
+                  required
+                  onChange={(e) => {
+                    setStateSelect(
+                      states.filter((state) => {
+                        return state.name == e.target.value;
+                      })
+                    );
+                    validate("postcode", { patternError: "invalid character" });
+                  }}
+                />
               </div>
 
               <p className="info">
@@ -405,10 +480,24 @@ const SignUp = () => {
               <p>
                 Already a member? <a href="/signin"> Sign In</a>
               </p>
-                <button type="submit" className="Join-btn">Continue</button>
+              <button type="submit" className="Join-btn">
+                Continue
+              </button>
             </div>
           </form>
         </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </section>
     </main>
   );

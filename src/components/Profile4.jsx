@@ -24,33 +24,40 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
         <label htmlFor="">
           What is your view about gender roles in marriage?
         </label>
-        <CheckBox options={[
-          {labels:'The man should be in control. That is how it was designed to be.',value:'The man should be in control. That is how it was designed to be.'},
-          {labels:'The woman should be in control. That’s how you can have peace.',value:'The woman should be in control. That’s how you can have peace.'},
-          {labels:'Each party has their unique roles, according to the Bible, which complement each other',value:'Each party has their unique roles, according to the Bible, which complement each other'},
-          {labels:'It is a partnership where both parties are equal. This is 21st century.'},
-        ]} />
-        {/* <CheckBox
-          label={
-            "The man should be in control. That is how it was designed to be."
-          }
-        />
         <CheckBox
-          label={
-            "The woman should be in control. That’s how you can have peace."
-          }
+          options={[
+            {
+              labels:
+                "The man should be in control. That is how it was designed to be.",
+              value:
+                "The man should be in control. That is how it was designed to be.",
+            },
+            {
+              labels:
+                "The woman should be in control. That’s how you can have peace.",
+              value:
+                "The woman should be in control. That’s how you can have peace.",
+            },
+            {
+              labels:
+                "Each party has their own unique role, according to the Bible, which complement each other.",
+              value:
+                "Each party has their unique roles, according to the Bible, which complement each other.",
+            },
+            {
+              labels:
+                "It is a partnership where both parties are equal. This is 21st century.",
+            },
+          ]}
         />
-        <CheckBox
+        <Select
+          options={["Yes", "No", "It doesn't bother me"]}
+          name={"liveWithPets"}
           label={
-            "Each party has their unique roles, according to the Bible, which complement each other"
+            "Would you prefer that in a relationship the man is older than the woman?"
           }
+          selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
-        <CheckBox
-          label={
-            "It is a partnership where both parties are equal. This is 21st century."
-          }
-        /> */}
-
         <Select
           options={[
             "1 – 3 years",
@@ -115,6 +122,14 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
         <Select
+          options={["-Yes, definitely", "No, not really"]}
+          name={"alwaysClean"}
+          label={
+            "Is it important to you that everything is in its proper place at all times?"
+          }
+          selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
+        />
+        <Select
           options={["Yes, I eat at set times", "No, I eat whenever I'm hungry"]}
           name={"eat"}
           label={"Are regular mealtimes important to you?"}
@@ -124,7 +139,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
           options={[
             "Every day",
             "Once or twice a week",
-            "Several times a month",
+            "Few times a month",
             "That’s not my thing",
           ]}
           name={"excercise"}
@@ -179,7 +194,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
         <i style={{ color: "red", fontStyle: "italic" }}>
           Please fill in accurate information !
         </i>
-        <button className="Join-btn"  type="submit">
+        <button className="Join-btn" type="submit">
           {index == profileSetup.length - 1 ? "Submit" : "Continue"}
         </button>
       </div>

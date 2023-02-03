@@ -24,6 +24,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         }}
         required
         minLength={50}
+        placeholder={'minimum 50 characters'}
       />
       <MultiSelect
         options={options}

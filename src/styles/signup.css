@@ -164,10 +164,11 @@
   padding: 0 0.5rem;
   margin-right: 2rem;
   border: 1px solid rgba(122, 122, 122, 1);
-  max-width: 300px;
+  /* max-width: 300px; */
+  width: max-content;
 }
 .signup-form .phone select {
-  max-width: 120px;
+  max-width: 200px;
   border: none;
 }
 .signup-form .phone input {
@@ -185,7 +186,7 @@
   padding: 0 0.5rem;
   border: 1px solid rgba(122, 122, 122, 1);
   min-height: 50px;
-  width: 100%;
+  width: max-content;
 }
 .signup-form .dob select {
   border: none;

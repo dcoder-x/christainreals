@@ -72,7 +72,7 @@ BodyType=[
     'Large'
 ],
 EyeColour =[
-    'Black',
+    'Red',
     'Brown',
     'Blue',
     'Green',
@@ -88,7 +88,6 @@ HairColour=[
     'Auburn',
     'Gray',
     'White',
-    'Red hair',
 ],
 Children=[
     '0',

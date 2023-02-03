@@ -26,6 +26,9 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
    const [showOtherPets, setshowOtherPets] = useState(false);
   const [pet, setPet] = useState("");
 
+  const [specifyPets, setSpecifyPets] = useState(false);
+  const [liveWithpet, setLiveWithPet] = useState("");
+
   const [showOtherEducation, setshowOtherEducation] = useState(false);
   const [education, setEducation] = useState("");
 
@@ -151,7 +154,6 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
         </div>
         <div className="mail">
           <label htmlFor="email">What kind of work do you do currently?</label>
-          <p>If unemployed, enter the kind of work you are seeking.</p>
           <input
             placeholder="e.g:software"
             required
@@ -162,13 +164,13 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           />
         </div>
         <div className="mail">
-          <label htmlFor="email">What is your future career goal?</label>
+          <label htmlFor="email">If unemployed or seeking a new job, enter the kind of work you are seeking or if studying, the job you are aiming for at the end of your course.</label>
           <input
-            placeholder="e.g:software developer"
+            placeholder="e.g:software"
             required
             type="text"
-            name="futureCareer"
-            id="futureCareer"
+            name="expectedJob"
+            id="expectedJob"
             className="email"
           />
         </div>
@@ -176,7 +178,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
         <div className="address">
           <div className="country">
             <label htmlFor="country">Height</label>
-            <input name="height" required type="number" placeholder="e.g:6, this field accepts only number" />
+            <input name="height" required type="number" placeholder="e.g:6, accepts only number" />
             <select name="heightUnit" id="" defaultValue={'please select a unit'}>
               <optgroup>
                 <option value="Ft"> Ft</option>
@@ -186,7 +188,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
           <div className="country">
             <label htmlFor="country">Weight</label>
-            <input required type="number" placeholder="e.g:62 , this field accepts only number" />
+            <input required type="number" placeholder="e.g:62 , accepts only number" />
             <select name="WeightUnit" id="" defaultValue={'please select a unit'}>
               <optgroup>
                 <option value="Lb"> lb</option>
@@ -228,7 +230,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
         </div>
         <div className="state">
-          <label htmlFor="">Main Language spoken</label>
+          <label htmlFor="">Main Language of Communication</label>
           <select
             name="state"
             id="state"
@@ -261,9 +263,9 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
           <SimpleText
             placeholder={
-              'other languages you speak ; seperate with "," if more than one'
+              'other languages you speak ; separate with "," if more than one'
             }
-            label={"Second language(s)"}
+            label={"Other language(s) spoken"}
           />
         </div>
         <div className="">
@@ -353,11 +355,32 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           />
         </div>
         <Select
-          options={["Yes", "No"]}
+          options={["Yes, any pet", "No",'Yes, only (specify types of pet)']}
           name={"liveWithPets"}
-          label={"Would you live with someone who keeps a pet?"}
+          label={"Would you live with someone who keeps  pet?"}
+          onChange={(e) => {
+            setLiveWithPet(e.currentTarget.value);
+            console.log(e.currentTarget.value);
+            console.log(ethnic);
+            e.currentTarget.value == "Yes, only (specify types of pet)"
+              ? setSpecifyPets(true)
+              : setSpecifyPets(false);
+          }}
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
+          <div
+          style={{ display: specifyPets ? "block" : "none" }}
+          className="otherEthnicGroup"
+        >
+          <SimpleText
+            type={"text"}
+            minLength={1}
+            label={"Specify types of pet"}
+            name={'specifyPet'}
+            required={specifyPets}
+            placeholder={"Enter pets you are comfortable with"}
+          />
+        </div>
         <div className="call-to-action">
           <i style={{ color: "red", fontStyle: "italic" }}>
             Please fill in accurate information !

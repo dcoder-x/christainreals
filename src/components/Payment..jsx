@@ -3,9 +3,23 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { Vectors, icons, images } from "../assets/assets";
 import "../styles/payment.scss";
+import { useEffect } from "react";
 
 const Payments = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    const accordion = document.querySelectorAll(".accordion");
+    const accordionBtn = document.querySelectorAll(".accordion-btn");
+
+    accordion.forEach((element, index) => {
+      element.onclick = () => {
+        element.classList.toggle("open");
+        if (element.classList.contains("open")) {
+          accordionBtn[index].innerHTML = "&minus;";
+        } 
+      };
+    });
+  });
   return (
     <main id="payments-page">
       <Icon
@@ -14,21 +28,56 @@ const Payments = () => {
         }}
         icon={"ic:baseline-subdirectory-arrow-left"}
         width={30}
-        cursor={'pointer'}
+        cursor={"pointer"}
       />
       <section className="subscription">
         <h1 className="page-title">Subscription</h1>
+        <div className="bar-header">
+          <h4>Free trial</h4>
+
+          <p>1 day(s) more</p>
+        </div>
+        <div className="progressBar">
+          <div
+            className="progressDone"
+            style={{
+              width: `75%`,
+            }}
+          ></div>
+        </div>
+        <div className="charge">
+          <i class="fas fa-wind-warning    "></i>
+          your card will be  charged when the trial is over
+          </div> 
         <section className="plans">
           <PlanCard
-            title={"Freemium"}
+            title={"Basic plan"}
             expiryDate={"forever free"}
             price={"0"}
             active
           />
           <PlanCard
             title={"Premium"}
-            expiryDate={"30days left"}
-            price={"40"}
+            expiryDate={"1 month plan"}
+            price={"20"}
+            active={false}
+          />
+          <PlanCard
+            title={"Premium"}
+            expiryDate={"3 month plan"}
+            price={"45"}
+            active={false}
+          />
+          <PlanCard
+            title={"Premium"}
+            expiryDate={"6 month plan"}
+            price={"72"}
+            active={false}
+          />
+          <PlanCard
+            title={"Premium"}
+            expiryDate={"12 month plan"}
+            price={"108"}
             active={false}
           />
         </section>
@@ -76,6 +125,8 @@ function PlanCard({
   buttonText,
   expiryDate,
   active,
+  packageDescription,
+  packageList
 }) {
   return (
     <>
@@ -89,6 +140,26 @@ function PlanCard({
             &pound;
             {price}/Month
           </p>
+        </div>
+        <div class={`accordion`}>
+          <div class="accordion-header">
+            <div class="accordion-text">
+              <Icon class="accordion-icon" icon={'material-symbols:info-outline'} color="white"/>
+              <p>View subscription details</p>
+            </div>
+          </div>
+          <div class="accordion-body">
+            {!packageDescription?packageDescription:null}
+            <ul>
+              {
+                packageList?
+                packageList.map((list)=>{
+                  return <li>{list}</li>
+                }):
+                null
+              }
+            </ul>
+          </div>
         </div>
         <div className="action-btn">
           {active ? (
