@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { Vectors, icons, images } from "../assets/assets";
 import "../styles/payment.scss";
 import { useEffect } from "react";
+import { membershipData } from "../data/MembershipData";
 
 const Payments = () => {
   const navigate = useNavigate();
@@ -55,30 +56,40 @@ const Payments = () => {
             expiryDate={"forever free"}
             price={"0"}
             active
+            packageDescription={ membershipData.basic.description }
+            packageList={membershipData.basic.benefits}
           />
           <PlanCard
             title={"Premium"}
             expiryDate={"1 month plan"}
             price={"20"}
             active={false}
+            packageDescription={ membershipData.premium1month.description }
+            packageList={membershipData.premium1month.benefits}
           />
           <PlanCard
             title={"Premium"}
             expiryDate={"3 month plan"}
             price={"45"}
             active={false}
+            packageDescription={ membershipData.premium3month.description }
+            packageList={membershipData.premium3month.benefits}
           />
           <PlanCard
             title={"Premium"}
             expiryDate={"6 month plan"}
             price={"72"}
             active={false}
+            packageDescription={ membershipData.premium6month.description }
+            packageList={membershipData.premium6month.benefits}
           />
           <PlanCard
             title={"Premium"}
             expiryDate={"12 month plan"}
             price={"108"}
             active={false}
+            packageDescription={ membershipData.premium12month.description }
+            packageList={membershipData.premium12month.benefits}
           />
         </section>
         <section className="info">
@@ -141,15 +152,15 @@ function PlanCard({
             {price}/Month
           </p>
         </div>
-        <div class={`accordion`}>
-          <div class="accordion-header">
-            <div class="accordion-text">
-              <Icon class="accordion-icon" icon={'material-symbols:info-outline'} color="white"/>
+        <div className={`accordion`}>
+          <div className="accordion-header">
+            <div className="accordion-text" >
+              <Icon className="accordion-icon" icon={'material-symbols:info-outline'} color={active?"white":'#fb5656'}/>
               <p>View subscription details</p>
             </div>
           </div>
-          <div class="accordion-body">
-            {!packageDescription?packageDescription:null}
+          <div className="accordion-body">
+            {packageDescription?packageDescription:null}
             <ul>
               {
                 packageList?

@@ -38,7 +38,7 @@ $background-color_3: rgb(46, 115, 194);
       }
     .plans{
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         flex-wrap: wrap;
         .subscription{
@@ -87,18 +87,42 @@ $background-color_3: rgb(46, 115, 194);
                     background-color: white;
                     color: black;
                 }
+                .accordion-icon{
+                    color: white !important;
+                }
+            }
+             .accordion{
+                width: 100%;
+                height: 30px;
+                overflow: hidden;
+                cursor: pointer;
+            }
+             .open{
+                height: auto;
+            }
+            .accordion-text{
+                display: flex;
+                text-decoration: underline;
+                align-items: center;
+                &:hover{
+                    color: white !important;
+             
+                }
             }
         }
     }
     .cards{
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         justify-content: space-between;
+        
         .credit-card{
             padding: 1rem;
             border: 2px rgba(128, 128, 128, 0.475) solid;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 1rem;
             min-width: 300px;
             .card-type{
                 color: rgba(128, 128, 128, 0.625) ;

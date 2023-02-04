@@ -2,6 +2,7 @@ import React from "react";
 import { questionBank } from "../data/questionBank";
 import { Select, SimpleText } from "./Formcomps";
 import { useState } from "react";
+import { validate } from "./ErrorModal";
 
 //destructure question back
 const {
@@ -153,7 +154,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
         </div>
         <div className="mail">
-          <label htmlFor="email">What kind of work do you do currently?</label>
+          <label htmlFor="job">What kind of work do you do currently?</label>
           <input
             placeholder="e.g:software"
             required
@@ -161,6 +162,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             name="Job"
             id="job"
             className="email"
+            onChange={e=>{ validate('job',{patternError:"Invalid Character"}) }}
           />
         </div>
         <div className="mail">

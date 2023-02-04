@@ -189,7 +189,7 @@ const SignUp = () => {
                   minLength={8}
                   onChange={(e) => {
                     validate("password", {
-                      patternError: "Your password is weak",
+                      patternError: "Your password is weak\n passwowrd must be 8 characters and contain at least one: \n 1 Upper case, \n 1 lower case, \n 1 number, \n 1 special character.  ",
                     });
                   }}
                 />
