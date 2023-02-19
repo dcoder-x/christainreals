@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { validate } from "../components/ErrorModal";
+import axios from "axios";
 
 const SignUp = () => {
   const [selectedDate, setdate] = useState("2004-12-31");
@@ -18,9 +19,9 @@ const SignUp = () => {
   const [stateSelect, setStateSelect] = useState();
   const [iswoman, setiswoman] = useState(false);
   const [isman, setisman] = useState(false);
+  const [gender, setGender] = useState(false);
   const navigate = useNavigate();
-  const [seekingMan, setseekingMan] = useState(false);
-  const [seekingWoman, setseekingWoman] = useState(false);
+  const [datingNeed, setDatingNeed] = useState(false);
 
   //State and town filter logic
 
@@ -71,8 +72,21 @@ const SignUp = () => {
     e.preventDefault();
      const formData = await new FormData(e.currentTarget)
      const formDataObj = Object.fromEntries(formData.entries());
-     console.log(formDataObj);
-    navigate("/verify");
+     formDataObj.dateOfBirth=selectedDate
+     formDataObj.gender= gender
+     formDataObj.datingNeed= datingNeed
+     formDataObj.phone= parseInt(`${formDataObj.code}${formDataObj.phone}`)
+
+
+     try {
+      const response = await axios.post('http://localhost:5000/register',formDataObj)
+      console.log(response.data)
+      navigate("/verify");
+     } catch (error) {
+      console.log(error)
+     }
+   
+    
 
   }
 
@@ -97,12 +111,15 @@ const SignUp = () => {
                     onClick={(e) => {
                       setiswoman(!iswoman);
                     }}
+                    onChange={(e) => {
+                      setGender(e.currentTarget.value);
+                    }}
                     type="radio"
-                    name="woman"
+                    name="female"
                     id="woman"
                     checked={iswoman}
                     disabled={isman}
-                    value={"woman"}
+                    value={"female"}
                   />
                   <p htmlFor="woman">A woman</p>
                 </div>
@@ -111,13 +128,16 @@ const SignUp = () => {
                     onClick={(e) => {
                       setisman(!isman);
                     }}
+                    onChange={(e) => {
+                      setGender(e.currentTarget.value);
+                    }}
                     disabled={iswoman}
                     checked={isman}
                     className="radio"
                     type="radio"
-                    name="man"
+                    name="male"
                     id="man"
-                    value={"man"}
+                    value={"male"}
                   />
                   <p htmlFor="woman">A man</p>
                 </div>
@@ -132,6 +152,10 @@ const SignUp = () => {
                     type="radio"
                     name="seekingwoman"
                     id="seekingwoman"
+                    value={'female'}
+                    onChange={e=>{
+                      setDatingNeed(e.currentTarget.value)
+                    }}
                   />
                   <p htmlFor="woman">A woman</p>
                 </div>
@@ -143,6 +167,10 @@ const SignUp = () => {
                     disabled={isman}
                     checked={iswoman}
                     id="seekingman"
+                    value={'man'}
+                    onChange={e=>{
+                      setDatingNeed(e.currentTarget.value)
+                    }}
                   />
                   <p htmlFor="woman">A man</p>
                 </div>
@@ -157,7 +185,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="e.g:Ayo"
-                  name="username"
+                  name="userName"
                   id="username"
                   minLength={5}
                   pattern="[A-Za-z0-9]+"
@@ -250,7 +278,7 @@ const SignUp = () => {
                 <input
                   placeholder="e.g:Philips"
                   type="text"
-                  name="lastName"
+                  name="surname"
                   id="lastName"
                   required
                   minLength={1}
@@ -348,7 +376,7 @@ const SignUp = () => {
                 </label>
                 <input
                   type="text"
-                  name="postcode"
+                  name="postCode"
                   id="postcode"
                   required
                   onChange={(e) => {
@@ -376,7 +404,7 @@ const SignUp = () => {
                   Phone<p>(optional) </p>
                 </label>
                 <div className="phone">
-                  <select name="" id="">
+                  <select name="code" id="">
                     <optgroup>
                       {countryCode.map((code) => {
                         return (
@@ -469,6 +497,7 @@ const SignUp = () => {
                   onDateChange={(date) => {
                     setdate(formatDate(date));
                   }}
+                  
                 />
                 <p className="field-info">
                   Only age will be displayed on your profile, your full date of
@@ -486,18 +515,7 @@ const SignUp = () => {
             </div>
           </form>
         </div>
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
+
       </section>
     </main>
   );

@@ -5,10 +5,30 @@ import { images } from "../assets/assets";
 import Signinbanner from "../assets/images/signinbanner.png";
 import { SimpleText } from "../components/Formcomps";
 import "../styles/signin.css";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Signin = () => {
   const [password, setpassword] = useState(false);
   const navigate = useNavigate()
+
+  const handleForm = async (e)=>{
+    e.preventDefault();
+     const formData = new FormData(e.currentTarget)
+     const formDataObj = Object.fromEntries(formData.entries());
+
+     try {
+      const response = await axios.post('http://localhost:5000/login',formDataObj)
+      console.log(response.data)
+      navigate("/dashboard");
+     } catch (error) {
+      console.log(error)
+      toast(error.response.data.msg)
+     }
+   
+    
+
+  }
   return (
     <main id="sign-up">
       <section className="signup-form">
@@ -17,17 +37,13 @@ const Signin = () => {
           <img src={images.Logo} alt="" />
           <h2>Sign In</h2>
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              navigate('/dashboard')
-            }}
-            method="POST"
+            onSubmit={handleForm}
           >
             <SimpleText
               label={"Email or User ID"}
               placeholder="e.g ayomikun@gamil.com"
               type={"text"}
-              name="email"
+              name="emailOrId"
               required
             />
             <div className={`mail`}>

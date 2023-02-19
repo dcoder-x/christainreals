@@ -18,6 +18,7 @@ import DashBoard from './pages/DashBoard'
 import Faq from './pages/Faq'
 import { useScrollToTop } from './components/hooks'
 import Signin from './pages/Signin'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const { pathname } = useLocation();
@@ -44,6 +45,18 @@ function App() {
           <Route path='/dashboard/*' element={<DashBoard/>}>
           </Route>
         </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </>
     </div>
   )
