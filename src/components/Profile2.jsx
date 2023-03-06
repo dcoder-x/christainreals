@@ -1,23 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { options } from "../data/form";
 import { CheckBox, MultiLineText, MultiSelect, Select, SimpleText } from "./Formcomps";
+import { toast } from "react-toastify";
+
+
 const Profile2 = ({ index, onClick, profileSetup }) => {
+
+  const [friendDescription, setFriendDescription] = useState([])
+  const [familyDescription, setFamilyDescription] = useState([])
+  const [colleagueDescription, setColleagueDescription] = useState([])
+  const [idealHoliday, setIdealHoliday] = useState([])
+  const [exPartner, setExPartner] = useState([])
+  
+  async function handleSubmit(e) {
+     e.preventDefault();
+     if (familyDescription.length<5 && colleagueDescription.length<5 && friendDescription.length<5 && idealHoliday.length < 1 && exPartner.length < 5) {
+      toast('Personal description requires at least 5 options')
+      console.log(familyDescription.length,colleagueDescription.length)
+     }
+     else{
+      const formData = await new FormData(e.currentTarget)
+      const formDataObj = Object.fromEntries(formData.entries());
+      formDataObj.friend_description = friendDescription
+      formDataObj.family_description = familyDescription
+      formDataObj.colleague_description = colleagueDescription
+      formDataObj.ideal_holiday = idealHoliday
+      formDataObj.exPartner_description = exPartner
+
+       console.log(formDataObj)
+       await window.localStorage.setItem('profile2',JSON.stringify(formDataObj))
+       onClick()
+     }
+    
+  }
+
   return (
     <form
-      action=""
       onSubmit={(e) => {
-        e.preventDefault();
-        console.log("submited");
-        onClick();
+        handleSubmit(e)
       }}
-      method="POST"
     >
       <MultiLineText
         extralabel={
           "This is your opportunity to sell yourself. Tell us a little about yourself and your personality. E .g What makes you unique? What are your likes and dislikes? What keeps you awake at night and what wakes you up in the morning? What are the things that you are passionate about? What activities do you enjoy doing and what activities would you rather not engage in? What brought you to this website? What kind of person would you like to meet on this website? Anything else that you would like your potential matches to know about you."
         }
         label={"About me"}
-        name={"About"}
+        name={"about"}
         type={"text"}
         inputStyle={{
           minHeight: "100px",
@@ -28,22 +56,34 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
       />
       <MultiSelect
         options={options}
+        onSelect={selection=>{
+          setFriendDescription(selection)
+        }}
         label={"Which five terms would your friends use to describe you?"}
       />
       <MultiSelect
         options={options}
+        onSelect={selection=>{
+          setFamilyDescription(selection)
+        }}
         label={
           "Which five terms would your family members use to describe you?"
         }
       />
       <MultiSelect
         options={options}
+        onSelect={selection=>{
+          setColleagueDescription(selection)
+        }}
         label={
           "Which five terms would your work or school mates use to describe you?"
         }
       />
       <MultiSelect
         options={options}
+        onSelect={selection=>{
+          setExPartner(selection)
+        }}
         label={"Which five terms would your ex-partners use to describe you?"}
       />
       {/* <Select
@@ -53,10 +93,10 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
       /> */}
 
-      <SimpleText
+      <MultiLineText
         label={" Where and how do you like to spend your free time?"}
         // label={"About me"}
-        name={"About"}
+        name={"free_time"}
         required
         type={"text"}
         inputStyle={{
@@ -70,7 +110,9 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         <label htmlFor="">
         What are your ideal holiday types? (Choose as many as are applicable)
         </label>
-        <CheckBox options={[
+        <CheckBox 
+        onSelect={selection=>setIdealHoliday(selection)}
+        options={[
           {labels:'Beach/Seaside',value:'Beach/Seaside'},
           {labels:'Resorts/Hotels/Spas ',value:'Resorts/Hotels/Spas '},
           {labels:'Cruises',value:'Cruises'},
@@ -125,7 +167,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
         //   "This is your opportunity to sell yourself. Tell us a little about yourself and your personality. E. g. How would a good friend describe you? What makes you unique? What drives you? What are your likes and dislikes? Which things are you passionate about? What activities do you enjoy doing? What activities bring out the best in you?"
         // }
         label={"If you had only one wish, what would that be?"}
-        name={"cannotLiveWithout"}
+        name={"desire"}
         type={"text"}
         inputStyle={{
           minHeight: "100px",
@@ -137,7 +179,7 @@ const Profile2 = ({ index, onClick, profileSetup }) => {
           Please fill in accurate information !
         </i>
         <button type="submit" className="Join-btn">
-          {index == profileSetup.length - 1 ? "Submit" : "Continue"}
+          {index == profileSetup.length - 1 ? "Submit" : "Save & Continue"}
         </button>
       </div>
     </form>

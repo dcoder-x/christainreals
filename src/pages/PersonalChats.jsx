@@ -38,26 +38,60 @@ const Call = ({ show, onclose }) => {
 const PersonalChats = () => {
   const [show, setshow] = useState(false);
   const [text, setText] = useState("");
-  const chatsRef = useRef(null)
-  const messagesEndRef = useRef(null)
-  const [chats, setChats] = useState([
-    { time: new Date().toLocaleTimeString(), message: "New Message" },
-  ]);
+  const chatsRef = useRef(null);
+  const messagesEndRef = useRef(null);
+  const [chats, setChats] = useState([]);
+  const [fileContent, setFileContent] = useState();
+  const [fileType, setFileType] = useState();
+  const [file, setFile] = useState();
+  const inputFile = useRef(null);
 
+  const handleChange = (event) => {
+    setFile(event.target.files[0]);
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const fileType = file.type;
+
+      if (fileType.startsWith("image/")) {
+        setFileContent(event.target.result);
+        setFileType("image");
+      } else if (fileType === "application/pdf") {
+        setFileContent(event.target.result);
+        setFileType("pdf");
+      } else {
+        setFileContent("");
+        setFileType("");
+        alert("Unsupported file type");
+      }
+    };
+
+    reader.readAsDataURL(file);
+  };
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    scrollToBottom()
+    scrollToBottom();
   }, [chats]);
 
-
   function handleOnEnter(text) {
-    setText(text)
-    setChats([...chats,{ time: new Date().toLocaleTimeString(), message: text }])
-    setText('')
+    setText(text);
+    setChats([
+      ...chats,
+      {
+        time: new Date().toLocaleTimeString(),
+        message: fileContent
+          ? { text, file: { content: fileContent, type: fileType } }
+          : { text },
+      },
+    ]);
+    setText("");
+    setFileContent('')
+    setFileType('')
   }
 
   return (
@@ -95,34 +129,60 @@ const PersonalChats = () => {
           </div>
           <div className="chat recieved">Yeah sure, meet in 1o mins</div>
           {chats.map((chat) => {
+            console.log(chat);
             return (
               <div className="chat sent">
-                <p className="time" style={{ color: "black", fontSize: "10px" }}>
+                <p
+                  className="time"
+                  style={{ color: "black", fontSize: "10px" }}
+                >
                   {chat.time}
                 </p>
-                {` ${chat.message} `}
+
+                {chat.message.file && chat.message.file.type === "image" && (
+                  <img src={chat.message.file.content} />
+                )}
+                {chat.message.file && chat.message.file.type === "pdf" && (
+                  <iframe
+                    src={chat.message.file.content}
+                    width="100%"
+                    height="600px"
+                  />
+                )}
+                <p className="text-message">{` ${chat.message.text} `}</p>
               </div>
             );
           })}
         </div>
-        <div className="chat-input">
+        <form className="chat-input">
           <div className="files">
-            <img src={icons.AddFile} alt="" />
+            <input hidden type="file" onChange={handleChange} ref={inputFile} />
+            <img
+              onClick={() => inputFile.current.click()}
+              src={icons.AddFile}
+              alt=""
+            />
           </div>
           {/* <Icon icon={"fluent:emoji-add-16-regular"} width={30} /> */}
-          <form action="">
+          <div className=" w-4/5">
             <InputEmoji
-            // ref={inputRef}
+              // ref={inputRef}
               value={text}
               onChange={setText}
               cleanOnEnter
               onEnter={handleOnEnter}
               placeholder="Type a message"
             />
-          </form>
+          </div>
 
-          <Icon onClick={e=>{handleOnEnter(text)}} icon="material-symbols:send-outline" width={30} />
-        </div>
+          <Icon
+            onClick={(e) => {
+              handleOnEnter(text);
+            }}
+            icon="material-symbols:send-outline"
+            width={30}
+          />
+        </form>
       </div>
       <Call
         show={show}

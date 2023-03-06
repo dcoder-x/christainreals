@@ -84,6 +84,17 @@
     .time{
         margin: 0;
     }
+    img{
+        max-width: 300px;
+        max-height: 300px;
+    }
+    iframe{
+        max-width: 300px;
+        max-height: 300px;
+    }
+    .text-message{
+        margin: 0;
+    }
     
 }
 #personalchats .chat-body .chats .sent{
@@ -97,6 +108,7 @@
 #personalchats .chat-input{
     width: 80%;
     padding: 1rem 1.5rem;
+    flex-direction: row;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

@@ -9,9 +9,9 @@ import { country, states, city } from "../data/address";
 import { useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import { validate } from "../components/ErrorModal";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [selectedDate, setdate] = useState("2004-12-31");
@@ -21,7 +21,7 @@ const SignUp = () => {
   const [isman, setisman] = useState(false);
   const [gender, setGender] = useState(false);
   const navigate = useNavigate();
-  const [datingNeed, setDatingNeed] = useState(false);
+  const [datingNeed, setDatingNeed] = useState();
 
   //State and town filter logic
 
@@ -72,6 +72,7 @@ const SignUp = () => {
     e.preventDefault();
      const formData = await new FormData(e.currentTarget)
      const formDataObj = Object.fromEntries(formData.entries());
+     console.log(datingNeed)
      formDataObj.dateOfBirth=selectedDate
      formDataObj.gender= gender
      formDataObj.datingNeed= datingNeed
@@ -79,11 +80,12 @@ const SignUp = () => {
 
 
      try {
-      const response = await axios.post('http://localhost:5000/register',formDataObj)
+      const response = await axios.post('https://christianreals-backend.onrender.com/register',formDataObj)
       console.log(response.data)
-      navigate("/verify");
+      navigate("/verify",{state:{username:`${formDataObj.firstName}`,email:`${formDataObj.email}`}});
      } catch (error) {
       console.log(error)
+      toast(error.response.data.msg)
      }
    
     
@@ -113,6 +115,7 @@ const SignUp = () => {
                     }}
                     onChange={(e) => {
                       setGender(e.currentTarget.value);
+                      setDatingNeed('male')
                     }}
                     type="radio"
                     name="female"
@@ -130,6 +133,7 @@ const SignUp = () => {
                     }}
                     onChange={(e) => {
                       setGender(e.currentTarget.value);
+                      setDatingNeed('female')
                     }}
                     disabled={iswoman}
                     checked={isman}
@@ -155,6 +159,7 @@ const SignUp = () => {
                     value={'female'}
                     onChange={e=>{
                       setDatingNeed(e.currentTarget.value)
+                      console.log(datingNeed,e.currentTarget.value)
                     }}
                   />
                   <p htmlFor="woman">A woman</p>
@@ -167,7 +172,7 @@ const SignUp = () => {
                     disabled={isman}
                     checked={iswoman}
                     id="seekingman"
-                    value={'man'}
+                    value={'male'}
                     onChange={e=>{
                       setDatingNeed(e.currentTarget.value)
                     }}
@@ -189,7 +194,7 @@ const SignUp = () => {
                   id="username"
                   minLength={5}
                   pattern="[A-Za-z0-9]+"
-                  onInputCapture={(e) => {
+                  onBlur={(e) => {
                     validate("username", {
                       patternError: "Username cannot contain symbols",
                     });

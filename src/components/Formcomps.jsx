@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { useState } from "react";
 import "../styles/formcomps.css";
+import { toast } from "react-toastify";
 
 export const Select = ({
   label,
@@ -117,8 +118,10 @@ export const CheckBox = ({
   onTextInputChange,
   textInputName,
   options,
+  onSelect
 }) => {
-  const selections = []
+  const [selections, setselections] = useState([]);
+  // const selections = []
   return (
     <>
       {options.map((option, i) => {
@@ -137,16 +140,15 @@ export const CheckBox = ({
                   e.currentTarget.checked
                 ) {
                   selections.push(option.value);
-                  console.log(selections);
+                  onSelect(selections)
+                  console.log(selections)
                 } else {
-                  // alert('you can only select 5')
-                  console.log(selections.length);
                   const index = selections.indexOf(option.value);
                   if (index > -1) {
                     // only splice array when item is found
                     selections.splice(index, 1); // 2nd parameter means remove one item only
+                    console.log(selections)
                   }
-                  console.log(selections);
                 }
               }}
             />
@@ -171,9 +173,12 @@ export const MultiSelect = ({
   options,
   optionClass,
   containerClass,
+  name,
+  onSelect
 }) => {
-  // const [selections, setselections] = useState([]);
-  const selections = [];
+  const [selections, setselections] = useState([]);
+  console.log(selections)
+  // const selections = [];
   return (
     <>
       <label
@@ -207,25 +212,34 @@ export const MultiSelect = ({
                   !e.currentTarget.classList.contains("selected")
                 ) {
                   selections.push(option);
+                  console.log(option,selections)
+            
+                  // const updatedSelection = [...selections, option];
+                  // setselections(updatedSelection);
                   e.currentTarget
                     .querySelector(".icon")
                     .classList.toggle("selected");
                   e.currentTarget.classList.toggle("selected");
-                  console.log(selections);
+                  onSelect(selections)
+                  console.log(selections)
+
+                  
                 } else {
-                  // alert('you can only select 5')
-                  console.log(selections.length);
                   const index = selections.indexOf(option);
+                  
+                  toast('selection is more than 5')
+                  console.log(selections)
                   if (index > -1) {
                     // only splice array when item is found
                     selections.splice(index, 1); // 2nd parameter means remove one item only
+                    console.log(selections)
                   }
-                  console.log(selections);
                   e.currentTarget
                     .querySelector(".icon")
                     .classList.remove("selected");
                   e.currentTarget.classList.remove("selected");
-                  console.log(selections);
+                  
+
                 }
               }}
               key={i}

@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { CheckBox, Select } from "./Formcomps";
 
 const Profile4 = ({ index, onClick, profileSetup }) => {
+  const [genderRole, setGenderRole] = useState([])
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+     const formData = await new FormData(e.currentTarget)
+     const formDataObj = Object.fromEntries(formData.entries());
+     formDataObj.gender_roles_view =genderRole
+      console.log(formDataObj)
+      await window.localStorage.setItem('profile4',JSON.stringify(formDataObj))
+      onClick()
+ }
+ 
   return (
     <form
-      action=""
       onSubmit={(e) => {
-        e.preventDefault();
-        console.log("submited");
-        onClick();
+     handleSubmit(e)
       }}
-      method="POST"
     >
       {/* <Select
         options={["Yes", "No"]}
@@ -25,6 +33,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
           What is your view about gender roles in marriage?
         </label>
         <CheckBox
+        onSelect={selections=>setGenderRole(selections)}
           options={[
             {
               labels:
@@ -52,7 +61,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
         />
         <Select
           options={["Yes", "No", "It doesn't bother me"]}
-          name={"liveWithPets"}
+          name={"age_preference"}
           label={
             "Would you prefer that in a relationship the man is older than the woman?"
           }
@@ -66,7 +75,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
             "7 – 10 years",
             "10+ years",
           ]}
-          name={"FreeTimeWhere"}
+          name={"tolerable_age_gap"}
           label={
             "What is your tolerable age gap between the man and the woman in a relationship?"
           }
@@ -80,7 +89,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
             "Yes – for myself, my family and friends and for small groups",
             "Yes – for myself, my family and friends, small groups and large groups,",
           ]}
-          name={"cook"}
+          name={"cooking"}
           label={"Do you cook?"}
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
@@ -91,13 +100,13 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
             "I cook regularly but I am not adventurous",
             "I’m always cooking and trying new recipes",
           ]}
-          name={"cookOften"}
+          name={"cooking_frequency"}
           label={"How often do you cook?"}
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />
         <Select
           options={["Yes", "No"]}
-          name={"cookingPartner"}
+          name={"cooking_partner"}
           label={
             "Is it important to you that your partner knows how to cook and enjoys cooking?"
           }
@@ -123,7 +132,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
         />
         <Select
           options={["-Yes, definitely", "No, not really"]}
-          name={"alwaysClean"}
+          name={"always_clean"}
           label={
             "Is it important to you that everything is in its proper place at all times?"
           }
@@ -131,7 +140,7 @@ const Profile4 = ({ index, onClick, profileSetup }) => {
         />
         <Select
           options={["Yes, I eat at set times", "No, I eat whenever I'm hungry"]}
-          name={"eat"}
+          name={"eating_pattern"}
           label={"Are regular mealtimes important to you?"}
           selstyle={{ width: "60%", minHeight: "40px", marginTop: "1rem" }}
         />

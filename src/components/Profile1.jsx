@@ -33,27 +33,33 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
   const [showOtherEducation, setshowOtherEducation] = useState(false);
   const [education, setEducation] = useState("");
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log("submited");
-    onClick();
+     const formData = await new FormData(e.currentTarget)
+     console.log(e.currentTarget)
+     const formDataObj = Object.fromEntries(formData.entries());
+     console.log(formDataObj)
+     await window.localStorage.setItem('profile1',JSON.stringify(formDataObj))
+     onClick()
   }
+  const savedData = JSON.parse(window.localStorage.getItem('profile1'))
+
   return (
     <>
       <h2>Congratulations your email has been verified</h2>
       <form
-        action=""
         onSubmit={(e) => {
-          e.preventDefault();
-          console.log("submited");
-          onClick();
+          try {
+            handleSubmit(e)
+          } catch (error) {
+            console.log(error)
+          }
         }}
-        method="POST"
       >
         <div className="address">
           <div className="country">
             <label htmlFor="country">Relationship status</label>
-            <select required name="relationship" id="relationship">
+            <select required name="relationship_status" id="relationship">
               <optgroup>
                 {relationship.map((status, i) => {
                   return (
@@ -70,7 +76,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             <select
               required
               value={ethnic}
-              name="Ethnic"
+              name="ethnic_background"
               id="Ethnic"
               onChange={(e) => {
                 setEthnic(e.currentTarget.value);
@@ -99,8 +105,8 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             <SimpleText
               type={"text"}
               minLength={1}
-              label={"Other ethnic group"}
-              name={'otherEthnic'}
+              label={"Other ethnic background"}
+              name={'other_ethnic_background'}
               required = {showOtherEthnic}
               placeholder={"Enter other ethnicity not specified"}
             />
@@ -111,7 +117,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             <label htmlFor="country">Highest Educational Attainment</label>
             <select
               required
-              name="country"
+              name="education"
               id="Education"
               onChange={(e) => {
                 setEducation(e.currentTarget.value);
@@ -135,7 +141,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
               <SimpleText
                 type={"text"}
                 minLength={1}
-                name={'otherEducation'}
+                name={'other_education'}
                 label={"Other educational levels"}
                 required = {showOtherEducation}
                 placeholder={"Enter other educational levels attained"}
@@ -144,7 +150,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
           <div className="state">
             <label htmlFor="state">Employment Status</label>
-            <select name="state" id="state">
+            <select name="employment_status" id="state">
               <optgroup>
                 {Employment.map((employment) => {
                   return <option value={employment}>{employment}</option>;
@@ -159,8 +165,9 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             placeholder="e.g:software"
             required
             type="text"
-            name="Job"
+            name="current_work"
             id="job"
+            // value={savedData?savedData.Job:null}
             className="email"
             onChange={e=>{ validate('job',{patternError:"Invalid Character"}) }}
           />
@@ -171,7 +178,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             placeholder="e.g:software"
             required
             type="text"
-            name="expectedJob"
+            name="dream_job"
             id="expectedJob"
             className="email"
           />
@@ -181,7 +188,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           <div className="country">
             <label htmlFor="country">Height</label>
             <input name="height" required type="number" placeholder="e.g:6, accepts only number" />
-            <select name="heightUnit" id="" defaultValue={'please select a unit'}>
+            <select name="height_unit" id="" defaultValue={'please select a unit'}>
               <optgroup>
                 <option value="Ft"> Ft</option>
                 <option value="Cm"> Cm</option>
@@ -190,8 +197,8 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
           <div className="country">
             <label htmlFor="country">Weight</label>
-            <input required type="number" placeholder="e.g:62 , accepts only number" />
-            <select name="WeightUnit" id="" defaultValue={'please select a unit'}>
+            <input required name="weight" type="number" placeholder="e.g:62 , accepts only number" />
+            <select name="Weight_unit" id="" defaultValue={'please select a unit'}>
               <optgroup>
                 <option value="Lb"> lb</option>
                 <option value="kg"> kg</option>
@@ -200,7 +207,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           </div>
           <div className="state">
             <label htmlFor="state">Bodytype</label>
-            <select required name="state" id="state">
+            <select required name="body_type" id="state">
               <optgroup>
                 {BodyType.map((body) => {
                   return <option value={body}>{body}</option>;
@@ -212,7 +219,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
         <div className="address">
           <div className="country">
             <label htmlFor="country">Natural Hair Colour</label>
-            <select name="country" id="country">
+            <select name="hair_colour" id="hairColour">
               <optgroup>
                 {HairColour.map((color) => {
                   return <option value={color}>{color}</option>;
@@ -221,8 +228,8 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             </select>
           </div>
           <div className="state">
-            <label htmlFor="state">Eye Colour</label>
-            <select name="state" id="state">
+            <label htmlFor="eye_colour">Eye Colour</label>
+            <select name="eye_colour" id="eyeColour">
               <optgroup>
                 {EyeColour.map((state) => {
                   return <option value={state}>{state}</option>;
@@ -234,8 +241,8 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
         <div className="state">
           <label htmlFor="">Main Language of Communication</label>
           <select
-            name="state"
-            id="state"
+            name="main_language"
+            id="mainLanguage"
             onChange={(e) => {
               setLanguages(e.currentTarget.value);
               console.log(e.currentTarget.value);
@@ -256,7 +263,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
           >
             <SimpleText
               type={"text"}
-              name={'otherLanguages'}
+              name={'other_mainLanguages'}
               minLength={1}
               label={"Other main language  group"}
               required = {showOtherLanguages}
@@ -268,11 +275,12 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
               'other languages you speak ; separate with "," if more than one'
             }
             label={"Other language(s) spoken"}
+            name={'other_languages'}
           />
         </div>
         <div className="">
           <label htmlFor="state">How many children have you?</label>
-          <select name="state" id="state">
+          <select name="no_of_children" id="childrenNumber">
             <optgroup>
               {Children.map((state) => {
                 return <option value={state}>{state}</option>;
@@ -288,7 +296,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             placeholder="e.g:18"
             required
             type="text"
-            name="childAge"
+            name="child_age_oldest"
             id="childAge"
             className="email"
           />
@@ -301,7 +309,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             placeholder="e.g:18"
             required
             type="text"
-            name="childAge"
+            name="child_age_youngest"
             id="childAge"
             className="email"
           />
@@ -314,14 +322,14 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             placeholder="e.g:2"
             required
             type="text"
-            name="childAge"
+            name="children_living_with"
             id="childAge"
             className="email"
           />
         </div>
         <div className="">
           <label htmlFor="state">Do you want children / more children?</label>
-          <select name="state" id="state">
+          <select name="more_children" id="wantMoreChildren">
             <optgroup>
               {["Yes", "No", "Open to the idea"].map((state) => {
                 return <option value={state}>{state}</option>;
@@ -331,7 +339,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
         </div>
         <Select
           options={["None", "Dog", "Cat", "Bird", "Fish", "Reptile", "Other"]}
-          name={"pets"}
+          name={"have_pets"}
           label={"Do you have pets?"}
           onChange={(e) => {
             setPet(e.currentTarget.value);
@@ -351,14 +359,14 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             type={"text"}
             minLength={1}
             label={"Other Pets"}
-            name={'otherPets'}
+            name={'have_other_pets'}
             required={showOtherPets}
             placeholder={"Enter other pets not specified"}
           />
         </div>
         <Select
           options={["Yes, any pet", "No",'Yes, only (specify types of pet)']}
-          name={"liveWithPets"}
+          name={"live_with_pets"}
           label={"Would you live with someone who keeps  pet?"}
           onChange={(e) => {
             setLiveWithPet(e.currentTarget.value);
@@ -378,7 +386,7 @@ const Profile1 = ({ index, onClick, profileSetup }) => {
             type={"text"}
             minLength={1}
             label={"Specify types of pet"}
-            name={'specifyPet'}
+            name={'specify_pets'}
             required={specifyPets}
             placeholder={"Enter pets you are comfortable with"}
           />

@@ -16,9 +16,9 @@ import SignUp from './pages/SignUp'
 import Verify from './components/Verification'
 import DashBoard from './pages/DashBoard'
 import Faq from './pages/Faq'
-import { useScrollToTop } from './components/hooks'
 import Signin from './pages/Signin'
 import { ToastContainer } from 'react-toastify'
+import ProfileCreation from './components/ProfileCreation'
 
 function App() {
   const { pathname } = useLocation();
@@ -32,6 +32,7 @@ function App() {
       <>
         <Nav/>
         <Routes>
+        <Route path="*" element={<p>Page not found</p>} />
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/legal' element={<Legal/>}/>
@@ -42,6 +43,7 @@ function App() {
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/signin' element={<Signin/>}/>
           <Route path='/verify' element={<Verify/>}/>
+          <Route path='/profile' element={<ProfileCreation/>}/>
           <Route path='/dashboard/*' element={<DashBoard/>}>
           </Route>
         </Routes>

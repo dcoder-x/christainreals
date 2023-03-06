@@ -18,16 +18,20 @@ const Signin = () => {
      const formDataObj = Object.fromEntries(formData.entries());
 
      try {
-      const response = await axios.post('http://localhost:5000/login',formDataObj)
-      console.log(response.data)
-      navigate("/dashboard");
+      const response = await axios.post('https://christianreals-backend.onrender.com/login',formDataObj)
+      localStorage.setItem('authToken',response.data.token)
+      if (response.data.verified == true) {
+        navigate("/dashboard");
+        console.log(response.data.token)
+      }
+      else{
+        navigate('/verify',{state:{username:`${response.data.username}`,email:`${response.data.email}`}})
+      }
+      
      } catch (error) {
       console.log(error)
       toast(error.response.data.msg)
      }
-   
-    
-
   }
   return (
     <main id="sign-up">

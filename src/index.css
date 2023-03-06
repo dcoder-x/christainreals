@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 16px;
@@ -80,3 +86,6 @@ input, select{
     background-color: #f9f9f9;
   }
 }
+
+
+
